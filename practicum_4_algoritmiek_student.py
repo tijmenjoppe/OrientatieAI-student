@@ -1,16 +1,18 @@
-"""
+""" coding=utf-8
+
 Analytical Skills - practicum 4: algoritmiek
 
 (c) 2019 Hogeschool Utrecht
 Tijmen Muller (tijmen.muller@hu.nl)
-"""
 
 
-"""
 Naam:
 Klas: 
 Studentnummer:
+"""
 
+
+"""
 1.    Sorteeralgoritme
 
       Hieronder staat de pseudocode van een sorteeralgoritme:

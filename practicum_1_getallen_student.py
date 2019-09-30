@@ -5,6 +5,11 @@ Analytical Skills - practicum 1: getallen
 (c) 2019 Hogeschool Utrecht
 Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
 Tijmen Muller (tijmen.muller@hu.nl)
+
+
+Naam:
+Klas: 
+Studentnummer:
 """
 
 """
