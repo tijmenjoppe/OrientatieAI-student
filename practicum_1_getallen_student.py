@@ -10,123 +10,95 @@ Tijmen Muller (tijmen.muller@hu.nl)
 Naam:
 Klas: 
 Studentnummer:
-"""
 
-"""
-    LET OP: JE MAG VOOR DEZE OPDRACHT GEEN (extra) MODULES IMPORTEREN!
+Practicum 1: Werk onderstaande functies uit.
 
-    Practicum 1: Werk onderstaande functies uit.
-
-        floor(real):
-            Return het grootste gehele getal, dat kleiner dan of gelijk is aan real (reël getal).
-
-        ceil(real):
-            Return het kleinste gehele getal, groter dan of gelijk aan real (reël getal).
-
-        div(n):
-            Return een (natuurlijk) gesorteerde verzameling (lijst) van delers van n. 
-            Het getal a ∈ N is een deler van n ∈ N, als er een b ∈ N is, zodat a · b = n.
-
-        is_prime(n):
-            Return True als n ∈ N een priemgetal is, anders False.
-
-        primefactors(n):    
-            Return een (natuurlijk) gesorteerde verzameling (lijst) van priemfactoren van n. 
-            Return [n] als n een priemgetal is, of n == 1. Tip: maak gebruik van de functie 'is_prime(n)'
-
-        primes_under_30():  
-            Return alle priemgetallen kleiner dan 30.
-
-        gcd(a, b):          
-            Return de grootste grootste gemene deler, ggd (ofwel greatest common divisor, gcd) is. 
-            Je hebt twee opties voor deze opgave;
-                1. Je programmeert hier het algoritme van Euclides (niet behandeld)
-                    zie: https://nl.wikipedia.org/wiki/Algoritme_van_Euclides
-                2. Je bedenkt zelf een oplossing waarbij je gebruik maakt van de eerder 
-                    geschreven methode div(n) om de gcd te bepalen.
-
-        lcm(a, b):
-            Return het kleinste gemene veelvoud, kvg (ofwel least common multiple).
-
-        add_frac(n1, d1, n2, d2):
-            Return de sommatie van twee breuken als breuk.
-            *n1* is de teller van de eerste breuk, *d1* is de noemer van de eerste breuk.
-            *n2* is de teller van de tweede breuk, *d2* is de noemer van de eerste breuk.
-            De returnwaarde bestaat uit eerste de teller en dan de noemer van het resultaat.
-            Bijvoorbeeld: 3/4 + 1/6 = 11/12
-                     dan: add_frac(3, 4, 1, 6) = 11, 12
+LET OP: JE MAG VOOR DEZE OPDRACHT GEEN (extra) MODULES IMPORTEREN!
 """
 
 
 def floor(real):
-    """ Return het grootste gehele getal, dat kleiner dan of gelijk is aan real (reëel getal). """
-
-    return 0
+    """ Retourneert het grootste gehele getal (int), dat kleiner dan of gelijk is aan real (float). """
+    return
 
 
 def ceil(real):
-    """ Return het kleinste gehele getal, groter dan of gelijk aan real (reëel getal). """
-
-    return 0
+    """ Retourneert het kleinste gehele getal (int), groter dan of gelijk aan real (float). """
+    return
 
 
 def div(n):
-    """ Return een (natuurlijk) gesorteerde verzameling (lijst) van delers van n. 
-        Het getal a ∈ N is een deler van n ∈ N, als er een b ∈ N is, zodat a · b = n. """
-    
+    """ Retourneert een (natuurlijk) gesorteerde verzameling (list) van delers van n (int).
+        Het getal a ∈ N is een deler van n ∈ N, als er een b ∈ N is, zodat a × b = n. """
     divisors = []
     return sorted(divisors)
 
 
+
 def is_prime(n):
-    """ Return True als n ∈ N een priemgetal is, anders False.
+    """ Return True als n (int) een priemgetal is, anders False.
         Je kunt gebruik maken van de functie 'div(n)' om te bepalen of n een priem is.
         Optioneel: bedenk een efficiënter alternatief. """
+    return
 
-    return False
+
 
 
 def primefactors(n):
-    """ Return een (natuurlijk) gesorteerde verzameling (lijst) van priemfactoren van n. 
-        Return [n] als n een priemgetal is, of n == 1. Tip: maak gebruik van de functie 'is_prime(n)' """
-
+    """ Return een (natuurlijk) gesorteerde verzameling (list) van priemfactoren van n (int)
+        Return [n] als n een priemgetal is, of wanneer n == 1.
+        Tip: maak gebruik van de functie 'is_prime(n)' """
     factors = []
     return sorted(factors)
 
 
-def primes_under_30():
-    """ Return alle priemgetallen kleiner dan 30. """
 
+
+def primes(num):
+    """ Return alle priemgetallen kleiner dan num (int). """
     primes = []
     return primes
 
 
 def gcd(a, b):
-    """ Return de grootste grootste gemene deler, ggd (ofwel greatest common divisor, gcd) is. """
+    """ Return de grootste grootste gemene deler , ggd (ofwel greatest common divisor, gcd) (int) van
+        natuurlijke getallen a en b (beide int).
 
-    return 1
+        Je hebt twee opties voor deze opgave;
+        1.  Je programmeert hier het algoritme van Euclides
+            zie: https://nl.wikipedia.org/wiki/Algoritme_van_Euclides
+        2.  Je bedenkt zelf een oplossing waarbij je gebruik maakt van de eerder
+            geschreven methode div(n) om de gcd te bepalen.
+    """
+    return
+
+
 
 
 def lcm(a, b):
-    """ Return het kleinste gemene veelvoud, kvg (ofwel least common multiple). """
-
-    return 1
+    """ Return het kleinste gemene veelvoud, kvg (ofwel least common multiple, lcm) (int)
+        van natuurlijke getallen a en b (beide int). """
+    return
 
 
 def add_frac(n1, d1, n2, d2):
-    """ Return de sommatie van twee breuken als breuk.
-        *n1* is de teller van de eerste breuk, *d1* is de noemer van de eerste breuk.
-        *n2* is de teller van de tweede breuk, *d2* is de noemer van de eerste breuk.
-        De returnwaarde bestaat uit eerste de teller en dan de noemer van het resultaat.
-        Bijvoorbeeld: 3/4 + 1/6 = 11/12
-                 dan: add_frac(3, 4, 1, 6) = 11, 12
-    """
+    """ Retourneer de sommatie van twee breuken als breuk.
 
+        Argumenten:
+        n1 -- de teller van de eerste breuk
+        d1 -- de noemer van de eerste breuk
+        n2 -- de teller van de tweede breuk
+        d2 -- de noemer van de tweede breuk
+
+        Retourneert de som *als breuk*, met eerst de teller en dan de noemer van het resultaat (tuple).
+
+        Bijvoorbeeld: 3/4 + 1/6 = 11/12
+                 dan: add_frac(3, 4, 1, 6) = (11, 12)
+    """
     return 1, 1
 
 
-"""
-========================================================================================================================
+"""==============================================[ HU TESTRAAMWERK ]====================================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
@@ -134,7 +106,8 @@ Je kunt je code testen door deze file te runnen of met behulp van pytest.
 
 def my_assert_args(function, args, expected_output):
     argstr = str(args).replace(',)', ')')
-    assert function(*args) == expected_output, "Fout: {}{} geeft {} in plaats van {}".format(function.__name__, argstr, function(*args), expected_output)
+    assert function(*args) == expected_output, \
+        f"Fout: {function.__name__}{argstr} geeft { function(*args)} in plaats van {expected_output}"
 
 
 def test_floor():
@@ -179,6 +152,21 @@ def test_div():
         my_assert_args(div, case[0], sorted(case[1]))
 
 
+def test_is_prime():
+    testcases = [
+        ((1,),  False),
+        ((2,),  True),
+        ((3,),  True),
+        ((4,),  False),
+        ((5,),  True),
+        ((6,),  False),
+        ((29,), True)
+    ]
+
+    for case in testcases:
+        my_assert_args(is_prime, case[0], case[1])
+
+
 def test_primefactors():
     testcases = [ 
         ((1,),    [1]),
@@ -195,9 +183,19 @@ def test_primefactors():
         my_assert_args(primefactors, case[0], sorted(case[1]))
 
 
-def test_primes_under_30():
-    expected_output = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-    assert sorted(primes_under_30()) == expected_output, "Fout: primes_under_30() geeft {} in plaats van {}".format(primes_under_30(), expected_output)
+def test_primes():
+    testcases = [
+        ((1,),  []),
+        ((2,),  []),
+        ((3,),  [2]),
+        ((4,),  [2, 3]),
+        ((5,),  [2, 3]),
+        ((6,),  [2, 3, 5]),
+        ((30,), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
+    ]
+
+    for case in testcases:
+        my_assert_args(primes, case[0], sorted(case[1]))
 
 
 def test_gcd():
@@ -242,11 +240,14 @@ if __name__ == '__main__':
         test_div()
         print("Je functie div(n) werkt goed!")
 
+        test_is_prime()
+        print("Je functie is_prime(n) werkt goed!")
+
         test_primefactors()
         print("Je functie primefactors(n) werkt goed!")
 
-        test_primes_under_30()
-        print("Je functie primes_under_30() werkt goed!")
+        test_primes()
+        print("Je functie primes() werkt goed!")
 
         test_gcd()
         print("Je functie gcd(a, b) werkt goed!")
