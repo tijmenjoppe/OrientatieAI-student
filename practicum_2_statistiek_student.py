@@ -1,106 +1,96 @@
 """ coding=utf-8
 
-Analytical Skills - practicum 2: statistiek
+Analytical Skills
+Practicum 2: statistiek
 
 (c) 2019 Hogeschool Utrecht
+Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
 Naam:
-Klas: 
+Klas:
 Studentnummer:
+
+
+Opdracht: werk onderstaande functies uit. Elke functie krijgt als argument een
+          (mogelijk ongesorteerde) lijst *lst* met gehele getallen (int) .
+
+Je kunt je functies met het gegeven raamwerk door het bestand te uit te voeren (of met behulp
+van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle tests slagen.
+
+Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
+Je krijgt in deze opdracht alleen de beschikking over de functie sqrt() om een
+wortel te kunnen trekken. Deze is al voor je geimporteerd en kun je direct aanroepen.
+Bijvoorbeeld:   sqrt(16) geeft 4.0 als resultaat
 """
-
-"""
-    LET OP: JE MAG VOOR DEZE OPDRACHT GEEN (extra) MODULES IMPORTEREN!
-    Je krijgt in deze opdracht alleen de beschikking over de functie sqrt() om een
-    wortel te kunnen trekken. Deze is al voor je geimporteerd en kun je direct aanroepen.
-    Bijvoorbeeld:   sqrt(16) = 4.0
-
-    Practicum 2: Werk onderstaande functies uit. Elke functie krijgt 
-                een (mogelijk ongesorteerde) lijst *lst* met gehele 
-                getallen (int) als argument.
-
-        mean(lst):
-            Return het gemiddelde van de lijst lst.
-            
-        rnge(lst):
-            Return het bereik van de lijst lst.
-            
-        median(lst):
-            Return de mediaan van de lijst lst.
-
-        q1(lst):
-            Return het eerste kwartiel Q1 van de lijst lst.
-
-        q3(lst):
-            Return het derde kwartiel Q3 van de lijst lst.
-
-        var(lst):
-            Return de variantie van de lijst lst.
-
-        std(lst):
-            Return de standaardafwijking van de lijst lst.
-
-        freq(lst):
-            Return een dictionary met als keys de waardes die voorkomen in *lst* en
-            als value het aantal voorkomens van die waarde.
-            Bijvoorbeeld:   freq([0, 0, 4, 5]) = {0: 2, 4: 1, 5: 1}
-          
-        modes(lst):
-            Return een gesorteerde lijst van de modi van lijst lst.
-
-"""
-
 from math import sqrt
 
 
 def mean(lst):
-    return 0.0
+    """ Retourneert het gemiddelde (float) van de lijst lst. """
+    return
 
 
 def rnge(lst):
-    return 0
+    """ Retourneert het bereik (int) van de lijst lst. """
+    return
 
 
 def median(lst):
-    return 0.0
+    """ Retourneert de mediaan (float) van de lijst lst. """
+    return
 
 
 def q1(lst):
-    return 0.0
+    """
+    Retourneert het eerste kwartiel Q1 (float) van de lijst lst.
+    Tip: maak gebruik van median()
+    """
+    return
 
 
 def q3(lst):
-    return 0.0
+    """ Retourneert het derde kwartiel Q3 (float) van de lijst lst. """
+    return
 
 
 def var(lst):
-    return 0.0
+    """ Retourneert de variantie (float) van de lijst lst. """
+    return
 
 
 def std(lst):
-    return 0.0
+    """ Retourneert de standaardafwijking (float) van de lijst lst. """
+    return
 
 
 def freq(lst):
+    """
+    Retourneert een dictionary met als keys de waardes die voorkomen in lst en
+    als value het aantal voorkomens van die waarde.
+
+    Bijvoorbeeld:   freq([0, 0, 4, 5]) = {0: 2, 4: 1, 5: 1}
+    """
     freqs = dict()
     return freqs
 
 
 def modes(lst):
-    return []
+    """ Retourneert een gesorteerde lijst (list) van de modi van lijst lst. """
+    modi = []
+    return sorted(modi)
 
 
-"""
-========================================================================================================================
+"""==============================================[ HU TESTRAAMWERK ]====================================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
 
 
 def my_assert_arg(function, arg, expected_output):
-    assert function(arg) == expected_output, "Fout: {}({}) geeft {} in plaats van {}".format(function.__name__, arg, function(arg), expected_output)
+    assert function(arg) == expected_output, \
+        f"Fout: {function.__name__}({arg}) geeft {function(arg)} in plaats van {expected_output}"
 
 
 def test_mean():
@@ -234,7 +224,7 @@ if __name__ == '__main__':
         test_modes()
         print("Je functie modes() werkt goed!")
 
-        print("Gefeliciteerd, alles lijkt te werken! Lever je werk nu in op Canvas...\n")
+        print("\nGefeliciteerd, alles lijkt te werken! Lever je werk nu in op Canvas...\n")
 
 
         def hist(freqs):

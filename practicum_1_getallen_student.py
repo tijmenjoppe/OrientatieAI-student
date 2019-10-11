@@ -1,6 +1,7 @@
 """ coding=utf-8
 
-Analytical Skills - practicum 1: getallen
+Analytical Skills
+Practicum 1: getallen
 
 (c) 2019 Hogeschool Utrecht
 Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
@@ -11,9 +12,13 @@ Naam:
 Klas: 
 Studentnummer:
 
-Practicum 1: Werk onderstaande functies uit.
 
-LET OP: JE MAG VOOR DEZE OPDRACHT GEEN (extra) MODULES IMPORTEREN!
+Opdracht: werk onderstaande functies uit.
+
+Je kunt je functies met het gegeven raamwerk door het bestand te uit te voeren (of met behulp
+van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle tests slagen.
+
+Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
 """
 
 
@@ -34,14 +39,11 @@ def div(n):
     return sorted(divisors)
 
 
-
 def is_prime(n):
     """ Return True als n (int) een priemgetal is, anders False.
         Je kunt gebruik maken van de functie 'div(n)' om te bepalen of n een priem is.
         Optioneel: bedenk een efficiënter alternatief. """
     return
-
-
 
 
 def primefactors(n):
