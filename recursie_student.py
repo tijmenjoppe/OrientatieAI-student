@@ -1,8 +1,12 @@
 """
-Analytical Skills - opgave recursie
+Analytical Skills
+Opgave: recursie
 
 (c) 2019 Hogeschool Utrecht
 Tijmen Muller (tijmen.muller@hu.nl)
+
+
+Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
 """
 
 
@@ -30,8 +34,7 @@ def palindroom(woord):
     return False
 
 
-"""
-========================================================================================================================
+"""==============================================[ HU TESTRAAMWERK ]====================================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
@@ -83,4 +86,5 @@ if __name__ == '__main__':
         print("'" + x + "' is " + ("" if palindroom(x) else "g") + "een palindroom!")
 
     except AssertionError as ae:
-            print("\x1b[0;31m" + str(ae))
+            print("\x1b[0;31m")
+            print(str(ae))
