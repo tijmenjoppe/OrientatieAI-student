@@ -40,28 +40,37 @@ Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
 import math, random
 
+
 def test_faculteit():
     for x in range(6):
-        assert faculteit(x) == math.factorial(x), "Fout: faculteit({}) geeft {} in plaats van {}".format(x, faculteit(x), math.factorial(x))
+        assert faculteit(x) == math.factorial(x), \
+            f"Fout: faculteit({x}) geeft {faculteit(x)} in plaats van {math.factorial(x)}"
 
 
 def test_exponent():
     for x in range(10):
-        assert exponent(x) == 2**x, "Fout: exponent({}) geeft {} in plaats van {}".format(x, exponent(x), 2**x)
+        assert exponent(x) == 2**x, \
+            "Fout: exponent({x}) geeft {exponent(x)} in plaats van {2**x}"
 
 
 def test_som():
     for i in range(6):
         lst_test = random.sample(range(-10, 11), i)
-        assert som(lst_test) == sum(lst_test), "Fout: som({}) geeft {} in plaats van {}".format(lst_test, som(lst_test), sum(lst_test))
+        assert som(lst_test) == sum(lst_test), \
+            f"Fout: som({lst_test}) geeft {som(lst_test)} in plaats van {sum(lst_test)}"
 
 
 def test_palindroom():
-    assert palindroom("") is True, "Fout: palindroom({}) geeft {} in plaats van {}".format("", palindroom(""), True)
-    assert palindroom("radar") is True, "Fout: palindroom({}) geeft {} in plaats van {}".format("radar", palindroom("radar"), True)
-    assert palindroom("maandnaam") is True, "Fout: palindroom({}) geeft {} in plaats van {}".format("maandnaam", palindroom("maandnaam"), True)
-    assert palindroom("pollepel") is False, "Fout: palindroom({}) geeft {} in plaats van {}".format("pollepel", palindroom("pollepel"), False)
-    assert palindroom("Maandnaam") is False, "Fout: palindroom({}) geeft {} in plaats van {}".format("Maandnaam", palindroom("Maandnaam"), False)
+    testcases = [
+        ("", True),
+        ("radar", True),
+        ("maandnaam", True),
+        ("pollepel", False),
+        ("Maandnaam", False)
+    ]
+
+    for testcase, res in testcases:
+        assert palindroom(testcase) is res, f"Fout: palindroom({testcase}) geeft {palindroom(testcase)} in plaats van {res}"
 
 
 if __name__ == '__main__':

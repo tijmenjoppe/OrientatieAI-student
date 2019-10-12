@@ -15,7 +15,7 @@ Studentnummer:
 
 Opdracht: werk onderstaande functies uit.
 
-Je kunt je functies met het gegeven raamwerk door het bestand te uit te voeren (of met behulp
+Je kunt je functies testen met het gegeven raamwerk door het bestand uit te voeren (of met behulp
 van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
@@ -54,8 +54,6 @@ def primefactors(n):
     return sorted(factors)
 
 
-
-
 def primes(num):
     """ Return alle priemgetallen kleiner dan num (int). """
     primes = []
@@ -73,8 +71,6 @@ def gcd(a, b):
             geschreven methode div(n) om de gcd te bepalen.
     """
     return
-
-
 
 
 def lcm(a, b):
@@ -263,4 +259,5 @@ if __name__ == '__main__':
         print("Gefeliciteerd, alles lijkt te werken! Lever je werk nu in op Canvas...")
         
     except AssertionError as ae:
-        print("\x1b[0;31m" + str(ae))
+        print("\x1b[0;31m")
+        print(ae)

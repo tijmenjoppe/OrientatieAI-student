@@ -14,9 +14,9 @@ Studentnummer:
 
 
 Opdracht: werk onderstaande functies uit. Elke functie krijgt als argument een
-          (mogelijk ongesorteerde) lijst *lst* met gehele getallen (int) .
+          (mogelijk ongesorteerde) lijst *lst* met gehele getallen (int).
 
-Je kunt je functies met het gegeven raamwerk door het bestand te uit te voeren (of met behulp
+Je kunt je functies testen met het gegeven raamwerk door het bestand uit te voeren (of met behulp
 van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.

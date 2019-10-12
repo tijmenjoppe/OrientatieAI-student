@@ -92,5 +92,3 @@ if __name__ == '__main__':
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(str(ae))
-
-

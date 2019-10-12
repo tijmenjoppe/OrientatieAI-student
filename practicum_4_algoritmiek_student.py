@@ -12,8 +12,10 @@ Klas:
 Studentnummer:
 
 
-Opdracht: beantwoord onderstaande vragen en werk onderstaande functies uit. Elke functie krijgt als argument een
-          (mogelijk ongesorteerde) lijst *lst* met gehele getallen (int).
+Opdracht: beantwoord onderstaande vragen en werk onderstaande functies uit.
+
+Je kunt je functies testen met het gegeven raamwerk door het bestand uit te voeren (of met behulp
+van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
 """
@@ -130,16 +132,20 @@ def test_my_sort():
 
 def test_linear_search_recursive():
     for i in range(10):
-        lst_test = random.sample(range(20), 10)
+        lst_test = random.sample(range(20), 6)
         target = random.randrange(20)
-        assert linear_search_recursive(lst_test, target) == (target in lst_test), "Fout: linear_search_recursive({}, {}) geeft {} in plaats van {}".format(lst_test, target, linear_search_recursive(lst_test, target), target in lst_test)
+        outcome = linear_search_recursive(lst_test, target)
+        assert outcome == (target in lst_test), \
+            f"Fout: linear_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {target in lst_test}"
 
 
 def test_binary_search_recursive():
     for i in range(10):
-        lst_test = sorted(random.sample(range(20), 10))
+        lst_test = sorted(random.sample(range(20), 6))
         target = random.randrange(20)
-        assert binary_search_recursive(lst_test, target) == (target in lst_test), "Fout: binary_search_recursive({}, {}) geeft {} in plaats van {}".format(lst_test, target, binary_search_recursive(lst_test, target), target in lst_test)
+        outcome = binary_search_recursive(lst_test, target)
+        assert outcome == (target in lst_test), \
+            f"Fout: binary_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {target in lst_test}"
 
 
 if __name__ == '__main__':
@@ -158,4 +164,5 @@ if __name__ == '__main__':
         print("\nGefeliciteerd, alles lijkt te werken! Lever je werk nu in op Canvas...")
 
     except AssertionError as ae:
-        print("\x1b[0;31m" + str(ae))
+        print("\x1b[0;31m")
+        print(ae)
