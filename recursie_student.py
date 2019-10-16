@@ -50,7 +50,7 @@ def test_faculteit():
 def test_exponent():
     for x in range(10):
         assert exponent(x) == 2**x, \
-            "Fout: exponent({x}) geeft {exponent(x)} in plaats van {2**x}"
+            f"Fout: exponent({x}) geeft {exponent(x)} in plaats van {2**x}"
 
 
 def test_som():

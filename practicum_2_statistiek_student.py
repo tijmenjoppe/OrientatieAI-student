@@ -20,11 +20,7 @@ Je kunt je functies testen met het gegeven raamwerk door het bestand uit te voer
 van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
-Je krijgt in deze opdracht alleen de beschikking over de functie sqrt() om een
-wortel te kunnen trekken. Deze is al voor je geimporteerd en kun je direct aanroepen.
-Bijvoorbeeld:   sqrt(16) geeft 4.0 als resultaat
 """
-from math import sqrt
 
 
 def mean(lst):
@@ -257,4 +253,5 @@ if __name__ == '__main__':
         print("\nHistogram (gekanteld):\n\n" + hist(freq(userlst)))
 
     except AssertionError as ae:
-            print("\x1b[0;31m\n" + str(ae))
+        print("\x1b[0;31m")
+        print(ae)
