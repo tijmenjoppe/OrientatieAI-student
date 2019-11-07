@@ -24,18 +24,23 @@ Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
 
 def floor(real):
     """ Retourneert het grootste gehele getal (int), dat kleiner dan of gelijk is aan real (float). """
-    return
-
+    num = real//1
+    return num
 
 def ceil(real):
     """ Retourneert het kleinste gehele getal (int), groter dan of gelijk aan real (float). """
-    return
+    num = -(-real//1)
+    return num
 
 
 def div(n):
     """ Retourneert een (natuurlijk) gesorteerde verzameling (list) van delers van n (int).
         Het getal a ∈ N is een deler van n ∈ N, als er een b ∈ N is, zodat a × b = n. """
     divisors = []
+    for i in range(1, int(n / 2) + 1):
+        if n % i == 0:
+            divisors.append(i)
+    divisors.append(n)
     return sorted(divisors)
 
 
@@ -43,7 +48,15 @@ def is_prime(n):
     """ Return True als n (int) een priemgetal is, anders False.
         Je kunt gebruik maken van de functie 'div(n)' om te bepalen of n een priem is.
         Optioneel: bedenk een efficiënter alternatief. """
-    return
+    if n <= 1:
+        return False
+
+    for x in range(2, n):
+        # if number is divisble by x, return False
+        if not n % x:
+            return False
+    return True
+    
 
 
 def primefactors(n):
