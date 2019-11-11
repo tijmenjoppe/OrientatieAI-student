@@ -1,15 +1,24 @@
-from huawei_lte_api.Client import Client
-from huawei_lte_api.AuthorizedConnection import AuthorizedConnection
-from huawei_lte_api.Connection import Connection
+def primefactors(n):
+    """ Return een (natuurlijk) gesorteerde verzameling (list) van priemfactoren van n (int)
+        Return [n] als n een priemgetal is, of wanneer n == 1.
+        Tip: maak gebruik van de functie 'is_prime(n)' """
+    sqrt = n**(1/2.0)
+    factors = []
+    if n == 1:
+        factors.append(1)
+    while n % 2 == 0: 
+        factors.append(2), 
+        n = n / 2
+    for i in range(3,int(sqrt)+1,2): 
+          
+        # while i divides n , print i ad divide n 
+        while n % i== 0: 
+            factors.append(i), 
+            n = n / i
+    if n > 2: 
+        factors.append(n)
+    
+    
+    return sorted(factors)
 
-# connection = Connection('http://192.168.8.1/') For limited access, I have valid credentials no need for limited access
-# connection = AuthorizedConnection('http://admin:MY_SUPER_TRUPER_PASSWORD@192.168.8.1/', login_on_demand=True) # If you wish to login on demand (when call requires authorization), pass login_on_demand=True
-connection = AuthorizedConnection('http://admin:127Fiets!@192.168.8.1/')
-
-client = Client(connection) # This just simplifies access to separate API groups, you can use device = Device(connection) if you want
-
-print(client.device.signal())  # Can be accessed without authorization
-print(client.device.information())  # Needs valid authorization, will throw exception if invalid credentials are passed in URL
-
-
-# For more API calls just look on code in the huawei_lte_api/api folder, there is no separate DOC yet
+print(primefactors(1))

@@ -8,9 +8,9 @@ Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Naam:
-Klas: 
-Studentnummer:
+Naam: Marcel Haazen
+Klas: DU1B
+Studentnummer:1770145
 
 
 Opdracht: werk onderstaande functies uit.
@@ -63,13 +63,37 @@ def primefactors(n):
     """ Return een (natuurlijk) gesorteerde verzameling (list) van priemfactoren van n (int)
         Return [n] als n een priemgetal is, of wanneer n == 1.
         Tip: maak gebruik van de functie 'is_prime(n)' """
+    sqrt = n**(1/2.0)
     factors = []
+    if n == 1:
+        factors.append(1)
+    while n % 2 == 0: 
+        factors.append(2), 
+        n = n / 2
+    for i in range(3,int(sqrt)+1,2): 
+          
+        # while i divides n , print i ad divide n 
+        while n % i== 0: 
+            factors.append(i), 
+            n = n / i
+    if n > 2: 
+        factors.append(n)
+    
+    
     return sorted(factors)
 
 
 def primes(num):
     """ Return alle priemgetallen kleiner dan num (int). """
     primes = []
+    for n in range(1, num + 1):    
+        is_prime = True            
+        for i in range(2, n):    
+            if n % i ==  0:
+                is_prime = False   
+                break
+        if is_prime and n > 1 and n != num:          #EDIT HERE
+            primes.append(n)
     return primes
 
 
@@ -83,13 +107,18 @@ def gcd(a, b):
         2.  Je bedenkt zelf een oplossing waarbij je gebruik maakt van de eerder
             geschreven methode div(n) om de gcd te bepalen.
     """
-    return
+    while(b): 
+       a, b = b, a % b 
+  
+    return a
 
 
 def lcm(a, b):
     """ Return het kleinste gemene veelvoud, kvg (ofwel least common multiple, lcm) (int)
         van natuurlijke getallen a en b (beide int). """
-    return
+    lcm = (a*b)//gcd(a,b)
+    return lcm
+    
 
 
 def add_frac(n1, d1, n2, d2):
@@ -106,7 +135,13 @@ def add_frac(n1, d1, n2, d2):
         Bijvoorbeeld: 3/4 + 1/6 = 11/12
                  dan: add_frac(3, 4, 1, 6) = (11, 12)
     """
-    return 1, 1
+    d3 = gcd(d1,d2)
+    d3 = (d1 * d2) / d3
+    n3 = ((n1) * (d3/d1) + (n2) * (d3/d2))
+    
+    
+
+    return n3, d3
 
 
 """==============================================[ HU TESTRAAMWERK ]====================================================
