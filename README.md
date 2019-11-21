@@ -1,3 +1,5 @@
+<img style="float: right;" src="pic/HU.svg" alt="Hogeschool Utrecht">
+
 # Analytical Skills
 
 Deze repository bevat raamwerken voor de verplichte programmeerpractica en de programmeeroefeningen voor het vak Analytical Skills van de Hogeschool Utrecht.
