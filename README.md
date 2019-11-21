@@ -1,4 +1,4 @@
-<img style="float: right;" src="pic/HU.svg" alt="Hogeschool Utrecht">
+<img align="right" src="pic/HU.svg" alt="Hogeschool Utrecht">
 
 # Analytical Skills
 
