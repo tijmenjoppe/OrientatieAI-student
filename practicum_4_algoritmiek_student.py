@@ -1,15 +1,12 @@
-""" coding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+"""
 Analytical Skills
 Practicum 4: algoritmiek
 
 (c) 2019 Hogeschool Utrecht
 Tijmen Muller (tijmen.muller@hu.nl)
-
-
-Naam:
-Klas:
-Studentnummer:
 
 
 Opdracht: beantwoord onderstaande vragen en werk onderstaande functies uit.
@@ -19,6 +16,12 @@ van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle test
 
 Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
 """
+
+# Vul hier je naam, klas en studentnummer in
+naam = ""
+klas = ""
+studentnummer = -1
+
 """
 1.  Sorteeralgoritme
 
@@ -32,7 +35,7 @@ Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
         Gegeven is de lijst l = [ 4, 3, 1, 2 ]. Geef de waardes die de lijst aanneemt bij álle tussenstappen bij 
         toepassing van bovenstaand sorteeralgoritme.
 
-        [antwoord]
+        [geef hier je antwoord]
 
 
     1b. Implementatie
@@ -44,27 +47,27 @@ Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
             sorteeralgoritme het snelste klaar (best-case scenario)? Hoeveel vergelijkingen (zoals beschreven 
             in stap 1. van de pseudocode) zijn nodig geweest?
         
-        [antwoord]
+            [geef hier je antwoord]
         
         
         -   Bij welke volgorde van de waarden in de lijst is het sorteeralgoritme het minst snel klaar
             (worst-case scenario)? Hoeveel vergelijkingen zijn nodig geweest?
         
-        [antwoord]
+            [geef hier je antwoord]
         
         
         -   Stel je hebt een lijst met de waarden 1 tot en met 4. Wat is nu het best-case scenario?
             Hoeveel vergelijkingen zijn er nodig? 
             En wat is nu het worst-case scenario? Hoeveel vergelijkingen zijn er nodig?
         
-        [antwoord]
+            [geef hier je antwoord]
                      
                 
         -   Stel je hebt een lijst met de waarden 1 tot en met n (je weet nu dus niet precies hoeveel waarden er in de 
             lijst zitten, het zijn er 'n'). Wat is nu het best-case scenario? Hoeveel vergelijkingen zijn er nodig?
             En wat is nu het worst-case scenario? Hoeveel vergelijkingen zijn er nodig?
 
-        [antwoord]
+            [geef hier je antwoord]
             
                 
                 
@@ -92,7 +95,8 @@ def my_sort(lst):
 
 def linear_search_recursive(lst, target):
     """
-    Zoekt een element in gegeven lijst door middel van recursief lineair zoeken.
+    Zoekt een element in gegeven lijst door middel van recursief lineair zoeken. De inhoud van de gegeven lijst
+    verandert niet.
 
     Argumenten:
     lst -- de lijst waarin gezocht wordt (list)
@@ -105,10 +109,11 @@ def linear_search_recursive(lst, target):
 
 def binary_search_recursive(lst, target):
     """
-    Zoekt een element in gegeven lijst door middel van recursief binair zoeken.
+    Zoekt een element in gegeven lijst door middel van recursief binair zoeken. De inhoud van de gegeven lijst
+    verandert niet.
 
     Argumenten:
-    lst -- de lijst waarin gezocht wordt (list)
+    lst -- de (reeds gesorteerde) lijst waarin gezocht wordt (list)
     target -- het element dat gezocht wordt
 
     Retourneert of het element in de lijst voorkomt (bool)
@@ -123,34 +128,52 @@ Je kunt je code testen door deze file te runnen of met behulp van pytest.
 import random
 
 
+def test_id():
+    assert naam != "", "Je moet je naam nog invullen!"
+    assert studentnummer != -1, "Je moet je studentnummer nog invullen!"
+    assert klas != "", "Je moet je klas nog invullen!"
+
+
 def test_my_sort():
     lst_test = random.sample(range(-99, 100), 6)
     lst_copy = lst_test.copy()
     my_sort(lst_test)
-    assert lst_test == sorted(lst_copy), f"Fout: my_sort({lst_copy}) geeft {lst_test} in plaats van {sorted(lst_copy)}"
+    assert lst_test == sorted(lst_copy), \
+        "Fout: my_sort({}) geeft {} in plaats van {}".format(lst_copy, lst_test, sorted(lst_copy))
 
 
 def test_linear_search_recursive():
-    for i in range(10):
+    for _ in range(10):
         lst_test = random.sample(range(20), 6)
         target = random.randrange(20)
+        found = target in lst_test
+        lst_copy = lst_test.copy()
+
         outcome = linear_search_recursive(lst_test, target)
-        assert outcome == (target in lst_test), \
-            f"Fout: linear_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {target in lst_test}"
+        assert outcome == found, \
+            "Fout: linear_search_recursive({}, {}) geeft {} in plaats van {}".format(lst_test, target, outcome, found)
+        assert lst_copy == lst_test, \
+            "Fout: linear_search_recursive(lst, target) verandert de inhoud van lijst lst"
 
 
 def test_binary_search_recursive():
-    for i in range(10):
+    for _ in range(10):
         lst_test = sorted(random.sample(range(20), 6))
         target = random.randrange(20)
+        found = target in lst_test
+        lst_copy = lst_test.copy()
+
         outcome = binary_search_recursive(lst_test, target)
-        assert outcome == (target in lst_test), \
-            f"Fout: binary_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {target in lst_test}"
+        assert outcome == found, \
+            "Fout: binary_search_recursive({}, {}) geeft {} in plaats van {}".format(lst_test, target, outcome, found)
+        assert lst_copy == lst_test, \
+            "Fout: binary_search_recursive(lst, target) verandert de inhoud van lijst lst"
 
 
 if __name__ == '__main__':
     try:
         print("\x1b[0;32m")
+        test_id()
 
         test_my_sort()
         print("Je functie my_sort() werkt goed!")

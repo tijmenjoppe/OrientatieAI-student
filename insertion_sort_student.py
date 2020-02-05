@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Analytical Skills
 Opgave: insertion sort
@@ -39,24 +42,28 @@ def test_insert():
     lst_test = lst_res.copy()
     insert(lst_res, 4, 2)
     lst_correct = [2, 3, 5, 7, 11, 13, 9, 14]
-    assert lst_res == lst_correct, f"Fout: insert({lst_test}, 4, 2) geeft {lst_res} in plaats van {lst_correct}"
+    assert lst_res == lst_correct, \
+        "Fout: insert({}, 4, 2) geeft {} in plaats van {}".format(lst_test, lst_res, lst_correct)
 
     lst_test = lst_res.copy()
     insert(lst_res, 5, 9)
     lst_correct = [2, 3, 5, 7, 9, 11, 13, 14]
-    assert lst_res == lst_correct, f"Fout: insert({lst_test}, 5, 9) geeft {lst_res} in plaats van {lst_correct}"
+    assert lst_res == lst_correct, \
+        "Fout: insert({}, 5, 9) geeft {} in plaats van {}".format(lst_test, lst_res, lst_correct)
 
     lst_test = lst_res.copy()
     insert(lst_res, 6, 14)
     lst_correct = [2, 3, 5, 7, 9, 11, 13, 14]
-    assert lst_res == lst_correct, f"Fout: insert({lst_test}, 6, 14) geeft {lst_res} in plaats van {lst_correct}"
+    assert lst_res == lst_correct, \
+        "Fout: insert({}, 6, 14) geeft {} in plaats van {}".format(lst_test, lst_res, lst_correct)
 
 
 def test_insertion_sort():
     lst_test = random.sample(range(-99, 100), 6)
     lst_copy = lst_test.copy()
     insertion_sort(lst_test)
-    assert lst_test == sorted(lst_copy), f"Fout: insertion_sort({lst_copy}) geeft {lst_test} in plaats van {sorted(lst_copy)}"
+    assert lst_test == sorted(lst_copy), \
+        "Fout: insertion_sort({}) geeft {} in plaats van {}".format(lst_copy, lst_test, sorted(lst_copy))
 
 
 if __name__ == '__main__':

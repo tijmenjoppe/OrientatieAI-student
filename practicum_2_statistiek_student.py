@@ -1,16 +1,13 @@
-""" coding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+"""
 Analytical Skills
 Practicum 2: statistiek
 
 (c) 2019 Hogeschool Utrecht
 Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
 Tijmen Muller (tijmen.muller@hu.nl)
-
-
-Naam:
-Klas:
-Studentnummer:
 
 
 Opdracht: werk onderstaande functies uit. Elke functie krijgt als argument een
@@ -22,58 +19,63 @@ van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle test
 Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
 """
 
+# Vul hier je naam, klas en studentnummer in
+naam = ""
+klas = ""
+studentnummer = -1
 
 def mean(lst):
-    """ Retourneert het gemiddelde (float) van de lijst lst. """
+    """ Retourneer het gemiddelde (float) van de lijst lst. """
     return
 
 
 def rnge(lst):
-    """ Retourneert het bereik (int) van de lijst lst. """
+    """ Retourneer het bereik (int) van de lijst lst. """
     return
 
 
 def median(lst):
-    """ Retourneert de mediaan (float) van de lijst lst. """
+    """ Retourneer de mediaan (float) van de lijst lst. """
     return
 
 
 def q1(lst):
     """
-    Retourneert het eerste kwartiel Q1 (float) van de lijst lst.
+    Retourneer het eerste kwartiel Q1 (float) van de lijst lst.
     Tip: maak gebruik van median()
     """
     return
 
 
 def q3(lst):
-    """ Retourneert het derde kwartiel Q3 (float) van de lijst lst. """
+    """ Retourneer het derde kwartiel Q3 (float) van de lijst lst. """
     return
 
 
 def var(lst):
-    """ Retourneert de variantie (float) van de lijst lst. """
+    """ Retourneer de variantie (float) van de lijst lst. """
     return
 
 
 def std(lst):
-    """ Retourneert de standaardafwijking (float) van de lijst lst. """
+    """ Retourneer de standaardafwijking (float) van de lijst lst. """
     return
 
 
 def freq(lst):
-    """
-    Retourneert een dictionary met als keys de waardes die voorkomen in lst en
-    als value het aantal voorkomens van die waarde.
+    """ Retourneer een dictionary met als keys de waardes die voorkomen in lst en
+        als value het aantal voorkomens van die waarde.
 
-    Bijvoorbeeld:   freq([0, 0, 4, 5]) = {0: 2, 4: 1, 5: 1}
+        Examples:
+            >>> freq([0, 0, 4, 5])
+            {0: 2, 4: 1, 5: 1}
     """
     freqs = dict()
     return freqs
 
 
 def modes(lst):
-    """ Retourneert een gesorteerde lijst (list) van de modi van lijst lst. """
+    """ Retourneer een gesorteerde lijst (list) van de modi van lijst lst. """
     modi = []
     return sorted(modi)
 
@@ -82,21 +84,42 @@ def modes(lst):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
+import random
+import statistics
+
+
+def my_assert_type(function, arg, expected_output):
+    assert type(function(arg)) is type(expected_output), \
+        "Fout: {}({}) geeft geen {} terug als return-type".format(function.__name__, arg, type(expected_output))
 
 
 def my_assert_arg(function, arg, expected_output):
-    assert function(arg) == expected_output, \
-        f"Fout: {function.__name__}({arg}) geeft {function(arg)} in plaats van {expected_output}"
+    msg = "Fout: {}({}) geeft {} in plaats van {}".format(function.__name__, arg, function(arg), expected_output)
+    if type(expected_output) is float:
+        assert round(function(arg) - expected_output, 7) == 0, msg
+    else:
+        assert function(arg) == expected_output, msg
+
+
+def test_id():
+    assert naam != "", "Je moet je naam nog invullen!"
+    assert studentnummer != -1, "Je moet je studentnummer nog invullen!"
+    assert klas != "", "Je moet je klas nog invullen!"
 
 
 def test_mean():
-        testcases = [
-            ([4, 2, 5, 8, 6], 5.0),
-            ([1, 3, 2, 4, 6, 2, 4, 2], 3.0)
-        ]
+    testcases = [
+        ([4, 2, 5, 8, 6], 5.0),
+        ([1, 3, 2, 4, 6, 2, 4, 2], 3.0)
+    ]
 
-        for case in testcases:
-            my_assert_arg(mean, case[0], case[1])
+    for case in testcases:
+        my_assert_type(mean, case[0], case[1])
+        my_assert_arg(mean, case[0], case[1])
+
+    for lst_size in range(1, 11):
+        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
+        my_assert_arg(mean, lst_test, statistics.mean(lst_test))
 
 
 def test_rnge():
@@ -106,6 +129,7 @@ def test_rnge():
     ]
 
     for case in testcases:
+        my_assert_type(rnge, case[0], case[1])
         my_assert_arg(rnge, case[0], case[1])
 
 
@@ -118,19 +142,48 @@ def test_median():
     ]
 
     for case in testcases:
+        my_assert_type(median, case[0], case[1])
         my_assert_arg(median, case[0], case[1])
 
+    for lst_size in range(1, 11):
+        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
+        my_assert_arg(median, lst_test, statistics.median(lst_test))
 
-def test_modes():
+
+def test_q1():
     testcases = [
-        ([4, 2, 5, 8, 6], [2, 4, 5, 6, 8]),
-        ([1, 3, 4, 6, 4, 2], [4]),
-        ([1, 3, 4, 6, 2, 4, 2], [2, 4]),
-        ([1, 3, 2, 4, 6, 2, 4, 2], [2])
+        ([4, 2, 5, 8, 6], 3.0),
+        ([1, 3, 4, 6, 4, 2], 2.0),
+        ([1, 3, 5, 6, 1, 4, 2], 1.0),
+        ([5, 7, 4, 4, 6, 2, 8], 4.0),
+        ([0, 5, 5, 6, 7, 7, 12], 5.0),
+        ([1, 3, 3, 5, 6, 2, 4, 1], 1.5),
+        ([3, 5, 7, 8, 9, 11, 15, 16, 20, 21], 7.0),
+        ([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27], 5.0)
+
     ]
 
     for case in testcases:
-        my_assert_arg(modes, case[0], case[1])
+        my_assert_type(q1, case[0], case[1])
+        my_assert_arg(q1, case[0], case[1])
+
+
+def test_q3():
+    testcases = [
+        ([4, 2, 5, 8, 6], 7.0),
+        ([1, 3, 4, 6, 4, 2], 4.0),
+        ([1, 3, 5, 6, 2, 4, 1], 5.0),
+        ([5, 7, 4, 4, 6, 2, 8], 7.0),
+        ([0, 5, 5, 6, 7, 7, 12], 7.0),
+        ([1, 3, 3, 5, 6, 2, 4, 1], 4.5),
+        ([3, 5, 7, 8, 9, 11, 15, 16, 20, 21], 16.0),
+        ([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27], 18.0)
+
+    ]
+
+    for case in testcases:
+        my_assert_type(q3, case[0], case[1])
+        my_assert_arg(q3, case[0], case[1])
 
 
 def test_var():
@@ -140,7 +193,12 @@ def test_var():
     ]
 
     for case in testcases:
+        my_assert_type(var, case[0], case[1])
         my_assert_arg(var, case[0], case[1])
+
+    for lst_size in range(1, 11):
+        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
+        my_assert_arg(var, lst_test, statistics.pvariance(lst_test))
 
 
 def test_std():
@@ -150,31 +208,12 @@ def test_std():
     ]
 
     for case in testcases:
+        my_assert_type(std, case[0], case[1])
         my_assert_arg(std, case[0], case[1])
 
-
-def test_q1():
-    testcases = [
-        ([4, 2, 5, 8, 6], 3.0),
-        ([1, 3, 4, 6, 4, 2], 2.0),
-        ([1, 3, 5, 6, 1, 4, 2], 1.0),
-        ([1, 3, 3, 5, 6, 2, 4, 1], 1.5)
-    ]
-
-    for case in testcases:
-        my_assert_arg(q1, case[0], case[1])
-
-
-def test_q3():
-    testcases = [
-        ([4, 2, 5, 8, 6], 7.0),
-        ([1, 3, 4, 6, 4, 2], 4.0),
-        ([1, 3, 5, 6, 2, 4, 1], 5.0),
-        ([1, 3, 3, 5, 6, 2, 4, 1], 4.5)
-    ]
-
-    for case in testcases:
-        my_assert_arg(q3, case[0], case[1])
+    for lst_size in range(1, 11):
+        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
+        my_assert_arg(std, lst_test, statistics.pstdev(lst_test))
 
 
 def test_freq():
@@ -186,12 +225,27 @@ def test_freq():
     ]
 
     for case in testcases:
+        my_assert_type(freq, case[0], case[1])
         my_assert_arg(freq, case[0], case[1])
+
+
+def test_modes():
+    testcases = [
+        ([4, 2, 5, 8, 6], [2, 4, 5, 6, 8]),
+        ([1, 3, 4, 6, 4, 2], [4]),
+        ([1, 3, 4, 6, 2, 4, 2], [2, 4]),
+        ([1, 3, 2, 4, 6, 2, 4, 2], [2])
+    ]
+
+    for case in testcases:
+        my_assert_type(modes, case[0], case[1])
+        my_assert_arg(modes, case[0], case[1])
 
 
 if __name__ == '__main__':
     try:
         print("\x1b[0;32m")
+        test_id()
 
         test_mean()
         print("Je functie mean(lst) werkt goed!")
@@ -218,7 +272,7 @@ if __name__ == '__main__':
         print("Je functie freq(lst) werkt goed!")
 
         test_modes()
-        print("Je functie modes() werkt goed!")
+        print("Je functie modes(lst) werkt goed!")
 
         print("\nGefeliciteerd, alles lijkt te werken! Lever je werk nu in op Canvas...\n")
 

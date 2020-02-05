@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Analytical Skills
 Opgave: recursie
@@ -38,26 +41,27 @@ def palindroom(woord):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
-import math, random
+import math
+import random
 
 
 def test_faculteit():
-    for x in range(6):
-        assert faculteit(x) == math.factorial(x), \
-            f"Fout: faculteit({x}) geeft {faculteit(x)} in plaats van {math.factorial(x)}"
+    for i in range(6):
+        assert faculteit(i) == math.factorial(i), \
+            "Fout: faculteit({}) geeft {} in plaats van {}".format(i, faculteit(i), math.factorial(i))
 
 
 def test_exponent():
-    for x in range(10):
-        assert exponent(x) == 2**x, \
-            f"Fout: exponent({x}) geeft {exponent(x)} in plaats van {2**x}"
+    for i in range(10):
+        assert exponent(i) == 2**i, \
+            "Fout: exponent({}) geeft {} in plaats van {}".format(i, exponent(i), 2**i)
 
 
 def test_som():
     for i in range(6):
         lst_test = random.sample(range(-10, 11), i)
         assert som(lst_test) == sum(lst_test), \
-            f"Fout: som({lst_test}) geeft {som(lst_test)} in plaats van {sum(lst_test)}"
+            "Fout: som({}) geeft {} in plaats van {}".format(lst_test, som(lst_test), sum(lst_test))
 
 
 def test_palindroom():
@@ -70,7 +74,8 @@ def test_palindroom():
     ]
 
     for testcase, res in testcases:
-        assert palindroom(testcase) is res, f"Fout: palindroom({testcase}) geeft {palindroom(testcase)} in plaats van {res}"
+        assert palindroom(testcase) is res, \
+            "Fout: palindroom({}) geeft {} in plaats van {}".format(testcase, palindroom(testcase), res)
 
 
 if __name__ == '__main__':
@@ -95,5 +100,5 @@ if __name__ == '__main__':
         print("'" + x + "' is " + ("" if palindroom(x) else "g") + "een palindroom!")
 
     except AssertionError as ae:
-            print("\x1b[0;31m")
-            print(str(ae))
+        print("\x1b[0;31m")
+        print(ae)

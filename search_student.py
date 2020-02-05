@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Analytical Skills
 Opgave: zoeken
@@ -11,19 +14,19 @@ Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
 
 
 def linear_search(lst, target):
-    """ Bepaalt of *target* voorkomt in lijst *lst* door middel van lineair zoeken. """
+    """ Bepaal of *target* voorkomt in lijst *lst* door middel van lineair zoeken. """
     return False
 
 
 def linear_search_index(lst, target):
-    """ Geeft de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. lineair zoeken. """
+    """ Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. lineair zoeken. """
     index = 0
     return -1
 
 
 def linear_search_index_steps(lst, target):
     """
-    Geeft de positie (m.a.w. index) van *target* in lijst *lst*
+    Geef de positie (m.a.w. index) van *target* in lijst *lst*
     d.m.v. lineair zoeken, en het aantal benodigde stappen.
     """
     index = 0
@@ -32,7 +35,7 @@ def linear_search_index_steps(lst, target):
 
 
 def binary_search(lst, target):
-    """ Bepaalt of *target* voorkomt in lijst *lst* door middel van binair zoeken. """
+    """ Bepaal of *target* voorkomt in lijst *lst* door middel van binair zoeken. """
     # stap 1
     mini = 0
 
@@ -48,17 +51,18 @@ def binary_search(lst, target):
 
 
 def binary_search_index(lst, target):
-    """ Geeft de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. binair zoeken. """
+    """ Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. binair zoeken. """
     return -1
 
 
 def binary_search_index_steps(lst, target):
     """
-    Geeft de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. binair zoeken,
+    Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. binair zoeken,
     en het aantal benodigde stappen.
     """
     steps = 0
-    return (-1, steps)
+                                                                                                                
+    return -1, steps
 
 
 """==============================================[ HU TESTRAAMWERK ]====================================================
@@ -72,14 +76,16 @@ def test_linear_search():
     for i in range(10):
         lst_test = random.sample(range(20), 10)
         target = random.randrange(20)
-        assert linear_search(lst_test, target) == (target in lst_test), "Fout: linear_search({}, {}) geeft {} in plaats van {}".format(lst_test, target, linear_search(lst_test, target), target in lst_test)
+        assert linear_search(lst_test, target) == (target in lst_test), \
+            "Fout: linear_search({}, {}) geeft {} in plaats van {}".format(lst_test, target, linear_search(lst_test, target), target in lst_test)
 
 
 def test_linear_search_index():
     for i in range(10):
         lst_test = random.sample(range(20), 10)
         target = random.choice(lst_test)
-        assert linear_search_index(lst_test, target) == lst_test.index(target), "Fout: linear_search_index({}, {}) geeft {} in plaats van {}".format(lst_test, target, linear_search_index(lst_test, target), lst_test.index(target))
+        assert linear_search_index(lst_test, target) == lst_test.index(target), \
+            "Fout: linear_search_index({}, {}) geeft {} in plaats van {}".format(lst_test, target, linear_search_index(lst_test, target), lst_test.index(target))
 
         lst_test = [0, 1, 2]
         assert linear_search_index(lst_test, 3) == -1, "Fout: linear_search_index({}, {}) geeft {} in plaats van {}".format(lst_test, 3, linear_search_index(lst_test, 3), -1)
@@ -89,31 +95,36 @@ def test_linear_search_index_steps():
     for i in range(10):
         lst_test = random.sample(range(20), 10)
         target = random.choice(lst_test)
-        assert linear_search_index_steps(lst_test, target)[0] == lst_test.index(target), "Fout: linear_search_index_steps({}, {}) geeft {} in plaats van {}".format(lst_test, target, linear_search_index_steps(lst_test, target)[0], lst_test.index(target))
+        assert linear_search_index_steps(lst_test, target)[0] == lst_test.index(target), \
+            "Fout: linear_search_index_steps({}, {}) geeft {} in plaats van {}".format(lst_test, target, linear_search_index_steps(lst_test, target)[0], lst_test.index(target))
 
 
 def test_binary_search():
     for i in range(10):
         lst_test = sorted(random.sample(range(20), 10))
         target = random.randrange(20)
-        assert binary_search(lst_test, target) == (target in lst_test), "Fout: binary_search({}, {}) geeft {} in plaats van {}".format(lst_test, target, binary_search(lst_test, target), target in lst_test)
+        assert binary_search(lst_test, target) == (target in lst_test), \
+            "Fout: binary_search({}, {}) geeft {} in plaats van {}".format(lst_test, target, binary_search(lst_test, target), target in lst_test)
 
 
 def test_binary_search_index():
     for i in range(10):
         lst_test = sorted(random.sample(range(20), 10))
         target = random.choice(lst_test)
-        assert binary_search_index(lst_test, target) == lst_test.index(target), "Fout: binary_search_index({}, {}) geeft {} in plaats van {}".format(lst_test, target, binary_search_index(lst_test, target), lst_test.index(target))
+        assert binary_search_index(lst_test, target) == lst_test.index(target), \
+            "Fout: binary_search_index({}, {}) geeft {} in plaats van {}".format(lst_test, target, binary_search_index(lst_test, target), lst_test.index(target))
 
         lst_test = [0, 1, 2]
-        assert binary_search_index(lst_test, 3) == -1, "Fout: binary_search_index({}, {}) geeft {} in plaats van {}".format(lst_test, 3, binary_search_index(lst_test, 3), -1)
+        assert binary_search_index(lst_test, 3) == -1, \
+            "Fout: binary_search_index({}, {}) geeft {} in plaats van {}".format(lst_test, 3, binary_search_index(lst_test, 3), -1)
 
 
 def test_binary_search_index_steps():
     for i in range(10):
         lst_test = sorted(random.sample(range(20), 10))
         target = random.choice(lst_test)
-        assert binary_search_index_steps(lst_test, target)[0] == lst_test.index(target), "Fout: binary_search_index_steps({}, {}) geeft {} in plaats van {}".format(lst_test, target, binary_search_index_steps(lst_test, target)[0], lst_test.index(target))
+        assert binary_search_index_steps(lst_test, target)[0] == lst_test.index(target), \
+            "Fout: binary_search_index_steps({}, {}) geeft {} in plaats van {}".format(lst_test, target, binary_search_index_steps(lst_test, target)[0], lst_test.index(target))
 
 
 if __name__ == '__main__':
@@ -152,4 +163,4 @@ if __name__ == '__main__':
 
     except AssertionError as ae:
         print("\x1b[0;31m")
-        print(str(ae))
+        print(ae)
