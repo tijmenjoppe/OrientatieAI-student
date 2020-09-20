@@ -109,6 +109,11 @@ def add_frac(n1, d1, n2, d2):
 
             >>> add_frac(3, 4, 1, 6)
             (11, 12)
+
+            Gegeven 1/6 + 1/12 = 3/12 (vereenvoudigen tot 1/4 is niet nodig), dan
+
+            >>> add_frac(1, 6, 1, 12)
+            (3, 12)
     """
     return 1, 1
 
@@ -117,6 +122,8 @@ def add_frac(n1, d1, n2, d2):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
+import math
+import random
 
 
 def my_assert_args(function, args, expected_output):
@@ -162,6 +169,10 @@ def test_floor():
     for case in testcases:
         my_assert_args(floor, case[0], case[1])
 
+    for _ in range(10):
+        x = random.uniform(-10.0, 10.0)
+        my_assert_args(floor, (x,), math.floor(x))
+
 
 def test_ceil():
     testcases = [
@@ -178,6 +189,10 @@ def test_ceil():
 
     for case in testcases:
         my_assert_args(ceil, case[0], case[1])
+
+    for _ in range(10):
+        x = random.uniform(-10.0, 10.0)
+        my_assert_args(ceil, (x,), math.ceil(x))
 
 
 def test_div():
@@ -263,6 +278,11 @@ def test_gcd():
 
     for case in testcases:
         my_assert_args(gcd, case[0], case[1])
+
+    for _ in range(10):
+        a = random.randrange(3, 201, 3)
+        b = random.randrange(4, 201, 4)
+        my_assert_args(gcd, (a, b), math.gcd(a, b))
 
 
 def test_lcm():

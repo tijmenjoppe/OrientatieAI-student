@@ -132,3 +132,4 @@ dmypy.json
 # Added manually
 scratch_student.py
 scratch_test_student.py
+*.html
