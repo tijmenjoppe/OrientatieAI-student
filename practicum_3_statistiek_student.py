@@ -3,7 +3,7 @@
 
 """
 Analytical Skills
-Practicum 2: statistiek
+Practicum 3: statistiek
 
 (c) 2019 Hogeschool Utrecht
 Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)

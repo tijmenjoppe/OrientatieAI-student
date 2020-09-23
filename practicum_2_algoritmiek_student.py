@@ -3,7 +3,7 @@
 
 """
 Analytical Skills
-Practicum 4: algoritmiek
+Practicum 2: algoritmiek
 
 (c) 2019 Hogeschool Utrecht
 Tijmen Muller (tijmen.muller@hu.nl)
