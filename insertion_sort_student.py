@@ -14,7 +14,10 @@ Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
 
 
 def insert(lst, grens, waarde):
-    """ Voegt de waarde op de juiste plek in het gesorteerde deel van lijst lst """
+    """
+    Voeg de waarde (int) in op de juiste plek van het gesorteerde deel van lijst lst.
+    Er wordt gekeken vanaf gegeven index grens (int).
+    """
     # De lijst *lst* is gesorteerd van lst[0] t/m lst[grens]
     # Het element *waarde* wordt ingevoegd op de juiste plek in bovengenoemde gesorteerde deel,
     # dus hierna is de lijst *lst* gesorteerd van lst[0] t/m lst[grens+1]
@@ -26,11 +29,12 @@ def insert(lst, grens, waarde):
 
 
 def insertion_sort(lst):
-    """ Implementatie van het insertion sort algoritme -- sortering vind plaats 'in place'. """
+    """ Sorteer gegeven lijst lst 'in place' met het insertion sort algoritme. """
     return None     # De functie retourneert niets
 
 
-"""==============================================[ HU TESTRAAMWERK ]====================================================
+"""
+==========================[ HU TESTRAAMWERK ]================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
@@ -81,9 +85,9 @@ if __name__ == '__main__':
         lst = list(range(aantal))
         random.shuffle(lst)
 
-        print("De lijst: \n" + str(lst))
+        print(f"De lijst: \n\t{lst}")
         insertion_sort(lst)
-        print("is na sortering: \n" + str(lst))
+        print(f"is na sortering: \n\t{lst}")
 
     except AssertionError as ae:
         print("\x1b[0;31m")

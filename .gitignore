@@ -134,3 +134,6 @@ scratch_student.py
 scratch_test_student.py
 *.html
 bonusvraag/
+pytest.ini
+setup.cfg
+practicum_5_herkansing_student.py

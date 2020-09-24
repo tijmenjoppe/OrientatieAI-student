@@ -14,6 +14,7 @@ Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
 
 
 def faculteit(n):
+    """ Bereken n! op recursieve wijze. """
     # Base case
     if n == 0:
         return 1
@@ -23,6 +24,7 @@ def faculteit(n):
 
 
 def exponent(n):
+    """ Bereken 2^n op recursieve wijze. """
     # Base case
 
     # Recursie
@@ -30,14 +32,17 @@ def exponent(n):
 
 
 def som(lst):
+    """ Bereken de som van alle elementen van gegeven lijst lst op recursieve wijze. """
     return 1
 
 
 def palindroom(woord):
+    """ Bepaal of gegeven woord (str) een palindroom is op recursieve wijze. """
     return False
 
 
-"""==============================================[ HU TESTRAAMWERK ]====================================================
+"""
+==========================[ HU TESTRAAMWERK ]================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
@@ -48,20 +53,23 @@ import random
 def test_faculteit():
     for i in range(6):
         assert faculteit(i) == math.factorial(i), \
-            "Fout: faculteit({}) geeft {} in plaats van {}".format(i, faculteit(i), math.factorial(i))
+            f"Fout: faculteit({i}) geeft {faculteit(i)} " \
+            f"in plaats van {math.factorial(i)}"
 
 
 def test_exponent():
     for i in range(10):
         assert exponent(i) == 2**i, \
-            "Fout: exponent({}) geeft {} in plaats van {}".format(i, exponent(i), 2**i)
+            f"Fout: exponent({i}) geeft {exponent(i)} " \
+            f"in plaats van {2**i}"
 
 
 def test_som():
     for i in range(6):
         lst_test = random.sample(range(-10, 11), i)
         assert som(lst_test) == sum(lst_test), \
-            "Fout: som({}) geeft {} in plaats van {}".format(lst_test, som(lst_test), sum(lst_test))
+            f"Fout: som({lst_test}) geeft {som(lst_test),} " \
+            f"in plaats van {sum(lst_test)}"
 
 
 def test_palindroom():
@@ -75,7 +83,8 @@ def test_palindroom():
 
     for testcase, res in testcases:
         assert palindroom(testcase) is res, \
-            "Fout: palindroom({}) geeft {} in plaats van {}".format(testcase, palindroom(testcase), res)
+            f"Fout: palindroom({testcase}) geeft {palindroom(testcase)} " \
+            f"in plaats van {res}"
 
 
 if __name__ == '__main__':
@@ -97,7 +106,7 @@ if __name__ == '__main__':
         print("\x1b[0;30m")
 
         x = input("Geef een woord: ")
-        print("'" + x + "' is " + ("" if palindroom(x) else "g") + "een palindroom!")
+        print(f"'{x}' is {'' if palindroom(x) else 'g'}een palindroom!")
 
     except AssertionError as ae:
         print("\x1b[0;31m")

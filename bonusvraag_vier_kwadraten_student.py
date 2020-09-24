@@ -1,8 +1,34 @@
-def vier_kwadraten(getal):
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+Analytical Skills
+Bonusvraag: vier kwadraten
+
+(c) 2019 Hogeschool Utrecht
+Tijmen Muller (tijmen.muller@hu.nl)
+
+
+Opdracht: werk onderstaande functies uit.
+
+Je kunt je functies testen met het gegeven raamwerk door het bestand
+uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
+Lever je werk in op Canvas als alle tests slagen.
+
+Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
+"""
+
+
+def vier_kwadraten(kwadraatsom):
+    """
+    Geef een lijst met vier getallen, zodat de som van de kwadraten van die
+    getallen gelijk is aan gegeven kwadraatsom (int).
+    """
     return [0, 0, 0, 0]
 
 
-"""==============================================[ HU TESTRAAMWERK ]====================================================
+"""
+==========================[ HU TESTRAAMWERK ]================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
@@ -13,7 +39,7 @@ from time import perf_counter
 
 def test_vier_kwadraten():
     # Simulated test cases
-    for cnt in range(10):
+    for cnt in range(100):
         n = random.randrange(1, 10)
 
         for _ in range(4):
@@ -24,7 +50,7 @@ def test_vier_kwadraten():
         assert len(lst) == 4, \
             f"Fout: vier_kwadraten() geeft geen lijst met 4 maar met {len(lst)} getallen, namelijk {lst}"
         assert n == reduce(lambda x, y: x + y, (map(lambda x: x ** 2, lst))), \
-            f"Fout: vier_kwadraten({n}) geeft {lst}, maar {lst[0]}^2 + {lst[1]}^2 + {lst[2]}^2 + {lst[3]}^2 != {n}"
+            f"Fout: vier_kwadraten({n}) geeft {lst}, maar {lst[0]}² + {lst[1]}² + {lst[2]}² + {lst[3]}² != {n}"
 
 
 def test_vier_kwadraten_tijd():
@@ -37,7 +63,7 @@ def test_vier_kwadraten_tijd():
         assert len(lst) == 4, \
             f"Fout: vier_kwadraten() geeft geen lijst met 4 maar met {len(lst)} getallen, namelijk {lst}"
         assert case == reduce(lambda x, y: x + y, (map(lambda x: x ** 2, lst))), \
-            f"Fout: vier_kwadraten({case}) geeft {lst}, maar {lst[0]}^2 + {lst[1]}^2 + {lst[2]}^2 + {lst[3]}^2 != {case}"
+            f"Fout: vier_kwadraten({case}) geeft {lst}, maar {lst[0]}² + {lst[1]}² + {lst[2]}² + {lst[3]}² != {case}"
 
 
 if __name__ == '__main__':

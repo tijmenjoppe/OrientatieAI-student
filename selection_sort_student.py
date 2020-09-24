@@ -11,12 +11,12 @@ Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
 
 
 def swap(lst, index1, index2):
-    """ Verwisselt de waardes op positie index1 en index2 in lijst lst """
+    """ Verwissel de waardes op positie index1 (int) en index2 (int) in lijst lst. """
     lst[index1] = lst[index2]
 
 
 def find_index_of_minimum(lst, start_index=0):
-    """ Vindt de locatie van het minimum in lijst lst vanaf een gegeven start_index """
+    """ Vind de locatie van het minimum in lijst lst vanaf een gegeven start_index (int). """
     minimum = lst[start_index]
     index_of_minimum = start_index
 
@@ -27,13 +27,14 @@ def find_index_of_minimum(lst, start_index=0):
 
 
 def selection_sort(lst):
-    """ Sorteer lijst lst 'in place' door middel van het selection sort algoritme """
+    """ Sorteer lijst lst 'in place' door middel van het selection sort algoritme. """
     # Implementeer selection sort met behulp van
     # swap() en find_index_of_minimum()
     pass
 
 
-"""==============================================[ HU TESTRAAMWERK ]====================================================
+"""
+==========================[ HU TESTRAAMWERK ]================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
@@ -57,11 +58,11 @@ def test_swap():
 def test_find_index_of_minimum():
     lst_test = [18, 6, 21, 44, 9, 14]
     assert find_index_of_minimum(lst_test, 0) == 1, \
-        "Fout: find_index_of_minimum({}, 0) geeft {} in plaats van 1".format(lst_test, find_index_of_minimum(lst_test, 0))
+        f"Fout: find_index_of_minimum({lst_test}, 0) geeft {find_index_of_minimum(lst_test, 0)} in plaats van 1"
     assert find_index_of_minimum(lst_test, 2) == 4, \
-        "Fout: find_index_of_minimum({}, 2) geeft {} in plaats van 4".format(lst_test, find_index_of_minimum(lst_test, 2))
+        f"Fout: find_index_of_minimum({lst_test}, 2) geeft {find_index_of_minimum(lst_test, 2)} in plaats van 4"
     assert find_index_of_minimum(lst_test, 3) == 4, \
-        "Fout: find_index_of_minimum({}, 3) geeft {} in plaats van 4".format(lst_test, find_index_of_minimum(lst_test, 3))
+        f"Fout: find_index_of_minimum({lst_test}, 3) geeft {find_index_of_minimum(lst_test, 3)} in plaats van 4"
 
 
 def test_selection_sort():
@@ -89,9 +90,9 @@ if __name__ == '__main__':
         aantal = int(input("Hoeveel getallen zal ik sorteren? "))
         lst = list(range(aantal))
         random.shuffle(lst)
-        print("De lijst: \n" + str(lst))
+        print(f"De lijst: \n\t{lst}")
         selection_sort(lst)
-        print("is na sortering: \n" + str(lst))
+        print(f"is na sortering: \n\t{lst}")
 
     except AssertionError as ae:
         print("\x1b[0;31m")

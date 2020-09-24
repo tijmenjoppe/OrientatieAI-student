@@ -10,11 +10,13 @@ Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Opdracht: werk onderstaande functies uit. Elke functie krijgt als argument een
-          (mogelijk ongesorteerde) lijst *lst* met gehele getallen (int).
+Opdracht: werk onderstaande functies uit. Elke functie krijgt een
+          (mogelijk ongesorteerde) lijst *lst* met gehele
+          getallen (int) als argument.
 
-Je kunt je functies testen met het gegeven raamwerk door het bestand uit te voeren (of met behulp
-van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle tests slagen.
+Je kunt je functies testen met het gegeven raamwerk door het bestand
+uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
+Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
 """
@@ -23,6 +25,7 @@ Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
 naam = ""
 klas = ""
 studentnummer = -1
+
 
 def mean(lst):
     """ Retourneer het gemiddelde (float) van de lijst lst. """
@@ -63,12 +66,13 @@ def std(lst):
 
 
 def freq(lst):
-    """ Retourneer een dictionary met als keys de waardes die voorkomen in lst en
-        als value het aantal voorkomens van die waarde.
+    """
+    Retourneer een dictionary met als keys de waardes die voorkomen in lst en
+    als value het aantal voorkomens van die waarde.
 
-        Examples:
-            >>> freq([0, 0, 4, 5])
-            {0: 2, 4: 1, 5: 1}
+    Examples:
+        >>> freq([0, 0, 4, 5])
+        {0: 2, 4: 1, 5: 1}
     """
     freqs = dict()
     return freqs
@@ -80,7 +84,8 @@ def modes(lst):
     return sorted(modi)
 
 
-"""==============================================[ HU TESTRAAMWERK ]====================================================
+"""
+==========================[ HU TESTRAAMWERK ]================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
@@ -274,8 +279,8 @@ if __name__ == '__main__':
         test_modes()
         print("Je functie modes(lst) werkt goed!")
 
-        print("\nGefeliciteerd, alles lijkt te werken! Lever je werk nu in op Canvas...\n")
-
+        print("\nGefeliciteerd, alles lijkt te werken!")
+        print("Lever je werk nu in op Canvas...")
 
         def hist(freqs):
             v_min = min(freqs.keys())

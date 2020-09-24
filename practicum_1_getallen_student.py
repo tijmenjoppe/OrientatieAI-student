@@ -12,8 +12,9 @@ Tijmen Muller (tijmen.muller@hu.nl)
 
 Opdracht: werk onderstaande functies uit.
 
-Je kunt je functies testen met het gegeven raamwerk door het bestand uit te voeren (of met behulp
-van pytest, als je weet hoe dat werkt). Lever je werk in op Canvas als alle tests slagen.
+Je kunt je functies testen met het gegeven raamwerk door het bestand
+uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
+Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
 """
@@ -40,85 +41,90 @@ def ceil(real):
 
 
 def div(n):
-    """ Retourneer een (natuurlijk) gesorteerde verzameling (list) van delers van n (int).
-        Het positieve gehele getal a is een deler van n, als er een positief geheel getal b is, zodat a x b = n. """
+    """
+    Retourneer een (natuurlijk) gesorteerde verzameling (list) van delers van n (int).
+    Het positieve gehele getal a is een deler van n, als er een positief geheel getal b is, zodat a x b = n.
+    """
     divisors = []
     return sorted(divisors)
 
 
 def is_prime(n):
-    """ Retourneer True als n (int) een priemgetal is, anders False.
-        Je kunt gebruik maken van de functie 'div(n)' om te bepalen of n een priem is.
-        Optioneel: bedenk een efficiënter alternatief. """
+    """
+    Retourneer True als n (int) een priemgetal is, anders False. Je kunt gebruik maken van de functie 'div(n)'
+    om te bepalen of n een priem is.
+    Optioneel: bedenk een efficiënter alternatief.
+    """
     return
 
 
-
-
 def primefactors(n):
-    """ Retourneer een (natuurlijk) gesorteerde verzameling (list) van priemfactoren van n (int)
-        Return [] als n kleiner dan 2 is
-        Tip: maak gebruik van de functie 'is_prime(n)' """
+    """
+    Retourneer een (natuurlijk) gesorteerde verzameling (list) van priemfactoren van n (int).
+    Return [] als n kleiner dan 2 is.
+    Tip: maak gebruik van de functie 'is_prime(n)'
+    """
     factors = []
     return sorted(factors)
 
 
 def primes(num):
-    """ Retourneer alle priemgetallen kleiner dan num (int). Je kunt gebruik maken van de functie 'is_prime(n)'.
-        Optioneel: implementeer een efficiënter alternatief, bijvoorbeeld de zeef van Eratosthenes.
-        Zie: https://nl.wikipedia.org/wiki/Zeef_van_Eratosthenes
-    """
+    """ Retourneer alle priemgetallen kleiner dan num (int). Je kunt gebruik maken van de functie 'is_prime(n)'. """
     primelist = []
     return primelist
 
 
-
 def gcd(a, b):
-    """ Retourneer de grootste grootste gemene deler (oftewel greatest common divisor, gcd) (int) van
-        natuurlijke getallen a en b (beide int).
+    """
+    Retourneer de grootste grootste gemene deler (oftewel greatest common divisor, gcd) (int) van
+    natuurlijke getallen a en b (beide int).
 
-        Je hebt twee opties voor deze opgave:
-        1.  Je programmeert hier het algoritme van Euclides.
-            Zie: https://nl.wikipedia.org/wiki/Algoritme_van_Euclides
-        2.  Je bedenkt zelf een oplossing waarbij je gebruik maakt van de eerder
-            geschreven methode div(n) om de gcd te bepalen.
+    Je hebt twee opties voor deze opgave:
+    1.  Je programmeert hier het algoritme van Euclides.
+        Zie: https://nl.wikipedia.org/wiki/Algoritme_van_Euclides
+    2.  Je bedenkt zelf een oplossing waarbij je gebruik maakt van de eerder
+        geschreven methode div(n) om de gcd te bepalen.
     """
     return
 
 
 def lcm(a, b):
-    """ Retourneer het kleinste gemene veelvoud, kgv (ofwel least common multiple, lcm) (int)
-        van natuurlijke getallen a en b (beide int). """
+    """
+    Retourneer het kleinste gemene veelvoud, kgv (ofwel least common multiple, lcm) (int) van natuurlijke
+    getallen a en b (beide int).
+    """
     return
 
 
 def add_frac(n1, d1, n2, d2):
-    """ Retourneer de sommatie van twee breuken als breuk. De breuk hoeft niet vereenvoudigd te worden.
+    """
+    Retourneer de sommatie van twee breuken als breuk. De breuk hoeft niet vereenvoudigd te worden.
 
-        Args:
-            n1 (int) -- de teller van de eerste breuk
-            d1 (int) -- de noemer van de eerste breuk
-            n2 (int) -- de teller van de tweede breuk
-            d2 (int) -- de noemer van de tweede breuk
+    Args:
+        n1 (int) -- de teller van de eerste breuk
+        d1 (int) -- de noemer van de eerste breuk
+        n2 (int) -- de teller van de tweede breuk
+        d2 (int) -- de noemer van de tweede breuk
 
-        Returns:
-            tuple: De som *als breuk*, met eerst de teller en dan de noemer van het resultaat.
+    Returns:
+        tuple: De som *als breuk*, met eerst de teller en dan de noemer van het resultaat.
 
-        Examples:
-            Gegeven 3/4 + 1/6 = 11/12, dan
+    Examples:
+        Gegeven 3/4 + 1/6 = 11/12, dan
 
-            >>> add_frac(3, 4, 1, 6)
-            (11, 12)
+        >>> add_frac(3, 4, 1, 6)
+        (11, 12)
 
-            Gegeven 1/6 + 1/12 = 3/12 (vereenvoudigen tot 1/4 is niet nodig), dan
+        Gegeven 1/6 + 1/12 = 3/12 (vereenvoudigen tot 1/4 is niet nodig), dan
 
-            >>> add_frac(1, 6, 1, 12)
-            (3, 12)
+        >>> add_frac(1, 6, 1, 12)
+        (3, 12)
     """
     return 1, 1
 
 
-"""==============================================[ HU TESTRAAMWERK ]====================================================
+"""
+==========================[ HU TESTRAAMWERK ]================================
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
@@ -155,14 +161,14 @@ def test_is_even():
 
 def test_floor():
     testcases = [
-        (( 1.05,),  1),
-        (( 1.95,),  1),
+        ((1.05,), 1),
+        ((1.95,), 1),
         ((-1.05,), -2),
         ((-1.95,), -2),
-        (( 0.05,),  0),
+        ((0.05,), 0),
         ((-0.05,), -1),
-        (( 0.0, ),  0),
-        (( 1.0, ),  1),
+        ((0.0, ), 0),
+        ((1.0, ), 1),
         ((-1.0, ), -1)
     ]
 
@@ -176,14 +182,14 @@ def test_floor():
 
 def test_ceil():
     testcases = [
-        (( 1.05,),  2),
-        (( 1.95,),  2),
+        ((1.05,), 2),
+        ((1.95,), 2),
         ((-1.05,), -1),
         ((-1.95,), -1),
-        (( 0.05,),  1),
-        ((-0.05,),  0),
-        (( 0.0, ),  0),
-        (( 1.0, ),  1),
+        ((0.05,), 1),
+        ((-0.05,), 0),
+        ((0.0, ), 0),
+        ((1.0, ), 1),
         ((-1.0, ), -1)
     ]
 
@@ -197,14 +203,14 @@ def test_ceil():
 
 def test_div():
     testcases = [
-        ((1,),   [1]),
-        ((2,),   [1, 2]),
-        ((3,),   [1, 3]),
-        ((4,),   [1, 2, 4]),
-        ((8,),   [1, 2, 4, 8]),
-        ((12,),  [1, 2, 3, 4, 6, 12]),
-        ((19,),  [1, 19]),
-        ((25,),  [1, 5, 25]),
+        ((1,), [1]),
+        ((2,), [1, 2]),
+        ((3,), [1, 3]),
+        ((4,), [1, 2, 4]),
+        ((8,), [1, 2, 4, 8]),
+        ((12,), [1, 2, 3, 4, 6, 12]),
+        ((19,), [1, 19]),
+        ((25,), [1, 5, 25]),
         ((929,), [1, 929]),
         ((936,), [1, 2, 3, 4, 6, 8, 9, 12, 13, 18, 24, 26, 36, 39, 52, 72, 78, 104, 117, 156, 234, 312, 468, 936])
     ]
@@ -215,13 +221,13 @@ def test_div():
 
 def test_is_prime():
     testcases = [
-        ((1,),  False),
-        ((2,),  True),
-        ((3,),  True),
-        ((4,),  False),
-        ((5,),  True),
-        ((6,),  False),
-        ((9,),  False),
+        ((1,), False),
+        ((2,), True),
+        ((3,), True),
+        ((4,), False),
+        ((5,), True),
+        ((6,), False),
+        ((9,), False),
         ((29,), True)
     ]
 
@@ -231,13 +237,13 @@ def test_is_prime():
 
 def test_primefactors():
     testcases = [
-        ((-1,),   []),
-        ((1,),    []),
-        ((2,),    [2]),
-        ((3,),    [3]),
-        ((4,),    [2, 2]),
-        ((8,),    [2, 2, 2]),
-        ((12,),   [2, 2, 3]),
+        ((-1,), []),
+        ((1,), []),
+        ((2,), [2]),
+        ((3,), [3]),
+        ((4,), [2, 2]),
+        ((8,), [2, 2, 2]),
+        ((12,), [2, 2, 3]),
         ((2352,), [2, 2, 2, 2, 3, 7, 7]),
         ((9075,), [3, 5, 5, 11, 11])
     ]
@@ -248,12 +254,12 @@ def test_primefactors():
 
 def test_primes():
     testcases = [
-        ((1,),  []),
-        ((2,),  []),
-        ((3,),  [2]),
-        ((4,),  [2, 3]),
-        ((5,),  [2, 3]),
-        ((6,),  [2, 3, 5]),
+        ((1,), []),
+        ((2,), []),
+        ((3,), [2]),
+        ((4,), [2, 3]),
+        ((5,), [2, 3]),
+        ((6,), [2, 3, 5]),
         ((30,), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
     ]
 
@@ -263,17 +269,17 @@ def test_primes():
 
 def test_gcd():
     testcases = [
-        ((60,  1),  1),
-        ((60,  6),  6),
-        ((60,  7),  1),
-        ((60,  8),  4),
-        ((60,  9),  3),
-        ((60, 11),  1),
-        ((60, 13),  1),
-        ((60, 14),  2),
+        ((60, 1), 1),
+        ((60, 6), 6),
+        ((60, 7), 1),
+        ((60, 8), 4),
+        ((60, 9), 3),
+        ((60, 11), 1),
+        ((60, 13), 1),
+        ((60, 14), 2),
         ((60, 15), 15),
-        ((60, 16),  4),
-        ((60, 18),  6)
+        ((60, 16), 4),
+        ((60, 18), 6)
     ]
 
     for case in testcases:
@@ -287,12 +293,12 @@ def test_gcd():
 
 def test_lcm():
     testcases = [
-        ((60,  1),  60),
-        ((60,  2),  60),
-        ((60,  7), 420),
-        ((60,  8), 120),
-        ((60,  9), 180),
-        ((60, 10),  60),
+        ((60, 1), 60),
+        ((60, 2), 60),
+        ((60, 7), 420),
+        ((60, 8), 120),
+        ((60, 9), 180),
+        ((60, 10), 60),
         ((60, 11), 660),
         ((60, 18), 180)
     ]
@@ -303,8 +309,8 @@ def test_lcm():
 
 def test_add_frac():
     testcases = [
-        ((1, 2, 1, 4), ( 3,  4)),
-        ((1, 2, 1, 6), ( 4,  6)),
+        ((1, 2, 1, 4), (3, 4)),
+        ((1, 2, 1, 6), (4, 6)),
         ((3, 4, 1, 6), (11, 12)),
         ((1, 6, 3, 4), (11, 12))
     ]
@@ -348,7 +354,8 @@ if __name__ == '__main__':
         test_add_frac()
         print("Je functie add_frac(n1, d1, n2, d2) werkt goed!")
 
-        print("Gefeliciteerd, alles lijkt te werken! Lever je werk nu in op Canvas...")
+        print("\nGefeliciteerd, alles lijkt te werken!")
+        print("Lever je werk nu in op Canvas...")
 
     except AssertionError as ae:
         print("\x1b[0;31m")
