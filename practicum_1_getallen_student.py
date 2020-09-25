@@ -134,11 +134,12 @@ import random
 
 def my_assert_args(function, args, expected_output):
     argstr = str(args).replace(',)', ')')
-    assert type(function(*args)) is type(expected_output), \
-        "Fout: {}{} geeft geen {} terug als return-type".format(function.__name__, argstr, type(expected_output))
+    output = function(*args)
+    assert type(output) is type(expected_output), \
+        f"Fout: {function.__name__}{argstr} geeft geen {type(expected_output)} terug als return-type"
 
-    assert function(*args) == expected_output, \
-        "Fout: {}{} geeft {} in plaats van {}".format(function.__name__, argstr, function(*args), expected_output)
+    assert output == expected_output, \
+        f"Fout: {function.__name__}{argstr} geeft {output} in plaats van {expected_output}"
 
 
 def test_id():

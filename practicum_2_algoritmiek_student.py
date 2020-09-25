@@ -111,7 +111,7 @@ def linear_search_recursive(lst, target):
     De inhoud van de gegeven lijst verandert niet.
 
     Args:
-        lst -- de lijst waarin gezocht wordt (list)
+        lst    -- de lijst waarin gezocht wordt (list)
         target -- het element dat gezocht wordt
 
     Returns:
@@ -126,7 +126,7 @@ def binary_search_recursive(lst, target):
     De inhoud van de gegeven lijst verandert niet.
 
     Args:
-        lst -- de (reeds gesorteerde) lijst waarin gezocht wordt (list)
+        lst    -- de (reeds gesorteerde) lijst waarin gezocht wordt (list)
         target -- het element dat gezocht wordt
 
     Returns:

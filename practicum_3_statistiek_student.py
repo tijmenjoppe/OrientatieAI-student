@@ -11,7 +11,7 @@ Tijmen Muller (tijmen.muller@hu.nl)
 
 
 Opdracht: werk onderstaande functies uit. Elke functie krijgt een
-          (mogelijk ongesorteerde) lijst *lst* met gehele
+          niet-lege en ongesorteerde lijst *lst* met gehele
           getallen (int) als argument.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
