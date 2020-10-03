@@ -45,8 +45,8 @@ if __name__ == '__main__':
 
         print("\x1b[0;30m")
 
-        x = int(input("Geef een getal: "))
-        print(f"{x}! = {faculteit_iteratief(x)}")
+        getal = int(input("Geef een getal: "))
+        print(f"{getal}! = {faculteit_iteratief(getal)}")
 
     except AssertionError as ae:
         print("\x1b[0;31m")

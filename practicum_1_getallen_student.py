@@ -132,14 +132,26 @@ import math
 import random
 
 
-def my_assert_args(function, args, expected_output):
+def my_assert_args(function, args, expected_output, check_type=True):
+    """
+    Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
+    Optioneel wordt ook het return-type gecontroleerd.
+    """
     argstr = str(args).replace(',)', ')')
     output = function(*args)
-    assert type(output) is type(expected_output), \
-        f"Fout: {function.__name__}{argstr} geeft geen {type(expected_output)} terug als return-type"
 
-    assert output == expected_output, \
-        f"Fout: {function.__name__}{argstr} geeft {output} in plaats van {expected_output}"
+    # Controleer eerst het return-type (optioneel)
+    if check_type:
+        msg = f"Fout: {function.__name__}{argstr} geeft geen {type(expected_output)} terug als return-type"
+        assert type(output) is type(expected_output), msg
+
+    # Controleer of de functie-uitvoer overeenkomt met de gewenste uitvoer
+    msg = f"Fout: {function.__name__}{argstr} geeft {output} in plaats van {expected_output}"
+    if type(expected_output) is float:
+        # Vergelijk bij float als return-type op 7 decimalen om afrondingsfouten te omzeilen
+        assert round(output - expected_output, 7) == 0, msg
+    else:
+        assert output == expected_output, msg
 
 
 def test_id():

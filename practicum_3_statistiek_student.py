@@ -93,17 +93,26 @@ import random
 import statistics
 
 
-def my_assert_type(function, arg, expected_output):
-    assert type(function(arg)) is type(expected_output), \
-        "Fout: {}({}) geeft geen {} terug als return-type".format(function.__name__, arg, type(expected_output))
+def my_assert_args(function, args, expected_output, check_type=True):
+    """
+    Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
+    Optioneel wordt ook het return-type gecontroleerd.
+    """
+    argstr = str(args).replace(',)', ')')
+    output = function(*args)
 
+    # Controleer eerst het return-type (optioneel)
+    if check_type:
+        msg = f"Fout: {function.__name__}{argstr} geeft geen {type(expected_output)} terug als return-type"
+        assert type(output) is type(expected_output), msg
 
-def my_assert_arg(function, arg, expected_output):
-    msg = "Fout: {}({}) geeft {} in plaats van {}".format(function.__name__, arg, function(arg), expected_output)
+    # Controleer of de functie-uitvoer overeenkomt met de gewenste uitvoer
+    msg = f"Fout: {function.__name__}{argstr} geeft {output} in plaats van {expected_output}"
     if type(expected_output) is float:
-        assert round(function(arg) - expected_output, 7) == 0, msg
+        # Vergelijk bij float als return-type op 7 decimalen om afrondingsfouten te omzeilen
+        assert round(output - expected_output, 7) == 0, msg
     else:
-        assert function(arg) == expected_output, msg
+        assert output == expected_output, msg
 
 
 def test_id():
@@ -114,137 +123,128 @@ def test_id():
 
 def test_mean():
     testcases = [
-        ([4, 2, 5, 8, 6], 5.0),
-        ([1, 3, 2, 4, 6, 2, 4, 2], 3.0)
+        (([4, 2, 5, 8, 6],), 5.0),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), 3.0)
     ]
 
     for case in testcases:
-        my_assert_type(mean, case[0], case[1])
-        my_assert_arg(mean, case[0], case[1])
+        my_assert_args(mean, case[0], case[1])
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        my_assert_arg(mean, lst_test, statistics.mean(lst_test))
+        my_assert_args(mean, (lst_test,), statistics.mean(lst_test), False)
 
 
 def test_rnge():
     testcases = [
-        ([4, 2, 5, 8, 6], 6),
-        ([1, 3, 2, 4, 6, 2, 4, 2], 5)
+        (([4, 2, 5, 8, 6],), 6),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), 5)
     ]
 
     for case in testcases:
-        my_assert_type(rnge, case[0], case[1])
-        my_assert_arg(rnge, case[0], case[1])
+        my_assert_args(rnge, case[0], case[1])
 
 
 def test_median():
     testcases = [
-        ([4, 2, 5, 8, 6], 5.0),
-        ([1, 3, 4, 6, 4, 2], 3.5),
-        ([1, 3, 4, 6, 2, 4, 2], 3.0),
-        ([1, 3, 2, 4, 6, 2, 4, 2], 2.5)
+        (([4, 2, 5, 8, 6],), 5.0),
+        (([1, 3, 4, 6, 4, 2],), 3.5),
+        (([1, 3, 4, 6, 2, 4, 2],), 3.0),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), 2.5)
     ]
 
     for case in testcases:
-        my_assert_type(median, case[0], case[1])
-        my_assert_arg(median, case[0], case[1])
+        my_assert_args(median, case[0], case[1])
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        my_assert_arg(median, lst_test, statistics.median(lst_test))
+        my_assert_args(median, (lst_test,), statistics.median(lst_test), False)
 
 
 def test_q1():
     testcases = [
-        ([4, 2, 5, 8, 6], 3.0),
-        ([1, 3, 4, 6, 4, 2], 2.0),
-        ([1, 3, 5, 6, 1, 4, 2], 1.0),
-        ([5, 7, 4, 4, 6, 2, 8], 4.0),
-        ([0, 5, 5, 6, 7, 7, 12], 5.0),
-        ([1, 3, 3, 5, 6, 2, 4, 1], 1.5),
-        ([3, 5, 7, 8, 9, 11, 15, 16, 20, 21], 7.0),
-        ([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27], 5.0)
+        (([4, 2, 5, 8, 6],), 3.0),
+        (([1, 3, 4, 6, 4, 2],), 2.0),
+        (([1, 3, 5, 6, 1, 4, 2],), 1.0),
+        (([5, 7, 4, 4, 6, 2, 8],), 4.0),
+        (([0, 5, 5, 6, 7, 7, 12],), 5.0),
+        (([1, 3, 3, 5, 6, 2, 4, 1],), 1.5),
+        (([3, 5, 7, 8, 9, 11, 15, 16, 20, 21],), 7.0),
+        (([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27],), 5.0)
 
     ]
 
     for case in testcases:
-        my_assert_type(q1, case[0], case[1])
-        my_assert_arg(q1, case[0], case[1])
+        my_assert_args(q1, case[0], case[1])
 
 
 def test_q3():
     testcases = [
-        ([4, 2, 5, 8, 6], 7.0),
-        ([1, 3, 4, 6, 4, 2], 4.0),
-        ([1, 3, 5, 6, 2, 4, 1], 5.0),
-        ([5, 7, 4, 4, 6, 2, 8], 7.0),
-        ([0, 5, 5, 6, 7, 7, 12], 7.0),
-        ([1, 3, 3, 5, 6, 2, 4, 1], 4.5),
-        ([3, 5, 7, 8, 9, 11, 15, 16, 20, 21], 16.0),
-        ([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27], 18.0)
+        (([4, 2, 5, 8, 6],), 7.0),
+        (([1, 3, 4, 6, 4, 2],), 4.0),
+        (([1, 3, 5, 6, 2, 4, 1],), 5.0),
+        (([5, 7, 4, 4, 6, 2, 8],), 7.0),
+        (([0, 5, 5, 6, 7, 7, 12],), 7.0),
+        (([1, 3, 3, 5, 6, 2, 4, 1],), 4.5),
+        (([3, 5, 7, 8, 9, 11, 15, 16, 20, 21],), 16.0),
+        (([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27],), 18.0)
 
     ]
 
     for case in testcases:
-        my_assert_type(q3, case[0], case[1])
-        my_assert_arg(q3, case[0], case[1])
+        my_assert_args(q3, case[0], case[1])
 
 
 def test_var():
     testcases = [
-        ([4, 2, 5, 8, 6], 4.0),
-        ([1, 3, 2, 4, 6, 2, 4, 2], 2.25)
+        (([4, 2, 5, 8, 6],), 4.0),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), 2.25)
     ]
 
     for case in testcases:
-        my_assert_type(var, case[0], case[1])
-        my_assert_arg(var, case[0], case[1])
+        my_assert_args(var, case[0], case[1])
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        my_assert_arg(var, lst_test, statistics.pvariance(lst_test))
+        my_assert_args(var, (lst_test,), statistics.pvariance(lst_test), False)
 
 
 def test_std():
     testcases = [
-        ([4, 2, 5, 8, 6], 2.0),
-        ([1, 3, 2, 4, 6, 2, 4, 2], 1.5)
+        (([4, 2, 5, 8, 6],), 2.0),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), 1.5)
     ]
 
     for case in testcases:
-        my_assert_type(std, case[0], case[1])
-        my_assert_arg(std, case[0], case[1])
+        my_assert_args(std, case[0], case[1])
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        my_assert_arg(std, lst_test, statistics.pstdev(lst_test))
+        my_assert_args(std, (lst_test,), statistics.pstdev(lst_test), False)
 
 
 def test_freq():
     testcases = [
-        ([4, 2, 5, 8, 6], {2: 1, 4: 1, 5: 1, 6: 1, 8: 1}),
-        ([1, 3, 4, 6, 4, 2], {1: 1, 2: 1, 3: 1, 4: 2, 6: 1}),
-        ([1, 3, 5, 6, 2, 4, 1], {1: 2, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}),
-        ([1, 3, 3, 5, 6, 2, 4, 1], {1: 2, 2: 1, 3: 2, 4: 1, 5: 1, 6: 1})
+        (([4, 2, 5, 8, 6],), {2: 1, 4: 1, 5: 1, 6: 1, 8: 1}),
+        (([1, 3, 4, 6, 4, 2],), {1: 1, 2: 1, 3: 1, 4: 2, 6: 1}),
+        (([1, 3, 5, 6, 2, 4, 1],), {1: 2, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}),
+        (([1, 3, 3, 5, 6, 2, 4, 1],), {1: 2, 2: 1, 3: 2, 4: 1, 5: 1, 6: 1})
     ]
 
     for case in testcases:
-        my_assert_type(freq, case[0], case[1])
-        my_assert_arg(freq, case[0], case[1])
+        my_assert_args(freq, case[0], case[1])
 
 
 def test_modes():
     testcases = [
-        ([4, 2, 5, 8, 6], [2, 4, 5, 6, 8]),
-        ([1, 3, 4, 6, 4, 2], [4]),
-        ([1, 3, 4, 6, 2, 4, 2], [2, 4]),
-        ([1, 3, 2, 4, 6, 2, 4, 2], [2])
+        (([4, 2, 5, 8, 6],), [2, 4, 5, 6, 8]),
+        (([1, 3, 4, 6, 4, 2],), [4]),
+        (([1, 3, 4, 6, 2, 4, 2],), [2, 4]),
+        (([1, 3, 2, 4, 6, 2, 4, 2],), [2])
     ]
 
     for case in testcases:
-        my_assert_type(modes, case[0], case[1])
-        my_assert_arg(modes, case[0], case[1])
+        my_assert_args(modes, case[0], case[1])
 
 
 if __name__ == '__main__':

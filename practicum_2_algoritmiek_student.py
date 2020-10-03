@@ -99,10 +99,10 @@ studentnummer = -1
 def my_sort(lst):
     """
     Sorteer gegeven lijst lst volgens het algoritme zoals beschreven in de pseudocode bij 1. hierboven.
-    De sortering vind 'in place' plaats, met andere woorden: de gegeven lijst lst wordt *zelf* gemuteerd. Er is
-    dus geen return-waarde.
+    Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
     """
-    return None
+    lst_sorted = None
+    return lst_sorted
 
 
 def linear_search_recursive(lst, target):
@@ -150,12 +150,13 @@ def test_id():
 
 
 def test_my_sort():
-    lst_test = random.sample(range(-99, 100), 6)
+    lst_test = random.choices(range(-99, 100), k=6)
     lst_copy = lst_test.copy()
-    my_sort(lst_test)
-    assert lst_test == sorted(lst_copy), \
-        f"Fout: my_sort({lst_copy}) geeft {lst_test} " \
-        f"in plaats van {sorted(lst_copy)}"
+    lst_output = my_sort(lst_test)
+
+    assert lst_copy == lst_test, "Fout: my_sort(lst) verandert de inhoud van lijst lst"
+    assert lst_output == sorted(lst_test), \
+        f"Fout: my_sort({lst_test}) geeft {lst_output} in plaats van {sorted(lst_test)}"
 
 
 def test_linear_search_recursive():
@@ -166,12 +167,9 @@ def test_linear_search_recursive():
         lst_copy = lst_test.copy()
 
         outcome = linear_search_recursive(lst_test, target)
+        assert lst_copy == lst_test, "Fout: linear_search_recursive(lst, target) verandert de inhoud van lijst lst"
         assert outcome == found, \
-            f"Fout: linear_search_recursive({lst_test}, {target}) " \
-            f"geeft {outcome} in plaats van {found}"
-        assert lst_copy == lst_test, \
-            "Fout: linear_search_recursive(lst, target) verandert " \
-            "de inhoud van lijst lst"
+            f"Fout: linear_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {found}"
 
 
 def test_binary_search_recursive():
@@ -183,11 +181,8 @@ def test_binary_search_recursive():
 
         outcome = binary_search_recursive(lst_test, target)
         assert outcome == found, \
-            f"Fout: binary_search_recursive({lst_test}, {target}) geeft " \
-            f"{outcome} in plaats van {found}"
-        assert lst_copy == lst_test, \
-            "Fout: binary_search_recursive(lst, target) verandert " \
-            "de inhoud van lijst lst"
+            f"Fout: binary_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {found}"
+        assert lst_copy == lst_test, "Fout: binary_search_recursive(lst, target) verandert de inhoud van lijst lst"
 
 
 if __name__ == '__main__':

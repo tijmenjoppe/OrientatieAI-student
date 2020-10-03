@@ -29,8 +29,15 @@ def insert(lst, grens, waarde):
 
 
 def insertion_sort(lst):
-    """ Sorteer gegeven lijst lst 'in place' met het insertion sort algoritme. """
-    return None     # De functie retourneert niets
+    """
+    Sorteer gegeven lijst lst met het insertion sort algoritme.
+    Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
+    """
+    # Kopieer de originele lijst
+    lst_sorted = lst.copy()
+
+    # Retourneer een gesorteerde variant van de lijst
+    return lst_sorted
 
 
 """
@@ -47,27 +54,29 @@ def test_insert():
     insert(lst_res, 4, 2)
     lst_correct = [2, 3, 5, 7, 11, 13, 9, 14]
     assert lst_res == lst_correct, \
-        "Fout: insert({}, 4, 2) geeft {} in plaats van {}".format(lst_test, lst_res, lst_correct)
+        f"Fout: insert({lst_test}, 4, 2) geeft {lst_res} in plaats van {lst_correct}"
 
     lst_test = lst_res.copy()
     insert(lst_res, 5, 9)
     lst_correct = [2, 3, 5, 7, 9, 11, 13, 14]
     assert lst_res == lst_correct, \
-        "Fout: insert({}, 5, 9) geeft {} in plaats van {}".format(lst_test, lst_res, lst_correct)
+        f"Fout: insert({lst_test}, 5, 9) geeft {lst_res} in plaats van {lst_correct}"
 
     lst_test = lst_res.copy()
     insert(lst_res, 6, 14)
     lst_correct = [2, 3, 5, 7, 9, 11, 13, 14]
     assert lst_res == lst_correct, \
-        "Fout: insert({}, 6, 14) geeft {} in plaats van {}".format(lst_test, lst_res, lst_correct)
+        f"Fout: insert({lst_test}, 6, 14) geeft {lst_res} in plaats van {lst_correct}"
 
 
 def test_insertion_sort():
-    lst_test = random.sample(range(-99, 100), 6)
+    lst_test = random.choices(range(-99, 100), k=6)
     lst_copy = lst_test.copy()
-    insertion_sort(lst_test)
-    assert lst_test == sorted(lst_copy), \
-        "Fout: insertion_sort({}) geeft {} in plaats van {}".format(lst_copy, lst_test, sorted(lst_copy))
+    lst_output = insertion_sort(lst_test)
+
+    assert lst_copy == lst_test, "Fout: insertion_sort(lst) verandert de inhoud van lijst lst"
+    assert lst_output == sorted(lst_test), \
+        f"Fout: insertion_sort({lst_test}) geeft {lst_output} in plaats van {sorted(lst_test)}"
 
 
 if __name__ == '__main__':
@@ -82,12 +91,11 @@ if __name__ == '__main__':
 
         print("\x1b[0;30m")
         aantal = int(input("Hoeveel getallen zal ik sorteren? "))
-        lst = list(range(aantal))
-        random.shuffle(lst)
+        lijst = random.choices(range(0, 100), k=aantal)
 
-        print(f"De lijst: \n\t{lst}")
-        insertion_sort(lst)
-        print(f"is na sortering: \n\t{lst}")
+        print(f"De lijst: \n\t{lijst}")
+        gesorteerde_lijst = insertion_sort(lijst)
+        print(f"is na sortering: \n\t{gesorteerde_lijst}")
 
     except AssertionError as ae:
         print("\x1b[0;31m")

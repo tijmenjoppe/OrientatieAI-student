@@ -122,6 +122,7 @@ def my_sort(lst):
     Retourneert een gesorteerde lijst en laat de originele lijst lst intact.
     """
     sorted_lst = []
+    return sorted_lst
 
 
 def primes(num):
@@ -140,14 +141,26 @@ Je kunt je code testen door deze file te runnen of met behulp van pytest.
 import random
 
 
-def my_assert_args(function, args, expected_output):
+def my_assert_args(function, args, expected_output, check_type=True):
+    """
+    Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
+    Optioneel wordt ook het return-type gecontroleerd.
+    """
     argstr = str(args).replace(',)', ')')
     output = function(*args)
-    assert type(output) is type(expected_output), \
-        f"Fout: {function.__name__}{argstr} geeft geen {type(expected_output)} terug als return-type"
 
-    assert output == expected_output, \
-        f"Fout: {function.__name__}{argstr} geeft {output} in plaats van {expected_output}"
+    # Controleer eerst het return-type (optioneel)
+    if check_type:
+        msg = f"Fout: {function.__name__}{argstr} geeft geen {type(expected_output)} terug als return-type"
+        assert type(output) is type(expected_output), msg
+
+    # Controleer of de functie-uitvoer overeenkomt met de gewenste uitvoer
+    msg = f"Fout: {function.__name__}{argstr} geeft {output} in plaats van {expected_output}"
+    if type(expected_output) is float:
+        # Vergelijk bij float als return-type op 7 decimalen om afrondingsfouten te omzeilen
+        assert round(output - expected_output, 7) == 0, msg
+    else:
+        assert output == expected_output, msg
 
 
 def test_id():
@@ -171,7 +184,10 @@ def test_outliers():
 
 def test_my_sort():
     lst_test = [random.choice(range(10)) for _ in range(10)]
+    lst_copy = lst_test.copy()
     lst_output = my_sort(lst_test)
+
+    assert lst_copy == lst_test, "Fout: my_sort(lst) verandert de inhoud van lijst lst"
     assert lst_output == sorted(lst_test), \
         f"Fout: my_sort({lst_test}) geeft {lst_output} in plaats van {sorted(lst_test)}"
 

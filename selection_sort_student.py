@@ -27,10 +27,13 @@ def find_index_of_minimum(lst, start_index=0):
 
 
 def selection_sort(lst):
-    """ Sorteer lijst lst 'in place' door middel van het selection sort algoritme. """
+    """
+    Sorteer gegeven lijst lst met het insertion sort algoritme.
+    Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
+    """
     # Implementeer selection sort met behulp van
     # swap() en find_index_of_minimum()
-    pass
+    return
 
 
 """
@@ -66,11 +69,13 @@ def test_find_index_of_minimum():
 
 
 def test_selection_sort():
-    lst_test = random.sample(range(-99, 100), 6)
+    lst_test = random.choices(range(-99, 100), k=6)
     lst_copy = lst_test.copy()
-    selection_sort(lst_test)
-    assert lst_test == sorted(lst_copy), \
-        "Fout: selection_sort({}) geeft {} in plaats van {}".format(lst_copy, lst_test, sorted(lst_copy))
+    lst_output = selection_sort(lst_test)
+
+    assert lst_copy == lst_test, "Fout: my_sort(lst) verandert de inhoud van lijst lst"
+    assert lst_output == sorted(lst_test), \
+        f"Fout: selection_sort({lst_test}) geeft {lst_output} in plaats van {sorted(lst_test)}"
 
 
 if __name__ == '__main__':
@@ -88,11 +93,11 @@ if __name__ == '__main__':
 
         print("\x1b[0;30m")
         aantal = int(input("Hoeveel getallen zal ik sorteren? "))
-        lst = list(range(aantal))
-        random.shuffle(lst)
-        print(f"De lijst: \n\t{lst}")
-        selection_sort(lst)
-        print(f"is na sortering: \n\t{lst}")
+        lijst = random.choices(range(0, 100), k=aantal)
+
+        print(f"De lijst: \n\t{lijst}")
+        gesorteerde_lijst = selection_sort(lijst)
+        print(f"is na sortering: \n\t{gesorteerde_lijst}")
 
     except AssertionError as ae:
         print("\x1b[0;31m")

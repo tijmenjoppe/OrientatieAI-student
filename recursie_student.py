@@ -53,23 +53,20 @@ import random
 def test_faculteit():
     for i in range(6):
         assert faculteit(i) == math.factorial(i), \
-            f"Fout: faculteit({i}) geeft {faculteit(i)} " \
-            f"in plaats van {math.factorial(i)}"
+            f"Fout: faculteit({i}) geeft {faculteit(i)} in plaats van {math.factorial(i)}"
 
 
 def test_exponent():
     for i in range(10):
         assert exponent(i) == 2**i, \
-            f"Fout: exponent({i}) geeft {exponent(i)} " \
-            f"in plaats van {2**i}"
+            f"Fout: exponent({i}) geeft {exponent(i)} in plaats van {2**i}"
 
 
 def test_som():
     for i in range(6):
         lst_test = random.sample(range(-10, 11), i)
         assert som(lst_test) == sum(lst_test), \
-            f"Fout: som({lst_test}) geeft {som(lst_test),} " \
-            f"in plaats van {sum(lst_test)}"
+            f"Fout: som({lst_test}) geeft {som(lst_test),} in plaats van {sum(lst_test)}"
 
 
 def test_palindroom():
@@ -83,8 +80,7 @@ def test_palindroom():
 
     for testcase, res in testcases:
         assert palindroom(testcase) is res, \
-            f"Fout: palindroom({testcase}) geeft {palindroom(testcase)} " \
-            f"in plaats van {res}"
+            f"Fout: palindroom({testcase}) geeft {palindroom(testcase)} in plaats van {res}"
 
 
 if __name__ == '__main__':
