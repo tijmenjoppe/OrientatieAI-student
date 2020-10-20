@@ -136,3 +136,6 @@ scratch_test_student.py
 bonusvraag/
 pytest.ini
 setup.cfg
+project/algorithms_student.py
+project/data/steam.csv
+project/data/steam_small.json
