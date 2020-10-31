@@ -1,5 +1,6 @@
 """
-Analytical Skills
+Oriëntatie op AI
+
 Opgave: selection sort
 
 (c) 2019 Hogeschool Utrecht

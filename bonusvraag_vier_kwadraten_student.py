@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Analytical Skills
+Oriëntatie op AI
 Bonusvraag: vier kwadraten
 
 (c) 2019 Hogeschool Utrecht

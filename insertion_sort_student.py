@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Analytical Skills
+Oriëntatie op AI
+
 Opgave: insertion sort
 
 (c) 2019 Hogeschool Utrecht

@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Analytical Skills
+Oriëntatie op AI
+
 Opgave: recursie
 
 (c) 2019 Hogeschool Utrecht
