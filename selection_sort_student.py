@@ -29,7 +29,8 @@ def find_index_of_minimum(lst, start_index=0):
 
 def selection_sort(lst):
     """
-    Sorteer gegeven lijst lst met het insertion sort algoritme.
+    Sorteer gegeven lijst lst met het selection sort algoritme.
+
     Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
     """
     # Implementeer selection sort met behulp van

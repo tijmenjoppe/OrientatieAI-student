@@ -99,7 +99,7 @@ def lcm(a, b):
 
 def add_frac(n1, d1, n2, d2):
     """
-    Retourneer de sommatie van twee breuken als breuk. De breuk hoeft niet vereenvoudigd te worden.
+    Retourneer de sommatie van twee breuken als breuk. Vereenvoudig de breuk zover als mogelijk.
 
     Args:
         n1 (int) -- de teller van de eerste breuk
@@ -111,15 +111,21 @@ def add_frac(n1, d1, n2, d2):
         tuple: De som *als breuk*, met eerst de teller en dan de noemer van het resultaat.
 
     Examples:
-        Gegeven 3/4 + 1/6 = 11/12, dan
+        Gegeven 1/3 + 1/5 = 8/15, dan
 
-        >>> add_frac(3, 4, 1, 6)
-        (11, 12)
+        >>> add_frac(1, 3, 1, 5)
+        (8, 15)
 
-        Gegeven 1/6 + 1/12 = 3/12 (vereenvoudigen tot 1/4 is niet nodig), dan
+        Gegeven 1/2 + 1/4 = 3/4, dan
 
-        >>> add_frac(1, 6, 1, 12)
-        (3, 12)
+        >>> add_frac(1, 2, 1, 4)
+        (3, 4)
+
+        Gegeven 2/3 + 3/2 = 13/6, dan
+
+        >>> add_frac(2, 3, 3, 2)
+        (13, 6)
+
     """
     return 1, 1
 
@@ -323,10 +329,14 @@ def test_lcm():
 
 def test_add_frac():
     testcases = [
+        ((1, 3, 1, 5), (8, 15)),
         ((1, 2, 1, 4), (3, 4)),
-        ((1, 2, 1, 6), (4, 6)),
+        ((2, 3, 3, 2), (13, 6)),
+        ((1, 2, 1, 6), (2, 3)),
         ((3, 4, 1, 6), (11, 12)),
-        ((1, 6, 3, 4), (11, 12))
+        ((1, 6, 3, 4), (11, 12)),
+        ((1, 2, 1, 3), (5, 6)),
+        ((1, 2, 2, 3), (7, 6))
     ]
 
     for case in testcases:

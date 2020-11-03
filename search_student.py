@@ -25,16 +25,6 @@ def linear_search_index(lst, target):
     return -1
 
 
-def linear_search_index_steps(lst, target):
-    """
-    Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. lineair zoeken,
-    en het aantal benodigde stappen.
-    """
-    index = 0
-    steps = 0
-    return -1, steps
-
-
 def binary_search(lst, target):
     """ Bepaal of *target* voorkomt in lijst *lst* door middel van binair zoeken. """
     # stap 1
@@ -56,10 +46,20 @@ def binary_search_index(lst, target):
     return -1
 
 
+def linear_search_index_steps(lst, target):
+    """
+    Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. lineair zoeken,
+    én het aantal benodigde stappen.
+    """
+    index = 0
+    steps = 0
+    return -1, steps
+
+
 def binary_search_index_steps(lst, target):
     """
     Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. binair zoeken,
-    en het aantal benodigde stappen.
+    én het aantal benodigde stappen.
     """
     steps = 0
 

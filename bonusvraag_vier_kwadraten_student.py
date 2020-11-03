@@ -3,6 +3,7 @@
 
 """
 Oriëntatie op AI
+
 Bonusvraag: vier kwadraten
 
 (c) 2019 Hogeschool Utrecht

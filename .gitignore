@@ -139,3 +139,6 @@ setup.cfg
 project/algorithms_student.py
 project/data/steam.csv
 project/data/steam_small.json
+project/steamapi.tijmen.json
+project/steamapi.template.json
+project/steamapi.json
