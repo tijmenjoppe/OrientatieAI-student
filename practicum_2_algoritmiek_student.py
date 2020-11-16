@@ -16,7 +16,8 @@ Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
 Lever je werk in op Canvas als alle tests slagen.
 
-Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
+Let op! Het is niet toegestaan om bestaande modules te importeren en te
+        gebruiken, zoals `math` en `statistics`.
 """
 
 # Vul hier je naam, klas en studentnummer in
