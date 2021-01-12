@@ -43,13 +43,13 @@ studentnummer = -1
     6. Retourneer de derde lijst: zij is een gesorteerde versie van de originele lijst.
 
     2a. Handmatig toepassen van stap 3.
-        Gegeven is de lijst lst = [ 1, 0, 4, 1 ]. Geef de waardes die de *tweede* lijst aanneemt bij álle tussenstappen
-        van stap 3. hierboven.
+        Gegeven is de lijst lst = [ 1, 0, 4, 1 ]. Geef de waardes die de *tweede* lijst aanneemt bij
+        álle tussenstappen van stap 3. hierboven.
 
         [geef hier je antwoord]
 
     2b. Handmatig toepassen van stap 5.
-        Geef nu de waardes die de *derde* lijst aanneemt bij álle tussenstappen van stap 5. hierboven.
+        Geef nu de unieke waardes die de *derde* lijst aanneemt bij álle tussenstappen van stap 5. hierboven.
 
         [geef hier je antwoord]
 
@@ -92,8 +92,9 @@ studentnummer = -1
     2. maak het eerste en tweede element (index 0 en 1) 'False' (getallen 0 en 1 zijn per definitie geen priemgetal);
     3. begin bij index i = 0
     4. als het element op index i 'True' is, zet dan alle veelvouden van index i op 'False' (maar i zelf niet!)
-    5. ga naar stap 4. als i < num
-    6. retourneer alle indexen waarvoor geldt dat de waarde 'True' is
+    5. verhoog i met 1
+    6. ga naar stap 4. als i < num
+    7. retourneer alle indexen waarvoor geldt dat de waarde 'True' is
 
     Zie ook: https://nl.wikipedia.org/wiki/Zeef_van_Eratosthenes
 
@@ -122,8 +123,8 @@ def my_sort(lst):
     Sorteer gegeven lijst lst volgens het algoritme zoals beschreven in de pseudocode bij 1. hierboven.
     Retourneert een gesorteerde lijst en laat de originele lijst lst intact.
     """
-    sorted_lst = []
-    return sorted_lst
+    sorted_lst = []                     # stap 4.
+    return sorted_lst                   # stap 6.
 
 
 def primes(num):
@@ -195,7 +196,6 @@ def test_my_sort():
 
 def test_primes():
     testcases = [
-        ((1,), []),
         ((2,), []),
         ((3,), [2]),
         ((4,), [2, 3]),
