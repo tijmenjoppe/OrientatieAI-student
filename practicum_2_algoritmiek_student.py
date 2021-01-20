@@ -186,8 +186,7 @@ def test_binary_search_recursive():
             f"Fout: binary_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {found}"
         assert lst_copy == lst_test, "Fout: binary_search_recursive(lst, target) verandert de inhoud van lijst lst"
 
-
-if __name__ == '__main__':
+def main():
     try:
         print("\x1b[0;32m")
         test_id()
@@ -207,3 +206,6 @@ if __name__ == '__main__':
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(ae)
+
+if __name__ == '__main__':
+    main()

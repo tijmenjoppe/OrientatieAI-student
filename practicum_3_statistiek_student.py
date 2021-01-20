@@ -248,8 +248,7 @@ def test_modes():
     for case in testcases:
         my_assert_args(modes, case[0], case[1])
 
-
-if __name__ == '__main__':
+def main():
     try:
         print("\x1b[0;32m")
         test_id()
@@ -316,3 +315,6 @@ if __name__ == '__main__':
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(ae)
+
+if __name__ == '__main__':
+    main()
