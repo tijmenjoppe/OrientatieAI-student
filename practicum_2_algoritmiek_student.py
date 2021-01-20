@@ -186,6 +186,14 @@ def test_binary_search_recursive():
             f"Fout: binary_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {found}"
         assert lst_copy == lst_test, "Fout: binary_search_recursive(lst, target) verandert de inhoud van lijst lst"
 
+def test_no_mutation():
+    for f_name, f in [("my_sort", my_sort),
+                      ("linear_search_recursive", lambda l: linear_search_recursive(l, 4)),
+                      ("binary_search_recursive", lambda l: binary_search_recursive(l, 4))]:
+        unsorted_lst = [4,2,5,1,3]
+        f(unsorted_lst)
+        assert unsorted_lst == [4,2,5,1,3], f"Fout: De functie {f_name}() past de input aan"
+
 def main():
     try:
         print("\x1b[0;32m")
@@ -199,6 +207,8 @@ def main():
 
         test_binary_search_recursive()
         print("Je functie binary_search_recursive() werkt goed!")
+
+        test_no_mutation()
 
         print("\nGefeliciteerd, alles lijkt te werken!")
         print("Lever je werk nu in op Canvas...")
