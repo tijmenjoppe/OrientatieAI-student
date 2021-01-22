@@ -183,6 +183,10 @@ def test_outliers():
     for case in testcases:
         my_assert_args(outliers, case[0], sorted(case[1]))
 
+    unsorted_lst = [4,2,5,1,3]
+    outliers(unsorted_lst)
+    assert unsorted_lst == [4,2,5,1,3], f"Fout: De functie outliers() past de input aan"
+
 
 def test_my_sort():
     lst_test = [random.choice(range(10)) for _ in range(10)]
@@ -208,7 +212,7 @@ def test_primes():
         my_assert_args(primes, case[0], sorted(case[1]))
 
 
-if __name__ == '__main__':
+def main():
     try:
         print("\x1b[0;32m")
         test_id()
@@ -222,9 +226,15 @@ if __name__ == '__main__':
         test_primes()
         print("Je functie primes() werkt goed!")
 
+        test_no_mutation()
+
         print("\nGefeliciteerd, alles lijkt te werken!")
         print("Lever je werk nu in op Canvas...")
 
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(ae)
+
+
+if __name__ == '__main__':
+    main()

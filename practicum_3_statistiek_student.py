@@ -248,12 +248,14 @@ def test_modes():
     for case in testcases:
         my_assert_args(modes, case[0], case[1])
 
+
 def test_no_mutation():
     for f_name, f in [("mean", mean), ("rnge", rnge), ("median", median), ("q1", q1), ("q3", q3),
                       ("var", var), ("std", std), ("freq", freq), ("modes", modes)]:
         unsorted_lst = [4,2,5,1,3]
         f(unsorted_lst)
         assert unsorted_lst == [4,2,5,1,3], f"Fout: De functie {f_name}() past de input aan"
+
 
 def main():
     try:
@@ -324,6 +326,7 @@ def main():
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(ae)
+
 
 if __name__ == '__main__':
     main()
