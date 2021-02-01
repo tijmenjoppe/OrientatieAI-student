@@ -10,7 +10,9 @@ Practicum 2: algoritmiek
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Opdracht: beantwoord onderstaande vragen en werk onderstaande functies uit.
+Opdracht:
+Beantwoord onderstaande vragen en werk onderstaande functies uit.
+Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
@@ -29,10 +31,8 @@ studentnummer = -1
 1.  Sorteeralgoritme
 
     Hieronder staat de pseudocode van een sorteeralgoritme:
-    1. Startend vanaf het begin van een lijst,
-       vergelijk elk element met zijn volgende buur.
-    2. Als het element groter is dan zijn volgende buur,
-       verwissel ze van plaats.
+    1. Startend vanaf het begin van een lijst, vergelijk elk element met zijn volgende buur.
+    2. Als het element groter is dan zijn volgende buur, verwissel ze van plaats.
     3. Doorloop zo de lijst tot het eind.
     4. Als er verwisselingen zijn geweest bij stap 2., ga naar stap 1.
 
@@ -82,25 +82,18 @@ studentnummer = -1
             Hoeveel vergelijkingen zijn er nodig?
 
             [geef hier je antwoord]
-
-
-2.  Recursie
-
-    2a. Lineair zoeken
-        Implementeer het lineair zoekalgoritme in Python op een
-        *recursieve* manier. Gebruik hiervoor de functie genaamd
-        linear_search_recursive(lst, target).
-
-    2b. Binair zoeken
-        Implementeer het binair zoekalgoritme in Python op een
-        *recursieve* manier. Gebruik hiervoor de functie genaamd
-        binary_search_recursive(lst, target).
 """
 
 
 def my_sort(lst):
     """
-    Sorteer gegeven lijst lst volgens het algoritme zoals beschreven in de pseudocode bij 1. hierboven.
+    Sorteer gegeven lijst lst volgens het algoritme zoals beschreven in de pseudocode:
+
+    1. Startend vanaf het begin van een lijst, vergelijk elk element met zijn volgende buur.
+    2. Als het element groter is dan zijn volgende buur, verwissel ze van plaats.
+    3. Doorloop zo de lijst tot het eind.
+    4. Als er verwisselingen zijn geweest bij stap 2., ga naar stap 1.
+
     Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
     """
     lst_sorted = None
@@ -125,6 +118,7 @@ def linear_search_recursive(lst, target):
 def binary_search_recursive(lst, target):
     """
     Zoek een element target in gegeven lijst door middel van recursief binair zoeken.
+    Je mag ervan uit gaan dat de gegeven lijst al gesorteerd is.
     De inhoud van de gegeven lijst verandert niet.
 
     Args:
@@ -187,7 +181,7 @@ def test_binary_search_recursive():
         assert lst_copy == lst_test, "Fout: binary_search_recursive(lst, target) verandert de inhoud van lijst lst"
 
 
-if __name__ == '__main__':
+def main():
     try:
         print("\x1b[0;32m")
         test_id()
@@ -207,3 +201,7 @@ if __name__ == '__main__':
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(ae)
+
+
+if __name__ == '__main__':
+    main()

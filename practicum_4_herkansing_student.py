@@ -4,13 +4,15 @@
 """
 Oriëntatie op AI
 
-Practicum 5: herkansing
+Practicum 4: herkansing
 
 (c) 2019 Hogeschool Utrecht
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Opdracht: beantwoord onderstaande vragen en werk onderstaande functies uit.
+Opdracht:
+Beantwoord onderstaande vragen en werk onderstaande functies uit.
+Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
@@ -49,7 +51,7 @@ studentnummer = -1
         [geef hier je antwoord]
 
     2b. Handmatig toepassen van stap 5.
-        Geef nu de unieke waardes die de *derde* lijst aanneemt bij álle tussenstappen van stap 5. hierboven.
+        Geef nu de waardes die de *derde* lijst aanneemt bij álle tussenstappen van stap 5. hierboven.
 
         [geef hier je antwoord]
 
@@ -208,7 +210,7 @@ def test_primes():
         my_assert_args(primes, case[0], sorted(case[1]))
 
 
-if __name__ == '__main__':
+def main():
     try:
         print("\x1b[0;32m")
         test_id()
@@ -228,3 +230,7 @@ if __name__ == '__main__':
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(ae)
+
+
+if __name__ == '__main__':
+    main()

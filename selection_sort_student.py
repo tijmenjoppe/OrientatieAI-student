@@ -33,9 +33,13 @@ def selection_sort(lst):
 
     Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
     """
-    # Implementeer selection sort met behulp van
-    # swap() en find_index_of_minimum()
-    return
+    # Kopieer de originele lijst
+    lst_sorted = lst.copy()
+
+    # Implementeer selection sort met behulp van swap() en find_index_of_minimum()
+
+    # Retourneer een gesorteerde variant van de lijst
+    return lst_sorted
 
 
 """

@@ -11,7 +11,9 @@ Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Opdracht: werk onderstaande functies uit.
+Opdracht:
+Werk onderstaande functies uit.
+Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
@@ -44,7 +46,7 @@ def ceil(real):
 
 def div(n):
     """
-    Retourneer een (natuurlijk) gesorteerde verzameling (list) van delers van n (int).
+    Retourneer een gesorteerde lijst van delers (list) van geheel getal n (int).
     Het positieve gehele getal a is een deler van n, als er een positief geheel getal b is, zodat a x b = n.
     """
     divisors = []
@@ -60,20 +62,19 @@ def is_prime(n):
     return
 
 
-def primefactors(n):
-    """
-    Retourneer een (natuurlijk) gesorteerde verzameling (list) van priemfactoren van n (int).
-    Return [] als n kleiner dan 2 is.
-    Tip: maak gebruik van de functie 'is_prime(n)'
-    """
-    factors = []
-    return sorted(factors)
-
-
 def primes(num):
     """ Retourneer alle priemgetallen kleiner dan num (int). Je kunt gebruik maken van de functie 'is_prime(n)'. """
     primelist = []
     return primelist
+
+
+def primefactors(n):
+    """
+    Retourneer een (natuurlijk) gesorteerde verzameling (list) van priemfactoren van n (int).
+    Return [] als n kleiner dan 2 is.
+    """
+    factors = []
+    return sorted(factors)
 
 
 def gcd(a, b):
@@ -114,17 +115,17 @@ def add_frac(n1, d1, n2, d2):
     Examples:
         Gegeven 1/3 + 1/5 = 8/15, dan
 
-        >>> add_frac(1, 3, 1, 5)
+        >> add_frac(1, 3, 1, 5)
         (8, 15)
 
         Gegeven 1/2 + 1/4 = 3/4, dan
 
-        >>> add_frac(1, 2, 1, 4)
+        >> add_frac(1, 2, 1, 4)
         (3, 4)
 
         Gegeven 2/3 + 3/2 = 13/6, dan
 
-        >>> add_frac(2, 3, 3, 2)
+        >> add_frac(2, 3, 3, 2)
         (13, 6)
 
     """
@@ -136,8 +137,6 @@ def add_frac(n1, d1, n2, d2):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
-import math
-import random
 
 
 def my_assert_args(function, args, expected_output, check_type=True):
@@ -196,6 +195,11 @@ def test_floor():
     for case in testcases:
         my_assert_args(floor, case[0], case[1])
 
+
+def test_floor_simulated():
+    import random
+    import math
+
     for _ in range(10):
         x = random.uniform(-10.0, 10.0)
         my_assert_args(floor, (x,), math.floor(x))
@@ -216,6 +220,11 @@ def test_ceil():
 
     for case in testcases:
         my_assert_args(ceil, case[0], case[1])
+
+
+def test_ceil_simulated():
+    import random
+    import math
 
     for _ in range(10):
         x = random.uniform(-10.0, 10.0)
@@ -306,6 +315,11 @@ def test_gcd():
     for case in testcases:
         my_assert_args(gcd, case[0], case[1])
 
+
+def test_gcd_simulated():
+    import random
+    import math
+
     for _ in range(10):
         a = random.randrange(3, 201, 3)
         b = random.randrange(4, 201, 4)
@@ -344,7 +358,7 @@ def test_add_frac():
         my_assert_args(add_frac, case[0], case[1])
 
 
-if __name__ == '__main__':
+def main():
     try:
         print("\x1b[0;32m")
         test_id()
@@ -353,9 +367,11 @@ if __name__ == '__main__':
         print("Je functie is_even(n) werkt goed!")
 
         test_floor()
+        test_floor_simulated()
         print("Je functie floor(real) werkt goed!")
 
         test_ceil()
+        test_ceil_simulated()
         print("Je functie ceil(real) werkt goed!")
 
         test_div()
@@ -371,6 +387,7 @@ if __name__ == '__main__':
         print("Je functie primes(num) werkt goed!")
 
         test_gcd()
+        test_gcd_simulated()
         print("Je functie gcd(a, b) werkt goed!")
 
         test_lcm()
@@ -385,3 +402,7 @@ if __name__ == '__main__':
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(ae)
+
+
+if __name__ == '__main__':
+    main()

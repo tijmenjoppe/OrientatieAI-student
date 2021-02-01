@@ -11,9 +11,10 @@ Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Opdracht: werk onderstaande functies uit. Elke functie krijgt een
-          niet-lege en ongesorteerde lijst *lst* met gehele
-          getallen (int) als argument.
+Opdracht:
+Werk onderstaande functies uit. Elke functie krijgt een niet-lege en
+ongesorteerde lijst *lst* met gehele getallen (int) als argument.
+Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
@@ -73,7 +74,7 @@ def freq(lst):
     als value het aantal voorkomens van die waarde.
 
     Examples:
-        >>> freq([0, 0, 4, 5])
+        >> freq([0, 0, 4, 5])
         {0: 2, 4: 1, 5: 1}
     """
     freqs = dict()
@@ -81,7 +82,7 @@ def freq(lst):
 
 
 def modes(lst):
-    """ Retourneer een gesorteerde lijst (list) van de modi van lijst lst. """
+    """ Retourneer een gesorteerde lijst (list) van de modi van lijst lst. Maak gebruik van freq(). """
     modi = []
     return sorted(modi)
 
@@ -91,8 +92,6 @@ def modes(lst):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
-import random
-import statistics
 
 
 def my_assert_args(function, args, expected_output, check_type=True):
@@ -132,6 +131,11 @@ def test_mean():
     for case in testcases:
         my_assert_args(mean, case[0], case[1])
 
+
+def test_mean_simulated():
+    import random
+    import statistics
+
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
         my_assert_args(mean, (lst_test,), statistics.mean(lst_test), False)
@@ -157,6 +161,11 @@ def test_median():
 
     for case in testcases:
         my_assert_args(median, case[0], case[1])
+
+
+def test_median_simulated():
+    import random
+    import statistics
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
@@ -188,6 +197,7 @@ def test_q3():
         (([5, 7, 4, 4, 6, 2, 8],), 7.0),
         (([0, 5, 5, 6, 7, 7, 12],), 7.0),
         (([1, 3, 3, 5, 6, 2, 4, 1],), 4.5),
+        (([1, 3, 3, 5, 6, 2, 4, 1],), 4.5),
         (([3, 5, 7, 8, 9, 11, 15, 16, 20, 21],), 16.0),
         (([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27],), 18.0)
 
@@ -206,6 +216,11 @@ def test_var():
     for case in testcases:
         my_assert_args(var, case[0], case[1])
 
+
+def test_var_simulated():
+    import random
+    import statistics
+
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
         my_assert_args(var, (lst_test,), statistics.pvariance(lst_test), False)
@@ -219,6 +234,11 @@ def test_std():
 
     for case in testcases:
         my_assert_args(std, case[0], case[1])
+
+
+def test_std_simulated():
+    import random
+    import statistics
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
@@ -249,18 +269,20 @@ def test_modes():
         my_assert_args(modes, case[0], case[1])
 
 
-if __name__ == '__main__':
+def main():
     try:
         print("\x1b[0;32m")
         test_id()
 
         test_mean()
+        test_mean_simulated()
         print("Je functie mean(lst) werkt goed!")
 
         test_rnge()
         print("Je functie rnge(lst) werkt goed!")
 
         test_median()
+        test_median_simulated()
         print("Je functie median(lst) werkt goed!")
 
         test_q1()
@@ -270,9 +292,11 @@ if __name__ == '__main__':
         print("Je functie q3(lst) werkt goed!")
 
         test_var()
+        test_var_simulated()
         print("Je functie var(lst) werkt goed!")
 
         test_std()
+        test_std_simulated()
         print("Je functie std(lst) werkt goed!")
 
         test_freq()
@@ -316,3 +340,6 @@ if __name__ == '__main__':
     except AssertionError as ae:
         print("\x1b[0;31m")
         print(ae)
+
+if __name__ == '__main__':
+    main()

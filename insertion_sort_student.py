@@ -34,11 +34,7 @@ def insertion_sort(lst):
     Sorteer gegeven lijst lst met het insertion sort algoritme.
     Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
     """
-    # Kopieer de originele lijst
-    lst_sorted = lst.copy()
-
-    # Retourneer een gesorteerde variant van de lijst
-    return lst_sorted
+    return
 
 
 """
@@ -91,12 +87,12 @@ if __name__ == '__main__':
         print("Je insertion sort algoritme werkt goed!\n\nKnap gedaan!\n")
 
         print("\x1b[0;30m")
-        aantal = int(input("Hoeveel getallen zal ik sorteren? "))
+        aantal = int(input("Hoeveel elementen zal ik sorteren? "))
         lijst = random.choices(range(0, 100), k=aantal)
 
         print(f"De lijst: \n\t{lijst}")
         gesorteerde_lijst = insertion_sort(lijst)
-        print(f"is na sortering: \n\t{gesorteerde_lijst}")
+        print(f"is na sortering met jouw algoritme: \n\t{gesorteerde_lijst}")
 
     except AssertionError as ae:
         print("\x1b[0;31m")
