@@ -4,12 +4,11 @@
 """
 Oriëntatie op AI
 
-Practicum 3: statistiek
+Final assignment 3: statistiek
 
-(c) 2019 Hogeschool Utrecht
-Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
+(c) 2019 Hogeschool Utrecht,
+Bart van Eijkelenburg en
 Tijmen Muller (tijmen.muller@hu.nl)
-
 
 Opdracht:
 Werk onderstaande functies uit. Elke functie krijgt een niet-lege en
@@ -17,72 +16,153 @@ ongesorteerde lijst *lst* met gehele getallen (int) als argument.
 Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
-uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
+uit te voeren (of met behulp van `pytest`, als je weet hoe dat werkt).
 Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
 
-# Vul hier je naam, klas en studentnummer in
+# TODO: Vul hier je naam, klas en studentnummer in.
 naam = ""
 klas = ""
 studentnummer = -1
 
 
 def mean(lst):
-    """ Retourneer het gemiddelde (float) van de lijst lst. """
+    """
+    Bepaal het gemiddelde van een lijst getallen.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        float: Het gemiddelde van de gegeven getallen.
+    """
     return
 
 
 def rnge(lst):
-    """ Retourneer het bereik (int) van de lijst lst. """
+    """
+    Bepaal het bereik van een lijst getallen.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        int: Het bereik van de gegeven getallen.
+    """
     return
 
 
 def median(lst):
-    """ Retourneer de mediaan (float) van de lijst lst. """
+    """
+    Bepaal de mediaan van een lijst getallen.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        float: De mediaan van de gegeven getallen.
+    """
     return
 
 
 def q1(lst):
     """
-    Retourneer het eerste kwartiel Q1 (float) van de lijst lst.
-    Tip: maak gebruik van median()
+    Bepaal het eerste kwartiel Q1 van een lijst getallen.
+
+    Hint: maak gebruik van `median()`
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        float: Het eerste kwartiel Q1 van de gegeven getallen.
     """
     return
 
 
 def q3(lst):
-    """ Retourneer het derde kwartiel Q3 (float) van de lijst lst. """
+    """
+    Bepaal het derde kwartiel Q3 van een lijst getallen.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        float: Het derde kwartiel Q3 van de gegeven getallen.
+    """
     return
 
 
 def var(lst):
-    """ Retourneer de variantie (float) van de lijst lst. """
+    """
+    Bepaal de variantie van een lijst getallen.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        float: De variantie van de gegeven getallen.
+    """
     return
 
 
 def std(lst):
-    """ Retourneer de standaardafwijking (float) van de lijst lst. """
+    """
+    Bepaal de standaardafwijking van een lijst getallen.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        float: De standaardafwijking van de gegeven getallen.
+    """
     return
 
 
 def freq(lst):
     """
-    Retourneer een dictionary met als keys de waardes die voorkomen in lst en
-    als value het aantal voorkomens van die waarde.
+    Bepaal de frequenties van alle getallen in een lijst.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        dict: Een dictionary met als 'key' de waardes die voorkomen in de lijst
+            en als 'value' het aantal voorkomens (de frequentie) van die waarde.
 
     Examples:
-        >> freq([0, 0, 4, 5])
-        {0: 2, 4: 1, 5: 1}
+        >> freq([0, 0, 4, 7, 7])
+        {0: 2, 4: 1, 7: 2}
+
+        >> freq([1, 1, 2, 3, 2, 1])
+        {1: 3, 2: 2, 3: 1}
     """
     freqs = dict()
     return freqs
 
 
 def modes(lst):
-    """ Retourneer een gesorteerde lijst (list) van de modi van lijst lst. Maak gebruik van freq(). """
+    """
+    Bepaal alle modi van een lijst getallen.
+
+    Hint: maak gebruik van `freq()`.
+
+    Args:
+        lst (list): Een lijst met gehele getallen.
+
+    Returns:
+        list: Een gesorteerde lijst van de modi van de gegeven getallen.
+
+    Examples:
+        >> modes([0, 0, 4, 7, 7])
+        [0, 7]
+
+        >> modes([1, 1, 2, 3, 2, 1])
+        [1]
+    """
     modi = []
     return sorted(modi)
 
@@ -94,7 +174,7 @@ Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
 
 
-def my_assert_args(function, args, expected_output, check_type=True):
+def __my_assert_args(function, args, expected_output, check_type=True):
     """
     Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
     Optioneel wordt ook het return-type gecontroleerd.
@@ -129,7 +209,7 @@ def test_mean():
     ]
 
     for case in testcases:
-        my_assert_args(mean, case[0], case[1])
+        __my_assert_args(mean, case[0], case[1])
 
 
 def test_mean_simulated():
@@ -138,7 +218,7 @@ def test_mean_simulated():
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        my_assert_args(mean, (lst_test,), statistics.mean(lst_test), False)
+        __my_assert_args(mean, (lst_test,), statistics.mean(lst_test), False)
 
 
 def test_rnge():
@@ -148,7 +228,7 @@ def test_rnge():
     ]
 
     for case in testcases:
-        my_assert_args(rnge, case[0], case[1])
+        __my_assert_args(rnge, case[0], case[1])
 
 
 def test_median():
@@ -160,7 +240,7 @@ def test_median():
     ]
 
     for case in testcases:
-        my_assert_args(median, case[0], case[1])
+        __my_assert_args(median, case[0], case[1])
 
 
 def test_median_simulated():
@@ -169,7 +249,7 @@ def test_median_simulated():
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        my_assert_args(median, (lst_test,), statistics.median(lst_test), False)
+        __my_assert_args(median, (lst_test,), statistics.median(lst_test), False)
 
 
 def test_q1():
@@ -186,7 +266,7 @@ def test_q1():
     ]
 
     for case in testcases:
-        my_assert_args(q1, case[0], case[1])
+        __my_assert_args(q1, case[0], case[1])
 
 
 def test_q3():
@@ -204,7 +284,7 @@ def test_q3():
     ]
 
     for case in testcases:
-        my_assert_args(q3, case[0], case[1])
+        __my_assert_args(q3, case[0], case[1])
 
 
 def test_var():
@@ -214,7 +294,7 @@ def test_var():
     ]
 
     for case in testcases:
-        my_assert_args(var, case[0], case[1])
+        __my_assert_args(var, case[0], case[1])
 
 
 def test_var_simulated():
@@ -223,7 +303,7 @@ def test_var_simulated():
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        my_assert_args(var, (lst_test,), statistics.pvariance(lst_test), False)
+        __my_assert_args(var, (lst_test,), statistics.pvariance(lst_test), False)
 
 
 def test_std():
@@ -233,7 +313,7 @@ def test_std():
     ]
 
     for case in testcases:
-        my_assert_args(std, case[0], case[1])
+        __my_assert_args(std, case[0], case[1])
 
 
 def test_std_simulated():
@@ -242,7 +322,7 @@ def test_std_simulated():
 
     for lst_size in range(1, 11):
         lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        my_assert_args(std, (lst_test,), statistics.pstdev(lst_test), False)
+        __my_assert_args(std, (lst_test,), statistics.pstdev(lst_test), False)
 
 
 def test_freq():
@@ -254,7 +334,7 @@ def test_freq():
     ]
 
     for case in testcases:
-        my_assert_args(freq, case[0], case[1])
+        __my_assert_args(freq, case[0], case[1])
 
 
 def test_modes():
@@ -266,12 +346,13 @@ def test_modes():
     ]
 
     for case in testcases:
-        my_assert_args(modes, case[0], case[1])
+        __my_assert_args(modes, case[0], case[1])
 
 
-def main():
+def __main():
+    """ Test alle functies. """
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
         test_id()
 
         test_mean()
@@ -321,7 +402,7 @@ def main():
 
             return histo
 
-        print("\x1b[0;30m")
+        print("\x1b[0m")
         s = input("Geef een reeks van gehele getallen (gescheiden door een spatie): ")
         userlst = [int(c) for c in s.split()]
 
@@ -338,8 +419,9 @@ def main():
         print("\nHistogram (gekanteld):\n\n" + hist(freq(userlst)))
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)
 
+
 if __name__ == '__main__':
-    main()
+    __main()

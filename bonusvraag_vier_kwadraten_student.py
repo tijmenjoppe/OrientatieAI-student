@@ -6,7 +6,7 @@ Oriëntatie op AI
 
 Bonusvraag: vier kwadraten
 
-(c) 2019 Hogeschool Utrecht
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
@@ -16,7 +16,8 @@ Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
 Lever je werk in op Canvas als alle tests slagen.
 
-Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
+Let op! Het is niet toegestaan om bestaande modules te importeren en te
+        gebruiken, zoals `math` en `statistics`.
 """
 
 
@@ -69,11 +70,11 @@ def test_vier_kwadraten_tijd():
 
 if __name__ == '__main__':
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
         test_vier_kwadraten()
         print("Je functie vier_kwadraten(getal) werkt goed!\n")
 
-        print("\x1b[0;30m")
+        print("\x1b[0m")
         print("Timing van 10 getallen...")
 
         start_time = perf_counter()
@@ -82,5 +83,5 @@ if __name__ == '__main__':
         print(f"Totale tijd: {delta_time*1000:.0f}ms")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)

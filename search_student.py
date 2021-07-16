@@ -4,29 +4,57 @@
 """
 Oriëntatie op AI
 
-Opgave: zoeken
+Oefening: zoeken
 
-(c) 2019 Hogeschool Utrecht
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
+Let op! Het is niet toegestaan om bestaande modules te importeren en te
+        gebruiken, zoals `math` en `statistics`.
 """
 
 
 def linear_search(lst, target):
-    """ Bepaal of *target* voorkomt in lijst *lst* door middel van lineair zoeken. """
+    """
+    Bepaal of gegeven element voorkomt in de lijst volgens het lineair zoekalgoritme.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+        target (int): Een gezocht element.
+
+    Returns:
+        bool: Of het gezochte element voorkomt in de lijst.
+    """
     return False
 
 
 def linear_search_index(lst, target):
-    """ Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. lineair zoeken. """
+    """
+    Bepaal de positie van gegeven element in de lijst volgens het lineair zoekalgoritme.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+        target (int): Een gezocht element.
+
+    Returns:
+        int: De index waar het element in de lijst staat, of -1 als het element niet in de lijst voorkomt.
+    """
     index = 0
     return -1
 
 
 def binary_search(lst, target):
-    """ Bepaal of *target* voorkomt in lijst *lst* door middel van binair zoeken. """
+    """
+    Bepaal of gegeven element voorkomt in de lijst volgens het binair zoekalgoritme.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+        target (int): Een gezocht element.
+
+    Returns:
+        bool: Of het gezochte element voorkomt in de lijst.
+    """
     # stap 1
     mini = 0
 
@@ -42,14 +70,30 @@ def binary_search(lst, target):
 
 
 def binary_search_index(lst, target):
-    """ Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. binair zoeken. """
+    """
+    Bepaal de positie van gegeven element in de lijst volgens het binair zoekalgoritme.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+        target (int): Een gezocht element.
+
+    Returns:
+        int: De index waar het element in de lijst staat, of -1 als het element niet in de lijst voorkomt.
+    """
     return -1
 
 
 def linear_search_index_steps(lst, target):
     """
-    Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. lineair zoeken,
-    én het aantal benodigde stappen.
+    Bepaal de positie van gegeven element in de lijst volgens het lineair zoekalgoritme. Geef ook het benodigd
+        aantal zoekstappen.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+        target (int): Een gezocht element.
+
+    Returns:
+        tuple: De index waar het element in de lijst staat en het benodigde aantal zoekstappen.
     """
     index = 0
     steps = 0
@@ -58,8 +102,15 @@ def linear_search_index_steps(lst, target):
 
 def binary_search_index_steps(lst, target):
     """
-    Geef de positie (m.a.w. index) van *target* in lijst *lst* d.m.v. binair zoeken,
-    én het aantal benodigde stappen.
+    Bepaal de positie van gegeven element in de lijst volgens het binair zoekalgoritme. Geef ook het benodigd
+        aantal zoekstappen.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+        target (int): Een gezocht element.
+
+    Returns:
+        tuple: De index waar het element in de lijst staat en het benodigde aantal zoekstappen.
     """
     steps = 0
 
@@ -138,7 +189,7 @@ def test_binary_search_index_steps():
 
 if __name__ == '__main__':
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
 
         test_linear_search()
         print("Je functie linear_search() werkt goed!")
@@ -158,7 +209,7 @@ if __name__ == '__main__':
         test_binary_search_index_steps()
         print("Je functie binary_search_index_steps() werkt goed!")
 
-        print("\x1b[0;30m")
+        print("\x1b[0m")
         size = int(input("Geef een grootte voor de lijst: "))
         lst_input = list(range(size))
         print("Ik ga zoeken in:", lst_input)
@@ -171,5 +222,5 @@ if __name__ == '__main__':
         print(f"Het binair zoekalgoritme vond '{tgt}' op index '{idx}' na {cnt} stappen.")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)

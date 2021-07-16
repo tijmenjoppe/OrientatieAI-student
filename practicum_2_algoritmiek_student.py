@@ -4,25 +4,24 @@
 """
 Oriëntatie op AI
 
-Practicum 2: algoritmiek
+Final assignment 2: algoritmiek
 
-(c) 2019 Hogeschool Utrecht
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
-
 
 Opdracht:
 Beantwoord onderstaande vragen en werk onderstaande functies uit.
 Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
-uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
+uit te voeren (of met behulp van `pytest`, als je weet hoe dat werkt).
 Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
 
-# Vul hier je naam, klas en studentnummer in
+# TODO: Vul hier je naam, klas en studentnummer in.
 naam = ""
 klas = ""
 studentnummer = -1
@@ -40,8 +39,9 @@ studentnummer = -1
         Gegeven is de lijst l = [ 4, 3, 1, 2 ]. Geef de waardes die deze
         lijst aanneemt bij álle tussenstappen bij toepassing van
         bovenstaand sorteeralgoritme.
-
-        [geef hier je antwoord]
+"""
+        # TODO: [geef hier je antwoord]
+"""
 
     1b. Implementatie
         Implementeer het sorteeralgoritme in Python in een functie
@@ -53,15 +53,17 @@ studentnummer = -1
             het snelste klaar (best-case scenario)?
             Hoeveel vergelijkingen (zoals beschreven in stap 1. van de
             pseudocode) zijn nodig geweest?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
 
         -   Bij welke volgorde van de waarden in de lijst is het
             sorteeralgoritme het minst snel klaar (worst-case scenario)?
             Hoeveel vergelijkingen zijn nodig geweest?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
 
         -   Stel je hebt een lijst met de waarden 1 tot en met 4.
@@ -69,8 +71,9 @@ studentnummer = -1
             Hoeveel vergelijkingen zijn er nodig?
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
 
         -   Stel je hebt een lijst met de waarden 1 tot en met n
@@ -80,14 +83,15 @@ studentnummer = -1
             Hoeveel vergelijkingen zijn er nodig?
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 """
 
 
 def my_sort(lst):
     """
-    Sorteer gegeven lijst lst volgens het algoritme zoals beschreven in de pseudocode:
+    Sorteer gegeven lijst volgens het algoritme zoals beschreven in de pseudocode.
 
     1. Startend vanaf het begin van een lijst, vergelijk elk element met zijn volgende buur.
     2. Als het element groter is dan zijn volgende buur, verwissel ze van plaats.
@@ -95,6 +99,12 @@ def my_sort(lst):
     4. Als er verwisselingen zijn geweest bij stap 2., ga naar stap 1.
 
     Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+
+    Returns:
+        list: Een nieuwe, gesorteerde variant van lijst `lst`.
     """
     lst_sorted = None
     return lst_sorted
@@ -102,31 +112,33 @@ def my_sort(lst):
 
 def linear_search_recursive(lst, target):
     """
-    Zoek een element target in gegeven lijst lst door middel van recursief lineair zoeken.
-    De inhoud van de gegeven lijst verandert niet.
+    Zoek een element in de gegeven lijst door middel van recursief lineair zoeken.
+
+    Zorg dat de inhoud van de gegeven lijst niet verandert.
 
     Args:
-        lst    -- de lijst waarin gezocht wordt (list)
-        target -- het element dat gezocht wordt
+        lst (list):     Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+        target (int):   Het gezochte element.
 
     Returns:
-        of het element in de lijst voorkomt (bool)
+        bool: Of het element in de lijst voorkomt.
     """
     return False
 
 
 def binary_search_recursive(lst, target):
     """
-    Zoek een element target in gegeven lijst door middel van recursief binair zoeken.
+    Zoek een element in de gegeven lijst door middel van recursief binair zoeken.
+
     Je mag ervan uit gaan dat de gegeven lijst al gesorteerd is.
-    De inhoud van de gegeven lijst verandert niet.
+    Zorg dat de inhoud van de gegeven lijst niet verandert.
 
     Args:
-        lst    -- de (reeds gesorteerde) lijst waarin gezocht wordt (list)
-        target -- het element dat gezocht wordt
+        lst (list):     Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+        target (int):   Het gezochte element.
 
     Returns:
-        of het element in de lijst voorkomt (bool)
+        bool: Of het element in de lijst voorkomt.
     """
     return False
 
@@ -181,9 +193,10 @@ def test_binary_search_recursive():
         assert lst_copy == lst_test, "Fout: binary_search_recursive(lst, target) verandert de inhoud van lijst lst"
 
 
-def main():
+def __main():
+    """ Test alle functies. """
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
         test_id()
 
         test_my_sort()
@@ -199,9 +212,9 @@ def main():
         print("Lever je werk nu in op Canvas...")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)
 
 
 if __name__ == '__main__':
-    main()
+    __main()

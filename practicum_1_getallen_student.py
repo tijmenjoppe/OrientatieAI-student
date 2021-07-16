@@ -4,10 +4,10 @@
 """
 Oriëntatie op AI
 
-Practicum 1: getallen
+Final assignment 1: getallen
 
-(c) 2019 Hogeschool Utrecht
-Bart van Eijkelenburg (bart.vaneijkelenburg@hu.nl)
+(c) 2019 Hogeschool Utrecht,
+Bart van Eijkelenburg en
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
@@ -16,38 +16,53 @@ Werk onderstaande functies uit.
 Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
-uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
+uit te voeren (of met behulp van `pytest`, als je weet hoe dat werkt).
 Lever je werk in op Canvas als alle tests slagen.
 
 Let op! Het is niet toegestaan om bestaande modules te importeren en te
         gebruiken, zoals `math` en `statistics`.
 """
 
-# Vul hier je naam, klas en studentnummer in
+# TODO: Vul hier je naam, klas en studentnummer in.
 naam = ""
 klas = ""
 studentnummer = -1
 
 
 def is_even(n):
-    """ Retourneer True als n (int) even is en False als n oneven is. """
+    """
+    Bepaal of een getal even is.
+
+    Args:
+        n (int): Een geheel getal.
+
+    Returns:
+        bool: True als even, False als oneven.
+    """
     return
 
 
 def floor(real):
-    """ Retourneer het grootste gehele getal (int), dat kleiner dan of gelijk is aan real (float). """
+    """ Bepaal het grootste gehele getal (int), dat kleiner dan of gelijk is aan real (float). """
     return
 
 
 def ceil(real):
-    """ Retourneer het kleinste gehele getal (int), groter dan of gelijk aan real (float). """
+    """ Bepaal het kleinste gehele getal (int), groter dan of gelijk aan real (float). """
     return
 
 
 def div(n):
     """
-    Retourneer een gesorteerde lijst van delers (list) van geheel getal n (int).
-    Het positieve gehele getal a is een deler van n, als er een positief geheel getal b is, zodat a x b = n.
+    Bepaal alle delers van een geheel getal.
+
+    Het positieve gehele getal a is een deler van n, als er een positief geheel getal b is, zodat a × b = n.
+
+    Args:
+        n (int): Een geheel getal.
+
+    Returns:
+        list: Een gesorteerde lijst met alle delers van `n`.
     """
     divisors = []
     return sorted(divisors)
@@ -55,23 +70,46 @@ def div(n):
 
 def is_prime(n):
     """
-    Retourneer True als n (int) een priemgetal is, anders False. Je kunt gebruik maken van de functie 'div(n)'
-    om te bepalen of n een priem is.
+    Bepaal of gegeven getal een priemgetal is.
+
+    Hint: maak gebruik van de functie `div()`.
     Optioneel: bedenk een efficiënter alternatief.
+
+    Args:
+        n (int): Een geheel getal.
+
+    Returns:
+        bool: True als het getal een priemgetal is, anders False.
     """
     return
 
 
 def primes(num):
-    """ Retourneer alle priemgetallen kleiner dan num (int). Je kunt gebruik maken van de functie 'is_prime(n)'. """
+    """
+    Bepaal alle priemgetallen kleiner dan een bepaald geheel getal.
+
+    Hint: Maak gebruik van de functie `is_prime()`.
+
+    Args:
+        num (int): Een geheel getal.
+
+    Returns:
+        list: Een gesorteerde lijst met alle priemgetallen kleiner dan `num`.
+    """
     primelist = []
-    return primelist
+    return sorted(primelist)
 
 
 def primefactors(n):
     """
-    Retourneer een (natuurlijk) gesorteerde verzameling (list) van priemfactoren van n (int).
-    Return [] als n kleiner dan 2 is.
+    Bepaal de verzameling van priemfactoren van n.
+
+    Args:
+        n (int): Een geheel getal.
+
+    Returns:
+        list: Een gesorteerde lijst met alle priemfactoren van n. Als n kleiner
+            dan 2, retourneer dan een lege lijst `[]`.
     """
     factors = []
     return sorted(factors)
@@ -79,35 +117,46 @@ def primefactors(n):
 
 def gcd(a, b):
     """
-    Retourneer de grootste grootste gemene deler (oftewel greatest common divisor, gcd) (int) van
-    natuurlijke getallen a en b (beide int).
+    Bepaal de grootste grootste gemene deler (ook wel 'greatest common divisor', gcd) van twee natuurlijke getallen.
 
     Je hebt twee opties voor deze opgave:
     1.  Je programmeert hier het algoritme van Euclides.
         Zie: https://nl.wikipedia.org/wiki/Algoritme_van_Euclides
     2.  Je bedenkt zelf een oplossing waarbij je gebruik maakt van de eerder
         geschreven methode div(n) om de gcd te bepalen.
+
+    Args:
+        a (int): Een geheel getal.
+        b (int): Een geheel getal.
+
+    Returns:
+        int: De grootste grootste gemene deler.
     """
     return
 
 
 def lcm(a, b):
     """
-    Retourneer het kleinste gemene veelvoud, kgv (ofwel least common multiple, lcm) (int) van natuurlijke
-    getallen a en b (beide int).
+    Bepaal het kleinste gemene veelvoud, kgv (ook wel 'least common multiple', lcm) van twee natuurlijke getallen.
+
+    Args:
+        a (int): Een geheel getal.
+        b (int): Een geheel getal.
+
+    Returns:
+        int: Het kleinste gemene veelvoud.
     """
     return
 
 
 def add_frac(n1, d1, n2, d2):
-    """
-    Retourneer de sommatie van twee breuken als breuk. Vereenvoudig de breuk zover als mogelijk.
+    """Sommeer twee breuken als breuk. Vereenvoudig de breuk zover als mogelijk.
 
     Args:
-        n1 (int) -- de teller van de eerste breuk
-        d1 (int) -- de noemer van de eerste breuk
-        n2 (int) -- de teller van de tweede breuk
-        d2 (int) -- de noemer van de tweede breuk
+        n1 (int): De teller van de eerste breuk.
+        d1 (int): De noemer van de eerste breuk.
+        n2 (int): De teller van de tweede breuk.
+        d2 (int): De noemer van de tweede breuk.
 
     Returns:
         tuple: De som *als breuk*, met eerst de teller en dan de noemer van het resultaat.
@@ -127,7 +176,6 @@ def add_frac(n1, d1, n2, d2):
 
         >> add_frac(2, 3, 3, 2)
         (13, 6)
-
     """
     return 1, 1
 
@@ -139,9 +187,10 @@ Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
 
 
-def my_assert_args(function, args, expected_output, check_type=True):
+def __my_assert_args(function, args, expected_output, check_type=True):
     """
     Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
+
     Optioneel wordt ook het return-type gecontroleerd.
     """
     argstr = str(args).replace(',)', ')')
@@ -176,7 +225,7 @@ def test_is_even():
     ]
 
     for case in testcases:
-        my_assert_args(is_even, case[0], case[1])
+        __my_assert_args(is_even, case[0], case[1])
 
 
 def test_floor():
@@ -193,7 +242,7 @@ def test_floor():
     ]
 
     for case in testcases:
-        my_assert_args(floor, case[0], case[1])
+        __my_assert_args(floor, case[0], case[1])
 
 
 def test_floor_simulated():
@@ -202,7 +251,7 @@ def test_floor_simulated():
 
     for _ in range(10):
         x = random.uniform(-10.0, 10.0)
-        my_assert_args(floor, (x,), math.floor(x))
+        __my_assert_args(floor, (x,), math.floor(x))
 
 
 def test_ceil():
@@ -219,7 +268,7 @@ def test_ceil():
     ]
 
     for case in testcases:
-        my_assert_args(ceil, case[0], case[1])
+        __my_assert_args(ceil, case[0], case[1])
 
 
 def test_ceil_simulated():
@@ -228,7 +277,7 @@ def test_ceil_simulated():
 
     for _ in range(10):
         x = random.uniform(-10.0, 10.0)
-        my_assert_args(ceil, (x,), math.ceil(x))
+        __my_assert_args(ceil, (x,), math.ceil(x))
 
 
 def test_div():
@@ -246,7 +295,7 @@ def test_div():
     ]
 
     for case in testcases:
-        my_assert_args(div, case[0], sorted(case[1]))
+        __my_assert_args(div, case[0], sorted(case[1]))
 
 
 def test_is_prime():
@@ -262,7 +311,7 @@ def test_is_prime():
     ]
 
     for case in testcases:
-        my_assert_args(is_prime, case[0], case[1])
+        __my_assert_args(is_prime, case[0], case[1])
 
 
 def test_primefactors():
@@ -279,7 +328,7 @@ def test_primefactors():
     ]
 
     for case in testcases:
-        my_assert_args(primefactors, case[0], sorted(case[1]))
+        __my_assert_args(primefactors, case[0], sorted(case[1]))
 
 
 def test_primes():
@@ -294,7 +343,7 @@ def test_primes():
     ]
 
     for case in testcases:
-        my_assert_args(primes, case[0], sorted(case[1]))
+        __my_assert_args(primes, case[0], sorted(case[1]))
 
 
 def test_gcd():
@@ -313,7 +362,7 @@ def test_gcd():
     ]
 
     for case in testcases:
-        my_assert_args(gcd, case[0], case[1])
+        __my_assert_args(gcd, case[0], case[1])
 
 
 def test_gcd_simulated():
@@ -323,7 +372,7 @@ def test_gcd_simulated():
     for _ in range(10):
         a = random.randrange(3, 201, 3)
         b = random.randrange(4, 201, 4)
-        my_assert_args(gcd, (a, b), math.gcd(a, b))
+        __my_assert_args(gcd, (a, b), math.gcd(a, b))
 
 
 def test_lcm():
@@ -339,7 +388,7 @@ def test_lcm():
     ]
 
     for case in testcases:
-        my_assert_args(lcm, case[0], case[1])
+        __my_assert_args(lcm, case[0], case[1])
 
 
 def test_add_frac():
@@ -355,12 +404,13 @@ def test_add_frac():
     ]
 
     for case in testcases:
-        my_assert_args(add_frac, case[0], case[1])
+        __my_assert_args(add_frac, case[0], case[1])
 
 
-def main():
+def __main():
+    """ Test alle functies. """
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
         test_id()
 
         test_is_even()
@@ -400,9 +450,9 @@ def main():
         print("Lever je werk nu in op Canvas...")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)
 
 
 if __name__ == '__main__':
-    main()
+    __main()

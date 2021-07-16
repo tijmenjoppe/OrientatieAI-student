@@ -4,35 +4,47 @@
 """
 Oriëntatie op AI
 
-Opgave: insertion sort
+Oefening: insertion sort
 
-(c) 2019 Hogeschool Utrecht
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
+Let op! Het is niet toegestaan om bestaande modules te importeren en te
+        gebruiken, zoals `math` en `statistics`.
 """
 
 
 def insert(lst, grens, waarde):
     """
-    Voeg de waarde (int) in op de juiste plek van het gesorteerde deel van lijst lst.
-    Er wordt gekeken vanaf gegeven index grens (int).
-    """
-    # De lijst *lst* is gesorteerd van lst[0] t/m lst[grens]
-    # Het element *waarde* wordt ingevoegd op de juiste plek in bovengenoemde gesorteerde deel,
-    # dus hierna is de lijst *lst* gesorteerd van lst[0] t/m lst[grens+1]
+    Voeg gegeven waarde in op de juiste plek van het gesorteerde deel van gegeven lijst.
+    Er wordt gekeken vanaf de gegeven grens.
 
-    # Aanpak: begin bij index *grens* en verplaats elementen groter dan *waarde* naar rechts.
-    # Als je een waarde tegenkomt die kleiner is dan *waarde* (of het begin van lijst *lst*),
-    # dan voeg je *waarde* in op de vrijgekomen plek.
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen. Deze lijst
+            is reeds gesorteerd van index 0 tot en met index `grens`, dus het deel `lst[0]` tot en
+            met `lst[grens]`.
+        grens (int): De index tot waar gegeven lijst `lst` al is gesorteerd.
+        waarde (int): Het element dat op de juiste plek moet worden ingevoegd in het reeds gesorteerde
+            deel van de lijst.
+    """
+    # Aanpak: begin bij index `grens` en verplaats elementen groter dan `waarde` naar rechts.
+    # Als je een waarde tegenkomt die kleiner is dan `waarde` (of het begin van lijst `lst`),
+    # dan voeg je `waarde` in op de vrijgekomen plek.
     return None     # De functie retourneert niets
 
 
 def insertion_sort(lst):
     """
-    Sorteer gegeven lijst lst met het insertion sort algoritme.
+    Sorteer gegeven lijst volgens het insertion sort algoritme.
+
     Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+
+    Returns:
+        list: Een nieuwe, gesorteerde variant van lijst `lst`.
     """
     return
 
@@ -78,7 +90,7 @@ def test_insertion_sort():
 
 if __name__ == '__main__':
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
 
         test_insert()
         print("Je functie insert() werkt goed!")
@@ -86,7 +98,7 @@ if __name__ == '__main__':
         test_insertion_sort()
         print("Je insertion sort algoritme werkt goed!\n\nKnap gedaan!\n")
 
-        print("\x1b[0;30m")
+        print("\x1b[0m")
         aantal = int(input("Hoeveel elementen zal ik sorteren? "))
         lijst = random.choices(range(0, 100), k=aantal)
 
@@ -95,5 +107,5 @@ if __name__ == '__main__':
         print(f"is na sortering met jouw algoritme: \n\t{gesorteerde_lijst}")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(str(ae))

@@ -4,9 +4,9 @@
 """
 Oriëntatie op AI
 
-Practicum 4: herkansing
+Final assignment 4: herkansing
 
-(c) 2019 Hogeschool Utrecht
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
@@ -15,28 +15,29 @@ Beantwoord onderstaande vragen en werk onderstaande functies uit.
 Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
-uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
+uit te voeren (of met behulp van `pytest`, als je weet hoe dat werkt).
 Lever je werk in op Canvas als alle tests slagen.
 
-Let op! Je mag voor deze opdracht geen extra modules importeren met 'import'.
+Let op! Het is niet toegestaan om bestaande modules te importeren en te
+        gebruiken, zoals `math` en `statistics`.
 """
 
-# Vul hier je naam, klas en studentnummer in
+# TODO: Vul hier je naam, klas en studentnummer in.
 naam = ""
 klas = ""
 studentnummer = -1
 
 """
 1.  Statistische uitschieters
-    Een statistische uitschieter is een meetpunt dat ligt op anderhalf keer de interkwartielafstand onder Q1 of
-    anderhalf keer de interkwartielafstand boven Q3.
+    Een statistische uitschieter is een meetpunt dat ligt op méér dan anderhalf keer de interkwartielafstand onder Q1
+    of méér dan anderhalf keer de interkwartielafstand boven Q3.
 
     Implementeer een functie outliers(lst) die de uitschieters van lijst lst met gehele getallen bepaald.
 
 
 2.  Sorteeralgoritme
 
-    Hieronder staat de pseudocode van een sorteeralgoritme voor een lijst lst van natuurlijke getallen:
+    Hieronder staat de pseudocode van een sorteeralgoritme voor een lijst `lst` van natuurlijke getallen:
     1. Bepaal het grootste getal k in de lijst.
     2. Maak een nieuwe lijst van lengte k+1, waarbij elk element in deze tweede lijst begint met de waarde 0.
     3. Tel het aantal voorkomens van elk getal in de originele lijst en sla deze frequentie op in de tweede lijst.
@@ -47,13 +48,15 @@ studentnummer = -1
     2a. Handmatig toepassen van stap 3.
         Gegeven is de lijst lst = [ 1, 0, 4, 1 ]. Geef de waardes die de *tweede* lijst aanneemt bij
         álle tussenstappen van stap 3. hierboven.
-
-        [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
     2b. Handmatig toepassen van stap 5.
         Geef nu de waardes die de *derde* lijst aanneemt bij álle tussenstappen van stap 5. hierboven.
-
-        [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
     2c. Implementatie
         Implementeer het sorteeralgoritme in Python in een functie hieronder genaamd my_sort(lst).
@@ -61,27 +64,32 @@ studentnummer = -1
     2d. Best en worst case
         -   Stel, je hebt de lijst met waarden lst = [ 1, 0, 4, 1 ], zoals hierboven. Door hoeveel elementen
             moet je dan stappen in het *hele* algoritme om tot een gesorteerde lijst te komen?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
         -   Stel, je hebt de lijst met waarden lst = [ 7, 5, 9 ]. Door hoeveel elementen
             moet je dan stappen in het *hele* algoritme om tot een gesorteerde lijst te komen?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
         -   Stel, je hebt de lijst met waarden lst = [ 42, 0 ]. Door hoeveel elementen
             moet je dan stappen in het *hele* algoritme om tot een gesorteerde lijst te komen?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
         -   Stel, je hebt de lijst met n waarden (dus len(lst) = n), met daarin als maximum waarde k. Door
             hoeveel elementen moet je dan stappen in het *hele* algoritme om tot een gesorteerde lijst te komen?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
         -   Concluderend: wanneer werkt dit algoritme efficiënt? En wanneer niet?
-
-            [geef hier je antwoord]
+"""
+            # TODO: [geef hier je antwoord]
+"""
 
 
 3.  De zeef van Erathosthenes
@@ -107,14 +115,15 @@ studentnummer = -1
 
 def outliers(lst):
     """
-    Bepaal de (statistische) uitschieters van lijst lst.
-    Tip: maak gebruik van q1() en q3() uit het practicum over statistiek.
+    Bepaal de (statistische) uitschieters van een lijst met getallen.
+
+    Hint: maak gebruik van `q1()` en `q3()` uit het practicum over statistiek.
 
     Args:
-        lst -- een (mogelijk ongesorteerde) lijst met gehele getallen (list)
+        lst (list): Een (mogelijk ongesorteerde) lijst met gehele getallen.
 
     Returns:
-        een lijst met alle uitschieters (list)
+        list: Een lijst met alle uitschieters van de gegeven getallen.
     """
     outlier_lst = []
     return sorted(outlier_lst)
@@ -122,8 +131,15 @@ def outliers(lst):
 
 def my_sort(lst):
     """
-    Sorteer gegeven lijst lst volgens het algoritme zoals beschreven in de pseudocode bij 1. hierboven.
-    Retourneert een gesorteerde lijst en laat de originele lijst lst intact.
+    Sorteer gegeven lijst volgens het algoritme zoals beschreven in de pseudocode hierboven.
+
+    Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+
+    Returns:
+        list: Een nieuwe, gesorteerde variant van lijst `lst`.
     """
     sorted_lst = []                     # stap 4.
     return sorted_lst                   # stap 6.
@@ -131,7 +147,13 @@ def my_sort(lst):
 
 def primes(num):
     """
-    Bepaal alle priemgetallen kleiner dan num (int) door middel van 'de zeef van Eratosthenes'.
+    Bepaal alle priemgetallen kleiner dan een bepaald geheel getal door middel van 'de zeef van Eratosthenes'.
+
+    Args:
+        num (int): Een geheel getal.
+
+    Returns:
+        list: Een gesorteerde lijst met alle priemgetallen kleiner dan `num`.
     """
     primes = []
     return primes
@@ -145,7 +167,7 @@ Je kunt je code testen door deze file te runnen of met behulp van pytest.
 import random
 
 
-def my_assert_args(function, args, expected_output, check_type=True):
+def __my_assert_args(function, args, expected_output, check_type=True):
     """
     Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
     Optioneel wordt ook het return-type gecontroleerd.
@@ -183,7 +205,7 @@ def test_outliers():
     ]
 
     for case in testcases:
-        my_assert_args(outliers, case[0], sorted(case[1]))
+        __my_assert_args(outliers, case[0], sorted(case[1]))
 
 
 def test_my_sort():
@@ -207,12 +229,13 @@ def test_primes():
     ]
 
     for case in testcases:
-        my_assert_args(primes, case[0], sorted(case[1]))
+        __my_assert_args(primes, case[0], sorted(case[1]))
 
 
-def main():
+def __main():
+    """ Test alle functies. """
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
         test_id()
 
         test_outliers()
@@ -228,9 +251,9 @@ def main():
         print("Lever je werk nu in op Canvas...")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)
 
 
 if __name__ == '__main__':
-    main()
+    __main()

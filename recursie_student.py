@@ -4,13 +4,14 @@
 """
 Oriëntatie op AI
 
-Opgave: recursie
+Oefening: recursie
 
-(c) 2019 Hogeschool Utrecht
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
+Let op! Het is niet toegestaan om bestaande modules te importeren en te
+        gebruiken, zoals `math` en `statistics`.
 """
 
 
@@ -33,12 +34,30 @@ def exponent(n):
 
 
 def som(lst):
-    """ Bereken de som van alle elementen van gegeven lijst lst op recursieve wijze. """
+    """ Bereken de som van alle elementen van gegeven lijst `lst` op recursieve wijze. """
     return 1
 
 
 def palindroom(woord):
-    """ Bepaal of gegeven woord (str) een palindroom is op recursieve wijze. """
+    """
+    Bepaal of gegeven woord een palindroom (spiegelwoord) is op recursieve wijze.
+
+    Args:
+        woord (str): Een woord.
+
+    Returns:
+        bool: Of gegeven woord een palindroom is.
+
+    Examples:
+        >> palindroom("raar")
+        True
+
+        >> palindroom("maandnaam")
+        True
+
+        >> palindroom("lekker")
+        False
+    """
     return False
 
 
@@ -73,8 +92,10 @@ def test_som():
 def test_palindroom():
     testcases = [
         ("", True),
-        ("radar", True),
+        ("raar", True),
         ("maandnaam", True),
+        ("lekker", False),
+        ("radar", True),
         ("pollepel", False),
         ("Maandnaam", False)
     ]
@@ -86,7 +107,7 @@ def test_palindroom():
 
 if __name__ == '__main__':
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
 
         test_faculteit()
         print("Je functie faculteit() doorstaat de tests!")
@@ -100,11 +121,11 @@ if __name__ == '__main__':
         test_palindroom()
         print("Je functie palindroom() doorstaat de tests!")
 
-        print("\x1b[0;30m")
+        print("\x1b[0m")
 
         x = input("Geef een woord: ")
         print(f"'{x}' is {'' if palindroom(x) else 'g'}een palindroom!")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)

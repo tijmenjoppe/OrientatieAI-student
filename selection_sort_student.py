@@ -1,13 +1,17 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Oriëntatie op AI
 
-Opgave: selection sort
+Oefening: selection sort
 
-(c) 2019 Hogeschool Utrecht
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
+Let op! Het is niet toegestaan om bestaande modules te importeren en te
+        gebruiken, zoals `math` en `statistics`.
 """
 
 
@@ -29,9 +33,15 @@ def find_index_of_minimum(lst, start_index=0):
 
 def selection_sort(lst):
     """
-    Sorteer gegeven lijst lst met het selection sort algoritme.
+    Sorteer gegeven lijst volgens het selection sort algoritme.
 
     Zorg dat de gegeven lijst niet verandert, maar geef een nieuwe, gesorteerde variant van de lijst terug.
+
+    Args:
+        lst (list): Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
+
+    Returns:
+        list: Een nieuwe, gesorteerde variant van lijst `lst`.
     """
     # Kopieer de originele lijst
     lst_sorted = lst.copy()
@@ -86,7 +96,7 @@ def test_selection_sort():
 
 if __name__ == '__main__':
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
 
         test_swap()
         print("Je functie swap() werkt goed!")
@@ -97,7 +107,7 @@ if __name__ == '__main__':
         test_selection_sort()
         print("Je selection sort algoritme werkt goed!\n\nKnap gedaan!\n")
 
-        print("\x1b[0;30m")
+        print("\x1b[0m")
         aantal = int(input("Hoeveel getallen zal ik sorteren? "))
         lijst = random.choices(range(0, 100), k=aantal)
 
@@ -106,5 +116,5 @@ if __name__ == '__main__':
         print(f"is na sortering: \n\t{gesorteerde_lijst}")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)

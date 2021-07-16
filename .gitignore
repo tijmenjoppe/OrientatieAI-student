@@ -130,15 +130,19 @@ dmypy.json
 
 
 # Added manually
+pytest.ini
+setup.cfg
 scratch_student.py
 scratch_test_student.py
 *.html
+
 bonusvraag/
-pytest.ini
-setup.cfg
+toets/
+
 project/algorithms_student.py
-project/data/steam.csv
-project/data/steam_small.json
 project/steamapi.tijmen.json
 project/steamapi.template.json
 project/steamapi.json
+project/data/additional/
+project/data/steam.csv
+project/data/steam_small.json

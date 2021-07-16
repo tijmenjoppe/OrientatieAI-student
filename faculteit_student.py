@@ -4,13 +4,14 @@
 """
 Oriëntatie op AI
 
-Opgave: faculteit (iteratief)
+Oefening: faculteit (iteratief)
 
-(c) 2019 Hogeschool Utrecht
+(c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
-Let op! Je mag voor deze opgave geen extra modules importeren met 'import'.
+Let op! Het is niet toegestaan om bestaande modules te importeren en te
+        gebruiken, zoals `math` en `statistics`.
 """
 
 
@@ -39,16 +40,16 @@ def test_faculteit_iteratief():
 
 if __name__ == '__main__':
     try:
-        print("\x1b[0;32m")
+        print("\x1b[32m")
 
         test_faculteit_iteratief()
         print("Je functie faculteit_iteratief() doorstaat de tests!")
 
-        print("\x1b[0;30m")
+        print("\x1b[0m")
 
         getal = int(input("Geef een getal: "))
         print(f"{getal}! = {faculteit_iteratief(getal)}")
 
     except AssertionError as ae:
-        print("\x1b[0;31m")
+        print("\x1b[31m")
         print(ae)
