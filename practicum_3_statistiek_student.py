@@ -351,8 +351,12 @@ def test_modes():
 
 def __main():
     """ Test alle functies. """
+    # Noodzakelijk voor gekleurde tekst binnen een Windows terminal
+    import os
+    os.system("")
+
     try:
-        print("\x1b[32m")
+        print("\x1b[32m")   # Groene tekstkleur
         test_id()
 
         test_mean()
@@ -419,8 +423,10 @@ def __main():
         print("\nHistogram (gekanteld):\n\n" + hist(freq(userlst)))
 
     except AssertionError as ae:
-        print("\x1b[31m")
+        print("\x1b[31m")   # Rode tekstkleur
         print(ae)
+
+    print("\x1b[0m")    # Reset tekstkleur
 
 
 if __name__ == '__main__':

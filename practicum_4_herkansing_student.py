@@ -154,6 +154,9 @@ def primes(num):
 
     Returns:
         list: Een gesorteerde lijst met alle priemgetallen kleiner dan `num`.
+
+    .. _Sieve of Eratosthenes:
+        https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
     """
     primes = []
     return primes
@@ -234,8 +237,12 @@ def test_primes():
 
 def __main():
     """ Test alle functies. """
+    # Noodzakelijk voor gekleurde tekst binnen een Windows terminal
+    import os
+    os.system("")
+
     try:
-        print("\x1b[32m")
+        print("\x1b[32m")   # Groene tekstkleur
         test_id()
 
         test_outliers()
@@ -251,8 +258,10 @@ def __main():
         print("Lever je werk nu in op Canvas...")
 
     except AssertionError as ae:
-        print("\x1b[31m")
+        print("\x1b[31m")   # Rode tekstkleur
         print(ae)
+
+    print("\x1b[0m")    # Reset tekstkleur
 
 
 if __name__ == '__main__':

@@ -195,8 +195,12 @@ def test_binary_search_recursive():
 
 def __main():
     """ Test alle functies. """
+    # Noodzakelijk voor gekleurde tekst binnen een Windows terminal
+    import os
+    os.system("")
+
     try:
-        print("\x1b[32m")
+        print("\x1b[32m")   # Groene tekstkleur
         test_id()
 
         test_my_sort()
@@ -212,8 +216,10 @@ def __main():
         print("Lever je werk nu in op Canvas...")
 
     except AssertionError as ae:
-        print("\x1b[31m")
+        print("\x1b[31m")   # Rode tekstkleur
         print(ae)
+
+    print("\x1b[0m")    # Reset tekstkleur
 
 
 if __name__ == '__main__':
