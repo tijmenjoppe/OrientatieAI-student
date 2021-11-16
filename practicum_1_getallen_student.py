@@ -314,6 +314,22 @@ def test_is_prime():
         __my_assert_args(is_prime, case[0], case[1])
 
 
+
+def test_primes():
+    testcases = [
+        ((1,), []),
+        ((2,), []),
+        ((3,), [2]),
+        ((4,), [2, 3]),
+        ((5,), [2, 3]),
+        ((6,), [2, 3, 5]),
+        ((30,), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
+    ]
+
+    for case in testcases:
+        __my_assert_args(primes, case[0], sorted(case[1]))
+
+
 def test_primefactors():
     testcases = [
         ((-1,), []),
@@ -329,21 +345,6 @@ def test_primefactors():
 
     for case in testcases:
         __my_assert_args(primefactors, case[0], sorted(case[1]))
-
-
-def test_primes():
-    testcases = [
-        ((1,), []),
-        ((2,), []),
-        ((3,), [2]),
-        ((4,), [2, 3]),
-        ((5,), [2, 3]),
-        ((6,), [2, 3, 5]),
-        ((30,), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
-    ]
-
-    for case in testcases:
-        __my_assert_args(primes, case[0], sorted(case[1]))
 
 
 def test_gcd():
