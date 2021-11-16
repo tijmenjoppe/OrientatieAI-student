@@ -435,11 +435,11 @@ def __main():
         test_is_prime()
         print("Je functie is_prime(n) werkt goed!")
 
-        test_primefactors()
-        print("Je functie primefactors(n) werkt goed!")
-
         test_primes()
         print("Je functie primes(num) werkt goed!")
+        
+        test_primefactors()
+        print("Je functie primefactors(n) werkt goed!")
 
         test_gcd()
         test_gcd_simulated()
