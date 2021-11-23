@@ -222,8 +222,7 @@ def __main():
             raise ae
         else:
             print(ae)
-
-    print("\x1b[0m")    # Reset tekstkleur
+        exit(1)
 
 
 if __name__ == '__main__':

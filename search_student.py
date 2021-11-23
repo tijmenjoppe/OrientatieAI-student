@@ -228,3 +228,4 @@ if __name__ == '__main__':
             raise ae
         else:
             print(ae)
+        exit(1)
