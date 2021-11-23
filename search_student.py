@@ -223,4 +223,8 @@ if __name__ == '__main__':
 
     except AssertionError as ae:
         print("\x1b[31m")
-        print(ae)
+        if len(str(ae)) == 0:
+            print("Je code veroorzaakt een AssertionError!")
+            raise ae
+        else:
+            print(ae)
