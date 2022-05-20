@@ -55,16 +55,16 @@ def binary_search(lst, target):
     Returns:
         bool: Of het gezochte element voorkomt in de lijst.
     """
-    # stap 1
+    # Stap 1.
     mini = 0
 
-    # stap 6(!)
+    # Stap 6. (!)
     while False:    # hoelang ga je door met zoeken?
-        # stap 2
-        # stap 3
+        # Stap 2.
+        # Stap 3.
         return True
-        # stap 4
-        # stap 5
+        # Stap 4.
+        # Stap 5.
 
     return False
 
@@ -222,5 +222,10 @@ if __name__ == '__main__':
         print(f"Het binair zoekalgoritme vond '{tgt}' op index '{idx}' na {cnt} stappen.")
 
     except AssertionError as ae:
-        print("\x1b[31m")
-        print(ae)
+        print("\x1b[31m")   # Rode tekstkleur
+        if not ae:
+            print("Je code veroorzaakt onderstaande AssertionError:")
+            raise ae
+        else:
+            print(ae)
+        print("\x1b[0m")    # Reset tekstkleur

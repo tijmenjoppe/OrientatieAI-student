@@ -89,7 +89,7 @@ def test_selection_sort():
     lst_copy = lst_test.copy()
     lst_output = selection_sort(lst_test)
 
-    assert lst_copy == lst_test, "Fout: my_sort(lst) verandert de inhoud van lijst lst"
+    assert lst_copy == lst_test, "Fout: selection_sort(lst) verandert de inhoud van lijst lst"
     assert lst_output == sorted(lst_test), \
         f"Fout: selection_sort({lst_test}) geeft {lst_output} in plaats van {sorted(lst_test)}"
 
@@ -116,5 +116,10 @@ if __name__ == '__main__':
         print(f"is na sortering: \n\t{gesorteerde_lijst}")
 
     except AssertionError as ae:
-        print("\x1b[31m")
-        print(ae)
+        print("\x1b[31m")   # Rode tekstkleur
+        if not ae:
+            print("Je code veroorzaakt onderstaande AssertionError:")
+            raise ae
+        else:
+            print(ae)
+        print("\x1b[0m")    # Reset tekstkleur

@@ -453,10 +453,13 @@ def __main():
         print("\nGefeliciteerd, alles lijkt te werken!")
         print("Lever je werk nu in op Canvas...")
 
-
     except AssertionError as ae:
         print("\x1b[31m")   # Rode tekstkleur
-        print(ae)
+        if not ae:
+            print("Je code veroorzaakt onderstaande AssertionError:")
+            raise ae
+        else:
+            print(ae)
 
     print("\x1b[0m")    # Reset tekstkleur
 

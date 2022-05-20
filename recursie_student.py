@@ -127,5 +127,10 @@ if __name__ == '__main__':
         print(f"'{x}' is {'' if palindroom(x) else 'g'}een palindroom!")
 
     except AssertionError as ae:
-        print("\x1b[31m")
-        print(ae)
+        print("\x1b[31m")   # Rode tekstkleur
+        if not ae:
+            print("Je code veroorzaakt onderstaande AssertionError:")
+            raise ae
+        else:
+            print(ae)
+        print("\x1b[0m")    # Reset tekstkleur

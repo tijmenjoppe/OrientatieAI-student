@@ -46,6 +46,7 @@ def insertion_sort(lst):
     Returns:
         list: Een nieuwe, gesorteerde variant van lijst `lst`.
     """
+    # Kopieer de lijst, zodat de originele lijst niet verandert
     return
 
 
@@ -107,5 +108,10 @@ if __name__ == '__main__':
         print(f"is na sortering met jouw algoritme: \n\t{gesorteerde_lijst}")
 
     except AssertionError as ae:
-        print("\x1b[31m")
-        print(str(ae))
+        print("\x1b[31m")   # Rode tekstkleur
+        if not ae:
+            print("Je code veroorzaakt onderstaande AssertionError:")
+            raise ae
+        else:
+            print(ae)
+        print("\x1b[0m")    # Reset tekstkleur
