@@ -172,7 +172,8 @@ def modes(lst):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
-
+import os
+import sys
 
 def __my_assert_args(function, args, expected_output, check_type=True):
     """
@@ -259,7 +260,7 @@ def test_q1():
         (([1, 3, 5, 6, 1, 4, 2],), 1.0),
         (([5, 7, 4, 4, 6, 2, 8],), 4.0),
         (([0, 5, 5, 6, 7, 7, 12],), 5.0),
-        (([1, 3, 3, 5, 6, 2, 4, 1],), 1.5),
+        (([1, 4, 3, 5, 6, 2, 4, 1],), 1.5),
         (([3, 5, 7, 8, 9, 11, 15, 16, 20, 21],), 7.0),
         (([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27],), 5.0)
 
@@ -276,8 +277,7 @@ def test_q3():
         (([1, 3, 5, 6, 2, 4, 1],), 5.0),
         (([5, 7, 4, 4, 6, 2, 8],), 7.0),
         (([0, 5, 5, 6, 7, 7, 12],), 7.0),
-        (([1, 3, 3, 5, 6, 2, 4, 1],), 4.5),
-        (([1, 3, 3, 5, 6, 2, 4, 1],), 4.5),
+        (([1, 4, 3, 5, 6, 2, 4, 1],), 4.5),
         (([3, 5, 7, 8, 9, 11, 15, 16, 20, 21],), 16.0),
         (([1, 2, 5, 6, 7, 9, 12, 15, 18, 19, 27],), 18.0)
 
@@ -330,7 +330,7 @@ def test_freq():
         (([4, 2, 5, 8, 6],), {2: 1, 4: 1, 5: 1, 6: 1, 8: 1}),
         (([1, 3, 4, 6, 4, 2],), {1: 1, 2: 1, 3: 1, 4: 2, 6: 1}),
         (([1, 3, 5, 6, 2, 4, 1],), {1: 2, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1}),
-        (([1, 3, 3, 5, 6, 2, 4, 1],), {1: 2, 2: 1, 3: 2, 4: 1, 5: 1, 6: 1})
+        (([1, 4, 3, 5, 6, 2, 4, 1],), {1: 2, 2: 1, 3: 1, 4: 2, 5: 1, 6: 1})
     ]
 
     for case in testcases:
@@ -348,11 +348,18 @@ def test_modes():
     for case in testcases:
         __my_assert_args(modes, case[0], case[1])
 
+def test_modes_simulated():
+    if sys.version_info[0] >= 3 and sys.version_info[1] >= 8:
+        import random
+        import statistics
+        for lst_size in range(1, 11):
+            lst_test = [random.choice(range(5)) for _ in range(lst_size)]
+            __my_assert_args(modes, (lst_test,), sorted(statistics.multimode(lst_test)))
+
 
 def __main():
     """ Test alle functies. """
     # Noodzakelijk voor gekleurde tekst binnen een Windows terminal
-    import os
     os.system("")
 
     try:
@@ -388,6 +395,7 @@ def __main():
         print("Je functie freq(lst) werkt goed!")
 
         test_modes()
+        test_modes_simulated()
         print("Je functie modes(lst) werkt goed!")
 
         print("\nGefeliciteerd, alles lijkt te werken!")
