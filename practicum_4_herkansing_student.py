@@ -49,13 +49,13 @@ studentnummer = -1
         Gegeven is de lijst lst = [ 1, 0, 4, 1 ]. Geef de waardes die de *tweede* lijst aanneemt bij
         álle tussenstappen van stap 3. hierboven.
 """
-            # TODO: [geef hier je antwoord]
+#       TODO: [geef hier je antwoord]
 """
 
     2b. Handmatig toepassen van stap 5.
         Geef nu de waardes die de *derde* lijst aanneemt bij álle tussenstappen van stap 5. hierboven.
 """
-            # TODO: [geef hier je antwoord]
+#       TODO: [geef hier je antwoord]
 """
 
     2c. Implementatie
@@ -65,30 +65,30 @@ studentnummer = -1
         -   Stel, je hebt de lijst met waarden lst = [ 1, 0, 4, 1 ], zoals hierboven. Door hoeveel elementen
             moet je dan stappen in het *hele* algoritme om tot een gesorteerde lijst te komen?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 
         -   Stel, je hebt de lijst met waarden lst = [ 7, 5, 9 ]. Door hoeveel elementen
             moet je dan stappen in het *hele* algoritme om tot een gesorteerde lijst te komen?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 
         -   Stel, je hebt de lijst met waarden lst = [ 42, 0 ]. Door hoeveel elementen
             moet je dan stappen in het *hele* algoritme om tot een gesorteerde lijst te komen?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 
         -   Stel, je hebt de lijst met n waarden (dus len(lst) = n), met daarin als maximum waarde k. Door
             hoeveel elementen moet je dan stappen in het *hele* algoritme om tot een gesorteerde lijst te komen?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 
         -   Concluderend: wanneer werkt dit algoritme efficiënt? En wanneer niet?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 
 

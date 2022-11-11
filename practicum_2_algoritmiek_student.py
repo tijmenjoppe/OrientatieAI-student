@@ -40,7 +40,7 @@ studentnummer = -1
         lijst aanneemt bij álle tussenstappen bij toepassing van
         bovenstaand sorteeralgoritme.
 """
-        # TODO: [geef hier je antwoord]
+#       TODO: [geef hier je antwoord]
 """
 
     1b. Implementatie
@@ -54,7 +54,7 @@ studentnummer = -1
             Hoeveel vergelijkingen (zoals beschreven in stap 1. van de
             pseudocode) zijn nodig geweest?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 
 
@@ -62,7 +62,7 @@ studentnummer = -1
             sorteeralgoritme het minst snel klaar (worst-case scenario)?
             Hoeveel vergelijkingen zijn nodig geweest?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 
 
@@ -72,11 +72,11 @@ studentnummer = -1
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 
 
-        -   Stel je hebt een lijst met de waarden 1 tot en met n
+        -   (Optioneel) Stel je hebt een lijst met de waarden 1 tot en met n
             (je weet nu dus niet precies hoeveel waarden er in de lijst
             zitten, het zijn er 'n').
             Wat is nu het best-case scenario?
@@ -84,7 +84,7 @@ studentnummer = -1
             En wat is nu het worst-case scenario?
             Hoeveel vergelijkingen zijn er nodig?
 """
-            # TODO: [geef hier je antwoord]
+#           TODO: [geef hier je antwoord]
 """
 """
 
@@ -128,7 +128,7 @@ def linear_search_recursive(lst, target):
 
 def binary_search_recursive(lst, target):
     """
-    Zoek een element in de gegeven lijst door middel van recursief binair zoeken.
+    (Optioneel) Zoek een element in de gegeven lijst door middel van recursief binair zoeken.
 
     Je mag ervan uit gaan dat de gegeven lijst al gesorteerd is.
     Zorg dat de inhoud van de gegeven lijst niet verandert.
