@@ -359,7 +359,9 @@ def test_gcd():
         ((60, 15), 15),
         ((60, 16), 4),
         ((60, 18), 6),
-        ((18, 60), 6)
+        ((15, 60), 15),
+        ((16, 60), 4),
+        ((18, 60), 6),
     ]
 
     for case in testcases:
@@ -386,12 +388,23 @@ def test_lcm():
         ((60, 10), 60),
         ((60, 11), 660),
         ((60, 18), 180),
-        ((18, 60), 180)
+        ((10, 60), 60),
+        ((11, 60), 660),
+        ((18, 60), 180),
     ]
 
     for case in testcases:
         __my_assert_args(lcm, case[0], case[1])
 
+
+def test_lcm_simulated():
+    import random
+    import math
+
+    for _ in range(10):
+        a = random.randrange(3, 201, 3)
+        b = random.randrange(4, 201, 4)
+        __my_assert_args(lcm, (a, b), math.lcm(a, b))
 
 def test_add_frac():
     testcases = [
@@ -447,6 +460,7 @@ def __main():
         print("Je functie gcd(a, b) werkt goed!")
 
         test_lcm()
+        test_lcm_simulated()
         print("Je functie lcm(a, b) werkt goed!")
 
         test_add_frac()

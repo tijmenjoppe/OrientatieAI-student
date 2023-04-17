@@ -134,6 +134,8 @@ pytest.ini
 setup.cfg
 scratch_student.py
 scratch_test_student.py
+practicum_4_herkansing_student.py
+
 *.html
 
 bonusvraag/
