@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """
 Oriëntatie op AI
 
-Final assignment 3: statistiek
+Final assignment: statistiek
 
 (c) 2019 Hogeschool Utrecht,
-Bart van Eijkelenburg en
+Bart van Eijkelenburg
 Tijmen Muller (tijmen.muller@hu.nl)
 
 Opdracht:
@@ -28,6 +27,24 @@ naam = ""
 klas = ""
 studentnummer = -1
 
+"""
+1.  Pseudocode derde kwartiel
+
+    Schrijf Nederlandse pseudocode voor een algoritme voor de functie q3() (zie onder).
+    Gebruik hoofdletters voor de keywords in je pseudocode.
+
+"""
+#   TODO: [geef hier je antwoord]
+
+"""
+2.  Pseudocode frequentie
+
+    Schrijf Nederlandse pseudocode voor een algoritme voor de functie freq() (zie onder).
+    Gebruik hoofdletters voor de keywords in je pseudocode.
+
+"""
+#   TODO: [geef hier je antwoord]
+
 
 def mean(lst):
     """
@@ -38,32 +55,6 @@ def mean(lst):
 
     Returns:
         float: Het gemiddelde van de gegeven getallen.
-    """
-    return
-
-
-def rnge(lst):
-    """
-    Bepaal het bereik van een lijst getallen.
-
-    Args:
-        lst (list): Een lijst met gehele getallen.
-
-    Returns:
-        int: Het bereik van de gegeven getallen.
-    """
-    return
-
-
-def median(lst):
-    """
-    Bepaal de mediaan van een lijst getallen.
-
-    Args:
-        lst (list): Een lijst met gehele getallen.
-
-    Returns:
-        float: De mediaan van de gegeven getallen.
     """
     return
 
@@ -222,37 +213,6 @@ def test_mean_simulated():
         __my_assert_args(mean, (lst_test,), statistics.mean(lst_test), False)
 
 
-def test_rnge():
-    testcases = [
-        (([4, 2, 5, 8, 6],), 6),
-        (([1, 3, 2, 4, 6, 2, 4, 2],), 5)
-    ]
-
-    for case in testcases:
-        __my_assert_args(rnge, case[0], case[1])
-
-
-def test_median():
-    testcases = [
-        (([4, 2, 5, 8, 6],), 5.0),
-        (([1, 3, 4, 6, 4, 2],), 3.5),
-        (([1, 3, 4, 6, 2, 4, 2],), 3.0),
-        (([1, 3, 2, 4, 6, 2, 4, 2],), 2.5)
-    ]
-
-    for case in testcases:
-        __my_assert_args(median, case[0], case[1])
-
-
-def test_median_simulated():
-    import random
-    import statistics
-
-    for lst_size in range(1, 11):
-        lst_test = [random.choice(range(5)) for _ in range(lst_size)]
-        __my_assert_args(median, (lst_test,), statistics.median(lst_test), False)
-
-
 def test_q1():
     testcases = [
         (([4, 2, 5, 8, 6],), 3.0),
@@ -372,13 +332,6 @@ def __main():
         test_mean_simulated()
         print("Je functie mean(lst) werkt goed!")
 
-        test_rnge()
-        print("Je functie rnge(lst) werkt goed!")
-
-        test_median()
-        test_median_simulated()
-        print("Je functie median(lst) werkt goed!")
-
         test_q1()
         print("Je functie q1(lst) werkt goed!")
 
@@ -422,11 +375,9 @@ def __main():
 
         print("\nHet gemiddelde is {:.2f}".format(mean(userlst)))
         print("De modi zijn {}".format(modes(userlst)))
-        print("De mediaan is {:.2f}".format(median(userlst)))
         print("Q1 is {:.2f}".format(q1(userlst)))
         print("Q3 is {:.2f}".format(q3(userlst)))
 
-        print("Het bereik is {}".format(rnge(userlst)))
         print("De variantie is {:.2f}".format(var(userlst)))
         print("De standaardafwijking is {:.2f}".format(std(userlst)))
 

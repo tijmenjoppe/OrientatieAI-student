@@ -4,15 +4,16 @@
 """
 Oriëntatie op AI
 
-Final assignment 1: getallen
+Final assignment: getallen
 
 (c) 2019 Hogeschool Utrecht,
-Bart van Eijkelenburg en
+Peter van den Berg (peter.vandenberg@hu.nl)
+Bart van Eijkelenburg
 Tijmen Muller (tijmen.muller@hu.nl)
 
 
 Opdracht:
-Werk onderstaande functies uit.
+Beantwoord onderstaande vragen en werk onderstaande functies uit.
 Voeg commentaar toe om je code toe te lichten.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
@@ -28,10 +29,41 @@ naam = ""
 klas = ""
 studentnummer = -1
 
+"""
+1.  Pseudocode ceil
+
+    Schrijf Nederlandse pseudocode voor een algoritme voor de functie ceil() (zie onder).
+    Gebruik hoofdletters voor de keywords in je pseudocode.
+    
+"""
+#   TODO: [geef hier je antwoord]
+
+"""
+2.  Pseudocode meetkundige rij
+
+    Schrijf Nederlandse pseudocode voor een algoritme voor de functie meetkundige_rij() (zie onder).
+    Gebruik hoofdletters voor de keywords in je pseudocode.
+
+"""
+#   TODO: [geef hier je antwoord]
+
+
+def ceil(real):
+    """
+    Bepaal het kleinste gehele getal (int), groter dan of gelijk aan het gegeven reeele getal (float).
+
+    Args:
+        real (float): Een reeel getal.
+
+    Returns:
+        int: Het kleinste gehele getal (int), groter dan of gelijk aan het gegeven reeele getal (float).
+    """
+    return 0
+
 
 def is_even(n):
     """
-    Bepaal of een getal even is.
+    Bepaal of een geheel getal even is.
 
     Args:
         n (int): Een geheel getal.
@@ -39,145 +71,76 @@ def is_even(n):
     Returns:
         bool: True als even, False als oneven.
     """
-    return
+    return False
 
 
-def floor(real):
-    """ Bepaal het grootste gehele getal (int), dat kleiner dan of gelijk is aan real (float). """
-    return
-
-
-def ceil(real):
-    """ Bepaal het kleinste gehele getal (int), groter dan of gelijk aan real (float). """
-    return
-
-
-def div(n):
+def is_odd(n):
     """
-    Bepaal alle delers van een geheel getal.
-
-    Het positieve gehele getal a is een deler van n, als er een positief geheel getal b is, zodat a × b = n.
+    Bepaal of een geheel getal oneven is.
 
     Args:
         n (int): Een geheel getal.
 
     Returns:
-        list: Een gesorteerde lijst met alle delers van `n`.
+        bool: True als oneven, False als even.
     """
-    divisors = []
-    return sorted(divisors)
+    return False
 
 
-def is_prime(n):
+def nround(real):
     """
-    Bepaal of gegeven getal een priemgetal is.
-
-    Hint: maak gebruik van de functie `div()`.
-    Optioneel: bedenk een efficiënter alternatief.
+    Bepaal het gehele getal (int) dat het dichtst bij het gegeven reeele getal (float) zit.
 
     Args:
-        n (int): Een geheel getal.
+        real (float): Een reeel getal.
 
     Returns:
-        bool: True als het getal een priemgetal is, anders False.
+        int: Het gehele getal (int) dat het dichtst bij het gegeven reeele getal (float) zit.
     """
-    return
+
+    return 0
 
 
-def primes(num):
+def meetkundige_rij(start, factor, exponent):
     """
-    Bepaal alle priemgetallen kleiner dan een bepaald geheel getal.
-
-    Hint: Maak gebruik van de functie `is_prime()`.
+    Bereken een meetkundige rij (a_n = a_0 · r^n) gegeven een startgetal, een factor en een exponent.
 
     Args:
-        num (int): Een geheel getal.
+        start (int): Het getal waar de rij mee begint
+        factor (int): de factor van de rij
+        exponent (int): de exponent van de rij
 
     Returns:
-        list: Een gesorteerde lijst met alle priemgetallen kleiner dan `num`.
+        list of int: de meetkundige rij
     """
-    primelist = []
-    return sorted(primelist)
+    rij = []
+    return rij
 
 
-def primefactors(n):
+def dec2bin(n):
     """
-    Bepaal de verzameling van priemfactoren van n.
+    Bepaal de binaire representatie van een getal uit het decimale talstelsel.
 
     Args:
-        n (int): Een geheel getal.
+        n (int): Een geheel, positief getal uit het decimale talstelsel.
 
     Returns:
-        list: Een gesorteerde lijst met alle priemfactoren van n. Als n kleiner
-            dan 2, retourneer dan een lege lijst `[]`.
-    """
-    factors = []
-    return sorted(factors)
-
-
-def gcd(a, b):
-    """
-    Bepaal de grootste grootste gemene deler (ook wel 'greatest common divisor', gcd) van twee natuurlijke getallen.
-
-    Je hebt twee opties voor deze opgave:
-    1.  Je programmeert hier het algoritme van Euclides.
-        Zie: https://nl.wikipedia.org/wiki/Algoritme_van_Euclides
-    2.  Je bedenkt zelf een oplossing waarbij je gebruik maakt van de eerder
-        geschreven methode div(n) om de gcd te bepalen.
-
-    Args:
-        a (int): Een geheel getal.
-        b (int): Een geheel getal.
-
-    Returns:
-        int: De grootste grootste gemene deler.
-    """
-    return
-
-
-def lcm(a, b):
-    """
-    Bepaal het kleinste gemene veelvoud, kgv (ook wel 'least common multiple', lcm) van twee natuurlijke getallen.
-
-    Args:
-        a (int): Een geheel getal.
-        b (int): Een geheel getal.
-
-    Returns:
-        int: Het kleinste gemene veelvoud.
-    """
-    return
-
-
-def add_frac(n1, d1, n2, d2):
-    """Sommeer twee breuken als breuk. Vereenvoudig de breuk zover als mogelijk.
-
-    Args:
-        n1 (int): De teller van de eerste breuk.
-        d1 (int): De noemer van de eerste breuk.
-        n2 (int): De teller van de tweede breuk.
-        d2 (int): De noemer van de tweede breuk.
-
-    Returns:
-        tuple: De som *als breuk*, met eerst de teller en dan de noemer van het resultaat.
+        tuple: Binaire representatie van het gegeven getal.
 
     Examples:
-        Gegeven 1/3 + 1/5 = 8/15, dan
+        >> dec2bin(0)
+        (0,)
 
-        >> add_frac(1, 3, 1, 5)
-        (8, 15)
+        >> dec2bin(2)
+        (1, 0)
 
-        Gegeven 1/2 + 1/4 = 3/4, dan
+        >> dec2bin(3)
+        (1, 1)
 
-        >> add_frac(1, 2, 1, 4)
-        (3, 4)
-
-        Gegeven 2/3 + 3/2 = 13/6, dan
-
-        >> add_frac(2, 3, 3, 2)
-        (13, 6)
+        >> dec2bin(16)
+        (1, 0, 0, 0, 0)
     """
-    return 1, 1
+    return (0,)
 
 
 """
@@ -185,6 +148,7 @@ def add_frac(n1, d1, n2, d2):
 Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
+# import random
 
 
 def __my_assert_args(function, args, expected_output, check_type=True):
@@ -216,44 +180,6 @@ def test_id():
     assert klas != "", "Je moet je klas nog invullen!"
 
 
-def test_is_even():
-    testcases = [
-        ((1,), False),
-        ((2,), True),
-        ((3,), False),
-        ((4,), True)
-    ]
-
-    for case in testcases:
-        __my_assert_args(is_even, case[0], case[1])
-
-
-def test_floor():
-    testcases = [
-        ((1.05,), 1),
-        ((1.95,), 1),
-        ((-1.05,), -2),
-        ((-1.95,), -2),
-        ((0.05,), 0),
-        ((-0.05,), -1),
-        ((0.0, ), 0),
-        ((1.0, ), 1),
-        ((-1.0, ), -1)
-    ]
-
-    for case in testcases:
-        __my_assert_args(floor, case[0], case[1])
-
-
-def test_floor_simulated():
-    import random
-    import math
-
-    for _ in range(10):
-        x = random.uniform(-10.0, 10.0)
-        __my_assert_args(floor, (x,), math.floor(x))
-
-
 def test_ceil():
     testcases = [
         ((1.05,), 2),
@@ -271,155 +197,79 @@ def test_ceil():
         __my_assert_args(ceil, case[0], case[1])
 
 
-def test_ceil_simulated():
-    import random
-    import math
-
-    for _ in range(10):
-        x = random.uniform(-10.0, 10.0)
-        __my_assert_args(ceil, (x,), math.ceil(x))
-
-
-def test_div():
+def test_nround():
     testcases = [
-        ((1,), [1]),
-        ((2,), [1, 2]),
-        ((3,), [1, 3]),
-        ((4,), [1, 2, 4]),
-        ((8,), [1, 2, 4, 8]),
-        ((12,), [1, 2, 3, 4, 6, 12]),
-        ((19,), [1, 19]),
-        ((25,), [1, 5, 25]),
-        ((929,), [1, 929]),
-        ((936,), [1, 2, 3, 4, 6, 8, 9, 12, 13, 18, 24, 26, 36, 39, 52, 72, 78, 104, 117, 156, 234, 312, 468, 936])
+        ((1.05,), 1),
+        ((1.95,), 2),
+        ((-1.05,), -1),
+        ((-1.95,), -2),
+        ((0.05,), 0),
+        ((-0.05,), 0),
+        ((0.0, ), 0),
+        ((1.0, ), 1),
+        ((-1.0, ), -1)
     ]
 
     for case in testcases:
-        __my_assert_args(div, case[0], sorted(case[1]))
+        __my_assert_args(nround, case[0], case[1])
 
 
-def test_is_prime():
+def test_is_even():
     testcases = [
         ((1,), False),
         ((2,), True),
+        ((3,), False),
+        ((4,), True),
+        ((-1,), False),
+        ((-2,), True)
+    ]
+
+    for case in testcases:
+        __my_assert_args(is_even, case[0], case[1])
+
+
+def test_is_odd():
+    testcases = [
+        ((1,), True),
+        ((2,), False),
         ((3,), True),
         ((4,), False),
-        ((5,), True),
-        ((6,), False),
-        ((9,), False),
-        ((29,), True)
+        ((-1,), True),
+        ((-2,), False)
     ]
 
     for case in testcases:
-        __my_assert_args(is_prime, case[0], case[1])
+        __my_assert_args(is_odd, case[0], case[1])
 
 
-def test_primefactors():
+def test_meetkundige_rij():
     testcases = [
-        ((-1,), []),
-        ((1,), []),
-        ((2,), [2]),
-        ((3,), [3]),
-        ((4,), [2, 2]),
-        ((8,), [2, 2, 2]),
-        ((12,), [2, 2, 3]),
-        ((2352,), [2, 2, 2, 2, 3, 7, 7]),
-        ((9075,), [3, 5, 5, 11, 11])
+        ((1, 2, 3), [1, 2, 4]),
+        ((3, 4, 5), [3, 12, 48, 192, 768]),
+        ((3, 5, 7), [3, 15, 75, 375, 1875, 9375, 46875]),
+        ((5, 2, 5), [5, 10, 20, 40, 80]),
+        ((5, 3, 5), [5, 15, 45, 135, 405]),
+        ((10, 10, 10), [10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000])
     ]
 
     for case in testcases:
-        __my_assert_args(primefactors, case[0], sorted(case[1]))
+        __my_assert_args(meetkundige_rij, case[0], case[1])
+    return 1
 
 
-def test_primes():
+def test_dec2bin():
     testcases = [
-        ((1,), []),
-        ((2,), []),
-        ((3,), [2]),
-        ((4,), [2, 3]),
-        ((5,), [2, 3]),
-        ((6,), [2, 3, 5]),
-        ((30,), [2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
+        ((0,), (0, )),
+        ((1,), (1, )),
+        ((2,), (1, 0)),
+        ((3,), (1, 1)),
+        ((7,), (1, 1, 1)),
+        ((8,), (1, 0, 0, 0)),
+        ((255,), (1, 1, 1, 1, 1, 1, 1, 1)),
     ]
 
     for case in testcases:
-        __my_assert_args(primes, case[0], sorted(case[1]))
-
-
-def test_gcd():
-    testcases = [
-        ((60, 1), 1),
-        ((60, 6), 6),
-        ((60, 7), 1),
-        ((60, 8), 4),
-        ((60, 9), 3),
-        ((60, 11), 1),
-        ((60, 13), 1),
-        ((60, 14), 2),
-        ((60, 15), 15),
-        ((60, 16), 4),
-        ((60, 18), 6),
-        ((15, 60), 15),
-        ((16, 60), 4),
-        ((18, 60), 6),
-    ]
-
-    for case in testcases:
-        __my_assert_args(gcd, case[0], case[1])
-
-
-def test_gcd_simulated():
-    import random
-    import math
-
-    for _ in range(10):
-        a = random.randrange(3, 201, 3)
-        b = random.randrange(4, 201, 4)
-        __my_assert_args(gcd, (a, b), math.gcd(a, b))
-
-
-def test_lcm():
-    testcases = [
-        ((60, 1), 60),
-        ((60, 2), 60),
-        ((60, 7), 420),
-        ((60, 8), 120),
-        ((60, 9), 180),
-        ((60, 10), 60),
-        ((60, 11), 660),
-        ((60, 18), 180),
-        ((10, 60), 60),
-        ((11, 60), 660),
-        ((18, 60), 180),
-    ]
-
-    for case in testcases:
-        __my_assert_args(lcm, case[0], case[1])
-
-
-def test_lcm_simulated():
-    import random
-    import math
-
-    for _ in range(10):
-        a = random.randrange(3, 201, 3)
-        b = random.randrange(4, 201, 4)
-        __my_assert_args(lcm, (a, b), math.lcm(a, b))
-
-def test_add_frac():
-    testcases = [
-        ((1, 3, 1, 5), (8, 15)),
-        ((1, 2, 1, 4), (3, 4)),
-        ((2, 3, 3, 2), (13, 6)),
-        ((1, 2, 1, 6), (2, 3)),
-        ((3, 4, 1, 6), (11, 12)),
-        ((1, 6, 3, 4), (11, 12)),
-        ((1, 2, 1, 3), (5, 6)),
-        ((1, 2, 2, 3), (7, 6))
-    ]
-
-    for case in testcases:
-        __my_assert_args(add_frac, case[0], case[1])
+        __my_assert_args(dec2bin, case[0], case[1])
 
 
 def __main():
@@ -429,45 +279,26 @@ def __main():
     os.system("")
 
     try:
-        print("\x1b[32m")   # Groene tekstkleur
+        print("\x1b[32m")
         test_id()
 
-        test_is_even()
-        print("Je functie is_even(n) werkt goed!")
-
-        test_floor()
-        test_floor_simulated()
-        print("Je functie floor(real) werkt goed!")
-
         test_ceil()
-        test_ceil_simulated()
-        print("Je functie ceil(real) werkt goed!")
+        print("Je functie ceil() werkt goed!")
 
-        test_div()
-        print("Je functie div(n) werkt goed!")
+        test_is_even()
+        print("Je functie is_even() werkt goed!")
 
-        test_is_prime()
-        print("Je functie is_prime(n) werkt goed!")
+        test_is_odd()
+        print("Je functie is_odd() werkt goed!")
 
-        test_primes()
-        print("Je functie primes(num) werkt goed!")
+        test_nround()
+        print("Je functie nround() werkt goed!")
 
-        test_primefactors()
-        print("Je functie primefactors(n) werkt goed!")
+        test_meetkundige_rij()
+        print("Je functie meetkundige_rij() werkt goed!")
 
-        test_gcd()
-        test_gcd_simulated()
-        print("Je functie gcd(a, b) werkt goed!")
-
-        test_lcm()
-        test_lcm_simulated()
-        print("Je functie lcm(a, b) werkt goed!")
-
-        test_add_frac()
-        print("Je functie add_frac(n1, d1, n2, d2) werkt goed!")
-
-        print("\nGefeliciteerd, alles lijkt te werken!")
-        print("Lever je werk nu in op Canvas...")
+        test_dec2bin()
+        print("Je functie dec2bin() werkt goed!")
 
     except AssertionError as ae:
         print("\x1b[31m")   # Rode tekstkleur
@@ -476,9 +307,9 @@ def __main():
             raise ae
         else:
             print(ae)
-
-    print("\x1b[0m")    # Reset tekstkleur
+        print("\x1b[0m")    # Reset tekstkleur
 
 
 if __name__ == '__main__':
     __main()
+    

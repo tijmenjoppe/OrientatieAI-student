@@ -4,7 +4,7 @@
 """
 Oriëntatie op AI
 
-Final assignment 2: algoritmiek
+Final assignment: algoritmiek
 
 (c) 2019 Hogeschool Utrecht,
 Tijmen Muller (tijmen.muller@hu.nl)
@@ -46,6 +46,7 @@ studentnummer = -1
     1b. Implementatie
         Implementeer het sorteeralgoritme in Python in een functie
         hieronder genaamd my_sort(lst).
+        Let op: je *moet* de pseudocode volgen!
 
     1c. Best en worst case
         -   Stel je hebt een lijst met de waarden 1, 2 en 3. Bij welke

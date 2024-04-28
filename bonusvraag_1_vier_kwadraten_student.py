@@ -6,11 +6,10 @@ Oriëntatie op AI
 
 Bonusvraag: vier kwadraten
 
-(c) 2019 Hogeschool Utrecht,
+(c) 2019 Hogeschool Utrecht
 Tijmen Muller (tijmen.muller@hu.nl)
 
-
-Opdracht: werk onderstaande functies uit.
+Opdracht: werk onderstaande functie uit.
 
 Je kunt je functies testen met het gegeven raamwerk door het bestand
 uit te voeren (of met behulp van pytest, als je weet hoe dat werkt).
@@ -25,6 +24,12 @@ def vier_kwadraten(kwadraatsom):
     """
     Geef een lijst met vier getallen, zodat de som van de kwadraten van die
     getallen gelijk is aan gegeven kwadraatsom (int).
+
+    Args:
+        kwadraatsom (int): De gegeven kwadraatsom.
+
+    Returns:
+        list of int: De gevonden vier kwadraten.
     """
     return [0, 0, 0, 0]
 
@@ -60,7 +65,6 @@ def test_vier_kwadraten_tijd():
     testcases = [36624, 73504, 54296, 40923, 33504, 42627, 70798, 90815, 55367, 52699]
 
     for case in testcases:
-        print(case)
         lst = vier_kwadraten(case)
         assert len(lst) == 4, \
             f"Fout: vier_kwadraten() geeft geen lijst met 4 maar met {len(lst)} getallen, namelijk {lst}"
@@ -68,7 +72,7 @@ def test_vier_kwadraten_tijd():
             f"Fout: vier_kwadraten({case}) geeft {lst}, maar {lst[0]}² + {lst[1]}² + {lst[2]}² + {lst[3]}² != {case}"
 
 
-if __name__ == '__main__':
+def __main():
     try:
         print("\x1b[32m")
         test_vier_kwadraten()
@@ -90,3 +94,7 @@ if __name__ == '__main__':
         else:
             print(ae)
         print("\x1b[0m")  # Reset tekstkleur
+
+
+if __name__ == '__main__':
+    __main()
