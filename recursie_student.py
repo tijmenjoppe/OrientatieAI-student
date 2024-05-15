@@ -141,8 +141,8 @@ if __name__ == '__main__':
 
         print("\x1b[0m")
 
-        x = input("Geef een woord: ")
-        print(f"'{x}' is {'' if palindroom(x) else 'g'}een palindroom!")
+        woord = input("Geef een woord: ")
+        print(f"'{woord}' is {'' if palindroom(woord) else 'g'}een palindroom!")
 
     except AssertionError as ae:
         print("\x1b[31m")   # Rode tekstkleur
