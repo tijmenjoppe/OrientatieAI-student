@@ -127,21 +127,19 @@ def linear_search_recursive(lst, target):
     return False
 
 
-def binary_search_recursive(lst, target):
+def rekenkundige_rij_element(n, a_0, c):
     """
-    (Optioneel) Zoek een element in de gegeven lijst door middel van recursief binair zoeken.
-
-    Je mag ervan uit gaan dat de gegeven lijst al gesorteerd is.
-    Zorg dat de inhoud van de gegeven lijst niet verandert.
+    Bepaal de waarde van element met index n van een rekenkundige rij op recursieve wijze.
 
     Args:
-        lst (list):     Een lijst met elementen van gelijk type, bijvoorbeeld gehele getallen.
-        target (int):   Het gezochte element.
+        n (int):   De index van de gezochte waarde.
+        a_0 (int): Het getal waar de rij mee begint.
+        c (int):   De stapgrootte van de rij.
 
     Returns:
-        bool: Of het element in de lijst voorkomt.
+        int:       De waarde van element a_n.
     """
-    return False
+    return 0
 
 
 """
@@ -150,6 +148,29 @@ Onderstaand staan de tests voor je code -- hieronder mag je niets wijzigen!
 Je kunt je code testen door deze file te runnen of met behulp van pytest.
 """
 import random
+
+
+def __my_assert_args(function, args, expected_output, check_type=True):
+    """
+    Controleer of gegeven functie met gegeven argumenten het verwachte resultaat oplevert.
+
+    Optioneel wordt ook het return-type gecontroleerd.
+    """
+    argstr = str(args).replace(',)', ')')
+    output = function(*args)
+
+    # Controleer eerst het return-type (optioneel)
+    if check_type:
+        msg = f"Fout: {function.__name__}{argstr} geeft geen {type(expected_output)} terug als return-type"
+        assert type(output) is type(expected_output), msg
+
+    # Controleer of de functie-uitvoer overeenkomt met de gewenste uitvoer
+    msg = f"Fout: {function.__name__}{argstr} geeft {output} in plaats van {expected_output}"
+    if type(expected_output) is float:
+        # Vergelijk bij float als return-type op 7 decimalen om afrondingsfouten te omzeilen
+        assert round(output - expected_output, 7) == 0, msg
+    else:
+        assert output == expected_output, msg
 
 
 def test_id():
@@ -181,17 +202,22 @@ def test_linear_search_recursive():
             f"Fout: linear_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {found}"
 
 
-def test_binary_search_recursive():
-    for _ in range(10):
-        lst_test = sorted(random.sample(range(20), 6))
-        target = random.randrange(20)
-        found = target in lst_test
-        lst_copy = lst_test.copy()
+def test_rekenkundige_rij_element():
+    testcases = [
+        ((0, 0, 0), 0),
+        ((0, 1, 5), 1),
+        ((0, 5, 1), 5),
+        ((1, 1, 5), 6),
+        ((1, 5, 5), 10),
+        ((5, 1, 5), 26),
+        ((5, 5, 1), 10),
+        ((5, 5, 2), 15),
+        ((5, 5, 5), 30),
+    ]
 
-        outcome = binary_search_recursive(lst_test, target)
-        assert outcome == found, \
-            f"Fout: binary_search_recursive({lst_test}, {target}) geeft {outcome} in plaats van {found}"
-        assert lst_copy == lst_test, "Fout: binary_search_recursive(lst, target) verandert de inhoud van lijst lst"
+    for case in testcases:
+        __my_assert_args(rekenkundige_rij_element, case[0], case[1])
+    return 1
 
 
 def __main():
@@ -210,8 +236,8 @@ def __main():
         test_linear_search_recursive()
         print("Je functie linear_search_recursive() werkt goed!")
 
-        test_binary_search_recursive()
-        print("Je functie binary_search_recursive() werkt goed!")
+        test_rekenkundige_rij_element()
+        print("Je functie rekenkundige_rij_element() werkt goed!")
 
         print("\nGefeliciteerd, alles lijkt te werken!")
         print("Lever je werk nu in op Canvas...")
